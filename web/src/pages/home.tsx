@@ -4,6 +4,7 @@ import moment from "moment";
 import { useState } from "react";
 import Draggable from "react-draggable";
 import { debugData } from "../utils/debugData";
+import { fetchNui } from "../utils/fetchNui";
 
 debugData([
   {
@@ -11,6 +12,25 @@ debugData([
     data: true,
   },
 ]);
+interface ReturnData {
+  x: number;
+  y: number;
+  z: number;
+}
+const [clientData, setClientData] = useState<ReturnData | null>(null);
+
+const handleGetClientData = () => {
+  fetchNui<ReturnData>("getClientData")
+    .then((retData) => {
+      console.log("Got return data from client scripts:");
+      console.dir(retData);
+      setClientData(retData);
+    })
+    .catch((e) => {
+      console.error("Setting mock data due to error", e);
+      setClientData({ x: 500, y: 300, z: 200 });
+    });
+};
 
 export default function Home() {
   const [openTunerMode, setTunerMode] = useState(false);
