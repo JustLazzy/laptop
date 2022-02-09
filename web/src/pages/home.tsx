@@ -7,6 +7,7 @@ import { debugData } from "../utils/debugData";
 import { fetchNui } from "../utils/fetchNui";
 import { config } from "../utils/config";
 import { Album } from "../types";
+import { formatDuration } from "../utils/format";
 
 debugData([
   {
@@ -23,16 +24,19 @@ interface ReturnData {
 export default function Home() {
   const [clientData, setClientData] = useState<ReturnData | null>(null);
   const [album, setAlbum] = useState([{}] as any);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
   const [selectArtist, setSelectArtist] = useState("");
-  const [type, setType] = useState("");
+  const [message, setMessage] = useState("");
   const [search, setSearch] = useState(false);
+  const [play, setPlay] = useState(false);
   const handleSubmit = (e: any) => {
     e.preventDefault();
-
     if (selectArtist === "") {
-      setError("Veillez choisir un artiste");
       setSearch(false);
+      setError(true);
+      setMessage("Veuillez remplir le champ");
+      setTimeout(() => setError(false), 1250);
+      return;
     }
     if (!search) {
       fetch(`https://api.spotify.com/v1/search?type=track&q=${selectArtist}`, {
@@ -49,7 +53,18 @@ export default function Home() {
       });
     }
   };
-
+  const playMusic = (link: any) => {
+    const audio = new Audio(link);
+    if (play) {
+      audio.pause();
+      audio.volume = 0;
+      setPlay(false);
+    } else {
+      setPlay(true);
+      audio.volume = 0.1;
+      audio.play();
+    }
+  };
   const handleGetClientData = () => {
     fetchNui<ReturnData>("getClientData")
       .then((retData) => {
@@ -203,13 +218,22 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex-col px-3 py-3 text-white h-[500px] overflow-auto">
-                    {error && (
+                    <Transition
+                      show={error}
+                      enter="transition-opacity duration-400 ease-in"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="transition-opacity duration-400 ease-out"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
                       <div className="flex items-center justify-center mb-3">
                         <div className="bg-red-600 border-b-4 border-red-700 font-medium w-60 text-white text-center p-3 rounded-lg">
-                          {error}
+                          {message}
                         </div>
                       </div>
-                    )}
+                    </Transition>
+
                     <form
                       method="POST"
                       className="mb-2"
@@ -224,7 +248,7 @@ export default function Home() {
                       <div className="flex items-center justify-center space-x-3 mt-4">
                         <input
                           type="text"
-                          className="text-black px-2 py-2 rounded-md ring ring-green-800/20 focus:outline-none"
+                          className="text-black px-2 py-2 rounded-md ring ring-green-800/30 focus:outline-none"
                           placeholder="Rechercher une musique"
                           onChange={(e: any) => setSelectArtist(e.target.value)}
                         />
@@ -247,16 +271,62 @@ export default function Home() {
                                   <>
                                     {item?.artists?.map((artist: any) => (
                                       <>
-                                        <div className="bg-neutral-800 px-4 w-96 py-4 rounded-lg">
-                                          <div className="flex justify-between items-center">
+                                        <div className="bg-neutral-800 border-2 border-black/20 px-4 w-[450px] py-4 rounded-xl">
+                                          <div className="inline-flex space-x-10 items-center">
                                             <img
                                               className="w-14 h-14 rounded-lg"
                                               src={item.album.images[2].url}
                                             />
                                             <p>{artist.name}</p>
-                                            <p className="text-sm truncate overflow-auto">
+                                            <p>
+                                              {formatDuration(item.duration_ms)}
+                                            </p>
+                                            <p className="text-sm">
                                               {item.name}
                                             </p>
+                                            <button
+                                              onClick={() =>
+                                                playMusic(item?.preview_url)
+                                              }
+                                            >
+                                              {play ? (
+                                                <>
+                                                  <div className="flex flex-col space-y-0.5 justify-center items-center">
+                                                    <svg
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                      viewBox="0 0 320 512"
+                                                      className="w-4 h-4 text-white"
+                                                    >
+                                                      <path
+                                                        fill="currentColor"
+                                                        d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"
+                                                      />
+                                                    </svg>
+                                                    <span className="text-center text-xs">
+                                                      Pause
+                                                    </span>
+                                                  </div>
+                                                </>
+                                              ) : (
+                                                <>
+                                                  <div className="flex flex-col space-y-0.5 justify-center items-center">
+                                                    <svg
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                      viewBox="0 0 384 512"
+                                                      className="w-4 h-4 text-white"
+                                                    >
+                                                      <path
+                                                        fill="currentColor"
+                                                        d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"
+                                                      />
+                                                    </svg>
+                                                    <span className="text-center text-xs">
+                                                      Play
+                                                    </span>
+                                                  </div>
+                                                </>
+                                              )}
+                                            </button>
                                           </div>
                                         </div>
                                       </>
@@ -268,11 +338,7 @@ export default function Home() {
                           </div>
                         </>
                       ) : (
-                        <div className="flex items-center justify-center space-x-3 mt-4">
-                          <div className="bg-red-600 border-b-4 border-red-700 font-medium w-60 text-white text-center p-3 rounded-lg">
-                            Aucun résultat
-                          </div>
-                        </div>
+                        <></>
                       )}
                     </div>
                   </div>
