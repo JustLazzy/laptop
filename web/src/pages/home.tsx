@@ -1,10 +1,12 @@
 import Icons from "../components/Icons";
 import { Transition } from "@headlessui/react";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import { debugData } from "../utils/debugData";
 import { fetchNui } from "../utils/fetchNui";
+import { config } from "../utils/config";
+import { Album } from "../types";
 
 debugData([
   {
@@ -20,6 +22,33 @@ interface ReturnData {
 }
 export default function Home() {
   const [clientData, setClientData] = useState<ReturnData | null>(null);
+  const [album, setAlbum] = useState([{}] as any);
+  const [error, setError] = useState("");
+  const [selectArtist, setSelectArtist] = useState("");
+  const [type, setType] = useState("");
+  const [search, setSearch] = useState(false);
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    if (selectArtist === "") {
+      setError("Veillez choisir un artiste");
+      setSearch(false);
+    }
+    if (!search) {
+      fetch(`https://api.spotify.com/v1/search?type=track&q=${selectArtist}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${config.spotify.refresh_token}`,
+        },
+      }).then((res) => {
+        res.json().then((data: Album) => {
+          setAlbum(data.tracks as any);
+          setSearch(true);
+          console.log(data);
+        });
+      });
+    }
+  };
 
   const handleGetClientData = () => {
     fetchNui<ReturnData>("getClientData")
@@ -147,10 +176,13 @@ export default function Home() {
               leaveTo="opacity-0"
             >
               <Draggable>
-                <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-50">
+                <div className="group w-[1000px] h-[600px] bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-50">
                   <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
                     <div className="flex items-center justify-between">
-                      <h1 className="text-[#F1F1F1]">Spotify</h1>
+                      <h1 className="inline-flex justify-center items-center text-[#F1F1F1]">
+                        <Icons icon="spotify" className="w-5 h-5 mr-2 " />
+                        Spotify
+                      </h1>
                       <div onClick={() => setOpenSpotify(false)}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +202,80 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="px-3 py-3 text-white">Not finished yet.</div>
+                  <div className="flex-col px-3 py-3 text-white h-[500px] overflow-auto">
+                    {error && (
+                      <div className="flex items-center justify-center mb-3">
+                        <div className="bg-red-600 border-b-4 border-red-700 font-medium w-60 text-white text-center p-3 rounded-lg">
+                          {error}
+                        </div>
+                      </div>
+                    )}
+                    <form
+                      method="POST"
+                      className="mb-2"
+                      onSubmit={handleSubmit}
+                    >
+                      <div className="flex justify-center">
+                        <h1 className="inline-flex text-4xl font-medium items-center justify-center">
+                          Spotify
+                          <Icons icon="spotify" className="w-7 h-7 ml-2 mt-2" />
+                        </h1>
+                      </div>
+                      <div className="flex items-center justify-center space-x-3 mt-4">
+                        <input
+                          type="text"
+                          className="text-black px-2 py-2 rounded-md ring ring-green-800/20 focus:outline-none"
+                          placeholder="Rechercher une musique"
+                          onChange={(e: any) => setSelectArtist(e.target.value)}
+                        />
+                        <button
+                          className="px-5 py-2 rounded-lg bg-green-600 hover:bg-green-700/90 hover:border-green-800 transition border-b-4 border-green-700"
+                          type="submit"
+                        >
+                          Rechercher
+                        </button>
+                      </div>
+                    </form>
+
+                    <div className="m-auto">
+                      {search ? (
+                        <>
+                          <div className="flex flex-col items-center justify-center">
+                            <div className="grid grid-cols-2 gap-4 mt-2">
+                              {album?.items.map((item: any) => {
+                                return (
+                                  <>
+                                    {item?.artists?.map((artist: any) => (
+                                      <>
+                                        <div className="bg-neutral-800 px-4 w-96 py-4 rounded-lg">
+                                          <div className="flex justify-between items-center">
+                                            <img
+                                              className="w-14 h-14 rounded-lg"
+                                              src={item.album.images[2].url}
+                                            />
+                                            <p>{artist.name}</p>
+                                            <p className="text-sm truncate overflow-auto">
+                                              {item.name}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </>
+                                    ))}
+                                  </>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="flex items-center justify-center space-x-3 mt-4">
+                          <div className="bg-red-600 border-b-4 border-red-700 font-medium w-60 text-white text-center p-3 rounded-lg">
+                            Aucun résultat
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </Draggable>
             </Transition>
@@ -456,7 +561,7 @@ export default function Home() {
           >
             <img
               className="w-12 h-12 rounded-lg"
-              src="../build/images/app/nfs.jpg"
+              src="../../build/images/app/nfs.jpg"
               alt="Tuner Cars"
             />
             <span className="text-white/90 text-md font-medium">
@@ -471,7 +576,7 @@ export default function Home() {
           >
             <img
               className="w-12 h-12 rounded-lg"
-              src="../build/images/app/race.jpg"
+              src="../../build/images/app/race.jpg"
               alt="Races"
             />
             <span className="text-white/90 text-md font-medium">Races</span>
