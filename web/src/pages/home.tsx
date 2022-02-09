@@ -90,12 +90,12 @@ export default function Home() {
           <div className="space-x-2 inline-flex z-50">
             <Transition
               show={openTunerMode}
-              enter="transition-opacity duration-400 ease-in scale-in-bottom"
+              enter="transition-opacity duration-500 ease-in scale-in-bottom"
               enterFrom="opacity-0"
               enterTo="opacity-100 scale-in-bottom"
-              leave="transition-opacity duration-400 ease-out"
+              leave="transition-opacity duration-500 ease-out scale-out-bottom"
               leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+              leaveTo="opacity-0 duration-500 scale-out-bottom"
             >
               <Draggable>
                 <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-50">
@@ -146,12 +146,12 @@ export default function Home() {
             </Transition>
             <Transition
               show={openRace}
-              enter="transition-opacity duration-400 ease-in scale-in-bottom"
+              enter="transition-opacity duration-500 ease-in scale-in-bottom"
               enterFrom="opacity-0"
               enterTo="opacity-100 scale-in-bottom"
-              leave="transition-opacity duration-400 ease-out"
+              leave="transition-opacity duration-500 ease-out scale-out-bottom"
               leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+              leaveTo="opacity-0 duration-500 scale-out-bottom"
             >
               <Draggable>
                 <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-50">
@@ -183,12 +183,12 @@ export default function Home() {
             </Transition>
             <Transition
               show={openSpotify}
-              enter="transition-opacity duration-400 ease-in scale-in-bottom"
+              enter="transition-opacity duration-500 ease-in scale-in-bottom"
               enterFrom="opacity-0"
               enterTo="opacity-100 scale-in-bottom"
-              leave="transition-opacity duration-400 ease-out"
+              leave="transition-opacity duration-500 ease-out scale-out-bottom"
               leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+              leaveTo="opacity-0 duration-500 scale-out-bottom"
             >
               <Draggable>
                 <div className="group w-[1000px] h-[600px] bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-50">
