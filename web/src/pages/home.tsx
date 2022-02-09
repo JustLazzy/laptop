@@ -77,7 +77,26 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="px-3 py-3 text-white">Not finished yet.</div>
+                  <div className="flex flex-col space-y-2 items-center justify-evenly">
+                    <div>
+                      <div className="flex justify-center flex-col items-center text-white">
+                        {clientData && (
+                          <>
+                            <h5>Returned Data:</h5>
+                            <pre>
+                              <code>{JSON.stringify(clientData, null)}</code>
+                            </pre>
+                          </>
+                        )}
+                        <button
+                          onClick={handleGetClientData}
+                          className="px-4 py-4 rounded-lg bg-purple-900 hover:bg-purple-900/90 transition border-b-4 border-purple-800"
+                        >
+                          Get Client Data
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </Draggable>
             </Transition>
@@ -437,7 +456,7 @@ export default function Home() {
           >
             <img
               className="w-12 h-12 rounded-lg"
-              src="/images/app/nfs.jpg"
+              src="../build/images/app/nfs.jpg"
               alt="Tuner Cars"
             />
             <span className="text-white/90 text-md font-medium">
@@ -452,7 +471,7 @@ export default function Home() {
           >
             <img
               className="w-12 h-12 rounded-lg"
-              src="/images/app/race.jpg"
+              src="../build/images/app/race.jpg"
               alt="Races"
             />
             <span className="text-white/90 text-md font-medium">Races</span>
