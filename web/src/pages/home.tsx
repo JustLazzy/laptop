@@ -351,7 +351,7 @@ export default function Home() {
             enterTo="opacity-500 slide-in-bottom"
             leave="transition-all"
             leaveFrom="opacity-500 slide-out-bottom"
-            className="flex absolute items-center justify-center mt-24"
+            className="flex absolute items-center justify-center mt-40"
             leaveTo="opacity-0 duration-500 slide-out-bottom"
           >
             <>
