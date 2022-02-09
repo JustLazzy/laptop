@@ -8,7 +8,9 @@ import { fetchNui } from "../utils/fetchNui";
 import { Spotify } from "../api/spotify";
 import { Album } from "../types";
 import { formatDuration } from "../utils/format";
-
+import { dirname } from "path";
+import tunerCars from "../images/app/nfs.jpg";
+import race from "../images/app/race.jpg";
 debugData([
   {
     action: "setVisible",
@@ -623,7 +625,7 @@ export default function Home() {
           >
             <img
               className="w-12 h-12 rounded-lg"
-              src="../../build/images/app/nfs.jpg"
+              src={tunerCars}
               alt="Tuner Cars"
             />
             <span className="text-white/90 text-md font-medium">
@@ -636,11 +638,7 @@ export default function Home() {
             }}
             className="flex justify-center items-center flex-col hover:bg-white/10 rounded-lg transition-colors py-4 px-4 cursor-pointer"
           >
-            <img
-              className="w-12 h-12 rounded-lg"
-              src="../../build/images/app/race.jpg"
-              alt="Races"
-            />
+            <img className="w-12 h-12 rounded-lg" src={race} alt="Races" />
             <span className="text-white/90 text-md font-medium">Races</span>
           </div>
           <div
