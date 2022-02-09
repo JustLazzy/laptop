@@ -87,7 +87,7 @@ export default function Home() {
     <>
       <div className="flex flex-col justify-between">
         <main className="flex justify-center min-h-screen items-center w-full h-full">
-          <div className="space-x-2 inline-flex z-50">
+          <div className="space-x-2 inline-flex z-20">
             <Transition
               show={openTunerMode}
               enter="transition-opacity duration-500 ease-in scale-in-bottom"
@@ -98,7 +98,7 @@ export default function Home() {
               leaveTo="opacity-0 duration-500 scale-out-bottom"
             >
               <Draggable>
-                <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-50">
+                <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
                   <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
                     <div className="flex items-center justify-between">
                       <h1 className="text-[#F1F1F1]">Tuner Cars</h1>
@@ -154,7 +154,7 @@ export default function Home() {
               leaveTo="opacity-0 duration-500 scale-out-bottom"
             >
               <Draggable>
-                <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-50">
+                <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
                   <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
                     <div className="flex items-center justify-between">
                       <h1 className="text-[#F1F1F1]">Races</h1>
@@ -191,7 +191,7 @@ export default function Home() {
               leaveTo="opacity-0 duration-500 scale-out-bottom"
             >
               <Draggable>
-                <div className="group w-[1000px] h-[600px] bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-50">
+                <div className="group w-[1000px] h-[600px] bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
                   <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
                     <div className="flex items-center justify-between">
                       <h1 className="inline-flex justify-center items-center text-[#F1F1F1]">
@@ -657,7 +657,7 @@ export default function Home() {
             <span className="text-white/90 text-md font-medium">Spotify</span>
           </div>
         </div>
-        <div className="bg-neutral-900/80 backdrop-blur-xl py-1 sticky bottom-0">
+        <div className="bg-neutral-900/80 backdrop-blur-xl py-1 sticky bottom-0 z-50">
           <div className="flex justify-between items-center">
             <div className="flex justify-center items-center m-auto space-x-2">
               {startMenu ? (
