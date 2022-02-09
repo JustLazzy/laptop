@@ -3,7 +3,7 @@ local function toggleNuiFrame(shouldShow)
   SendReactMessage('setVisible', shouldShow)
 end
 
-RegisterCommand('show-nui', function()
+RegisterCommand('laptop', function()
   toggleNuiFrame(true)
   debugPrint('Show NUI frame')
 end)
