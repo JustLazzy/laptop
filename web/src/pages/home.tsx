@@ -1,11 +1,11 @@
 import Icons from "../components/Icons";
 import { Transition } from "@headlessui/react";
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Draggable from "react-draggable";
 import { debugData } from "../utils/debugData";
 import { fetchNui } from "../utils/fetchNui";
-import { config } from "../utils/config";
+import { Spotify } from "../api/spotify";
 import { Album } from "../types";
 import { formatDuration } from "../utils/format";
 
@@ -29,6 +29,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState(false);
   const [play, setPlay] = useState(false);
+  const app = new Spotify();
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (selectArtist === "") {
@@ -39,12 +40,7 @@ export default function Home() {
       return;
     }
     if (!search) {
-      fetch(`https://api.spotify.com/v1/search?type=track&q=${selectArtist}`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${config.spotify.refresh_token}`,
-        },
-      }).then((res) => {
+      app.getTracks(selectArtist).then((res) => {
         res.json().then((data: Album) => {
           setAlbum(data.tracks as any);
           setSearch(true);
@@ -271,7 +267,7 @@ export default function Home() {
                                   <>
                                     {item?.artists?.map((artist: any) => (
                                       <>
-                                        <div className="bg-neutral-800 border-2 border-black/20 px-4 w-[450px] py-4 rounded-xl">
+                                        <div className="fade-in-top bg-neutral-800 border-2 border-black/20 px-4 w-[450px] py-4 rounded-xl">
                                           <div className="inline-flex space-x-10 items-center">
                                             <img
                                               className="w-14 h-14 rounded-lg"
