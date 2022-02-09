@@ -488,24 +488,91 @@ export default function Home() {
         </div>
         <div className="bg-neutral-900/80 backdrop-blur-xl py-1 sticky bottom-0">
           <div className="flex justify-between items-center">
-            <div className="flex justify-center items-center m-auto space-x-3">
+            <div className="flex justify-center items-center m-auto space-x-2">
               {startMenu ? (
                 <Icons
                   icon="start"
-                  className="w-6 h-6"
+                  className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
                   onClick={() => setStartMenu(false)}
                 />
               ) : (
                 <Icons
                   icon="start"
-                  className="w-6 h-6"
+                  className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
                   onClick={() => setStartMenu(true)}
                 />
               )}
-
-              <Icons icon="teams" className="w-6 h-6" />
-              <Icons icon="explorer" className="w-6 h-6" />
-              <Icons icon="edge" className="w-6 h-6" />
+              <Icons
+                icon="teams"
+                className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+              />
+              <Icons
+                icon="explorer"
+                className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+              />
+              <Icons
+                icon="edge"
+                className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+              />
+              <Transition
+                show={openSpotify}
+                enter="transition-opacity duration-400 ease-in"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity duration-400 ease-out"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div
+                  onClick={() => setOpenSpotify((openSpotify) => !openSpotify)}
+                  className={`flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+                >
+                  <Icons
+                    icon="spotify"
+                    className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+                  />
+                </div>
+              </Transition>
+              <Transition
+                show={openRace}
+                enter="transition-opacity duration-400 ease-in"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity duration-400 ease-out"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div
+                  onClick={() => setOpenRace((openRace) => !openRace)}
+                  className={`flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+                >
+                  <img
+                    className="w-6 h-6 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+                    src="../build/images/app/race.jpg"
+                  />
+                </div>
+              </Transition>
+              <Transition
+                show={openTunerMode}
+                enter="transition-opacity duration-400 ease-in"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity duration-400 ease-out"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div
+                  onClick={() =>
+                    setTunerMode((openTunerMode) => !openTunerMode)
+                  }
+                  className={`flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+                >
+                  <img
+                    className="w-6 h-6 mb-0.5 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+                    src="../build/images/app/nfs.jpg"
+                  />
+                </div>
+              </Transition>
             </div>
             <div className="flex items-center justify-end px-2">
               <div className="flex justify-end items-center w-20 h-10 px-2 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
