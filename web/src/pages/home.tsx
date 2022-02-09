@@ -349,13 +349,13 @@ export default function Home() {
 
           <Transition
             show={startMenu}
-            enter="transition-opacity duration-200 ease-in slide-in-bottom"
+            enter="transition-opacity duration-500 ease-in slide-in-bottom"
             enterFrom="opacity-0"
-            enterTo="opacity-100 slide-in-bottom"
-            leave="transition-all slide-out-bottom"
-            leaveFrom="opacity-100 slide-out-bottom"
+            enterTo="opacity-500 slide-in-bottom"
+            leave="transition-all"
+            leaveFrom="opacity-500 slide-out-bottom"
             className="flex absolute items-center justify-center mt-24"
-            leaveTo="opacity-0 slide-out-bottom"
+            leaveTo="opacity-0 duration-500 slide-out-bottom"
           >
             <>
               <div className="w-[642px] h-[726px] bg-neutral-900/80 backdrop-blur-xl rounded-lg shadow-lg">
