@@ -1,6 +1,6 @@
 import moment from "moment";
 import { Link } from "react-router-dom";
-export default function Index() {
+const Index = () => {
   moment().locale("fr");
   const date = moment().format("dddd MMMM Do");
   const time = moment().format("HH:mm");
@@ -23,4 +23,5 @@ export default function Index() {
       </div>
     </>
   );
-}
+};
+export default Index;
