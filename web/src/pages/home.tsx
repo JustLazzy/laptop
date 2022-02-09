@@ -8,7 +8,6 @@ import { fetchNui } from "../utils/fetchNui";
 import { Spotify } from "../api/spotify";
 import { Album } from "../types";
 import { formatDuration } from "../utils/format";
-import { dirname } from "path";
 import tunerCars from "../images/app/nfs.jpg";
 import race from "../images/app/race.jpg";
 debugData([
@@ -591,7 +590,10 @@ export default function Home() {
                                 </span>
                               </div>
                               <div className="flex justify-center items-center">
-                                <div className="w-10 h-10 flex justify-center items-center hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
+                                <div
+                                  onClick={() => fetchNui("hideFrame")}
+                                  className="w-10 h-10 flex justify-center items-center hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md"
+                                >
                                   <Icons
                                     icon="poweroff"
                                     className="w-5 h-5 text-white"
