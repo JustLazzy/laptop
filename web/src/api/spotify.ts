@@ -1,10 +1,11 @@
 import { config } from "../utils/config";
-
 export class Spotify {
   async getAccessToken() {
-    const basic = Buffer.from(
-      `${config.spotify.client_id}:${config.spotify.client_secret}`
-    ).toString("base64");
+    const basic =
+      typeof Buffer !== "undefined" &&
+      Buffer.from(
+        `${config.spotify.client_id}:${config.spotify.client_secret}`
+      ).toString("base64");
     const response = await fetch(config.spotify.token, {
       method: "POST",
       headers: {

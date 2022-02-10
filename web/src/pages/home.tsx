@@ -1,7 +1,7 @@
 import Icons from "../components/Icons";
 import { Transition } from "@headlessui/react";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import { debugData } from "../utils/debugData";
 import { fetchNui } from "../utils/fetchNui";
@@ -31,6 +31,11 @@ export default function Home() {
   const [search, setSearch] = useState(false);
   const [play, setPlay] = useState(false);
   const app = new Spotify();
+
+  useEffect(() => {
+    const spotify = new Spotify();
+    console.log(spotify.getAccessToken());
+  }, []);
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (selectArtist === "") {
