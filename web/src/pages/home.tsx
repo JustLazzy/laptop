@@ -720,7 +720,7 @@ export default function Home() {
                 >
                   <img
                     className="w-6 h-6 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
-                    src="../build/images/app/race.jpg"
+                    src={race}
                   />
                 </div>
               </Transition>
@@ -741,7 +741,7 @@ export default function Home() {
                 >
                   <img
                     className="w-6 h-6 mb-0.5 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
-                    src="../build/images/app/nfs.jpg"
+                    src={tunerCars}
                   />
                 </div>
               </Transition>
