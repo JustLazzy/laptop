@@ -25,6 +25,7 @@ interface ReturnData {
 export default function Home() {
   const [album, setAlbum] = useState([{}] as any);
   const [error, setError] = useState(false);
+  const [value, setValue] = useState(0);
   const [selectArtist, setSelectArtist] = useState("");
   const [enableNos, setEnableNos] = useState(false);
   const [message, setMessage] = useState("");
@@ -88,11 +89,19 @@ export default function Home() {
               leaveTo="opacity-0 duration-500 scale-out-bottom"
             >
               <Draggable>
-                <div className="group w-[650px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
+                <div className="group w-[700px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
                   <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
                     <div className="flex items-center justify-between">
-                      <h1 className="text-[#F1F1F1]">Tuner Cars</h1>
-                      <div onClick={() => setTunerMode(false)}>
+                      <div className="flex items-center justify-between space-x-2">
+                        <img src={tunerCars} className="w-5 h-5 rounded" />
+                        <h1 className="text-[#F1F1F1] font-medium">
+                          Tuner Cars
+                        </h1>
+                      </div>
+                      <div
+                        className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
+                        onClick={() => setTunerMode(false)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6"
@@ -165,13 +174,29 @@ export default function Home() {
                               Neon Color
                             </h1>
                           </div>
-                          <div className="inline-flex space-x-2">
+                          <div className="inline-flex justify-center items-center space-x-2">
+                            <button
+                              className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                              onClick={() => setValue(value - 5)}
+                            >
+                              <div className="flex justify-center items-center">
+                                <span className="text-lg mb-1">-</span>
+                              </div>
+                            </button>
                             <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                               <div
                                 className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                                style={{ width: "20%" }}
+                                style={{ width: value }}
                               />
                             </div>
+                            <button
+                              className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                              onClick={() => setValue(value + 5)}
+                            >
+                              <div className="flex justify-center items-center">
+                                <span className="text-lg mb-1">+</span>
+                              </div>
+                            </button>
                           </div>
                         </Transition>
                       </div>
@@ -181,61 +206,141 @@ export default function Home() {
                             Settings Transmission
                           </h1>
                         </div>
-                        <div className="inline-flex space-x-2">
+                        <div className="inline-flex justify-center items-center space-x-2">
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value - 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">-</span>
+                            </div>
+                          </button>
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: "20%" }}
+                              style={{ width: value }}
                             />
                           </div>
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value + 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">+</span>
+                            </div>
+                          </button>
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Brake Force
                         </h1>
 
-                        <div className="inline-flex space-x-2">
+                        <div className="inline-flex justify-center items-center space-x-2">
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value - 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">-</span>
+                            </div>
+                          </button>
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: "20%" }}
+                              style={{ width: value }}
                             />
                           </div>
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value + 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">+</span>
+                            </div>
+                          </button>
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Turbo PSI
                         </h1>
 
-                        <div className="inline-flex space-x-2">
+                        <div className="inline-flex justify-center items-center space-x-2">
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value - 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">-</span>
+                            </div>
+                          </button>
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: "20%" }}
+                              style={{ width: value }}
                             />
                           </div>
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value + 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">+</span>
+                            </div>
+                          </button>
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Ignition Timing
                         </h1>
 
-                        <div className="inline-flex space-x-2">
+                        <div className="inline-flex justify-center items-center space-x-2">
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value - 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">-</span>
+                            </div>
+                          </button>
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: "20%" }}
+                              style={{ width: value }}
                             />
                           </div>
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value + 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">+</span>
+                            </div>
+                          </button>
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Driver Bias
                         </h1>
 
-                        <div className="inline-flex space-x-2">
+                        <div className="inline-flex justify-center items-center space-x-2">
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value - 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">-</span>
+                            </div>
+                          </button>
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: "20%" }}
+                              style={{ width: value }}
                             />
                           </div>
+                          <button
+                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
+                            onClick={() => setValue(value + 5)}
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="text-lg mb-1">+</span>
+                            </div>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -255,9 +360,12 @@ export default function Home() {
               <Draggable>
                 <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
                   <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mb-2">
                       <h1 className="text-[#F1F1F1]">Races</h1>
-                      <div onClick={() => setOpenRace(false)}>
+                      <div
+                        className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
+                        onClick={() => setOpenRace(false)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6"
@@ -297,7 +405,10 @@ export default function Home() {
                         <Icons icon="spotify" className="w-5 h-5 mr-2 " />
                         Spotify
                       </h1>
-                      <div onClick={() => setOpenSpotify(false)}>
+                      <div
+                        className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
+                        onClick={() => setOpenSpotify(false)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6"
