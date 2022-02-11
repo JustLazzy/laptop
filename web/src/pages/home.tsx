@@ -278,13 +278,17 @@ export default function Home() {
                                             <div className="relative">
                                               <a className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                                 <div className="flex flex-col">
-                                                  <span>{artist.name}</span>
                                                   <span className="text-sm">
+                                                    {artist.name}
+                                                  </span>
+                                                  <span className="text-sm font-medium">
                                                     {formatDuration(
                                                       item.duration_ms
                                                     )}
                                                   </span>
-                                                  <span>{item.name}</span>
+                                                  <span className="text-sm">
+                                                    {item.name}
+                                                  </span>
                                                   <button
                                                     onClick={() =>
                                                       playMusic(
