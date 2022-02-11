@@ -16,12 +16,6 @@ debugData([
     data: true,
   },
 ]);
-
-interface ReturnData {
-  x: number;
-  y: number;
-  z: number;
-}
 export default function Home() {
   const [album, setAlbum] = useState([{}] as any);
   const [error, setError] = useState(false);
