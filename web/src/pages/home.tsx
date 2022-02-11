@@ -100,7 +100,7 @@ export default function Home() {
               leaveTo="opacity-0 duration-500 scale-out-bottom"
             >
               <Draggable>
-                <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
+                <div className="group w-[650px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
                   <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
                     <div className="flex items-center justify-between">
                       <h1 className="text-[#F1F1F1]">Tuner Cars</h1>
@@ -123,23 +123,109 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col space-y-2 items-center justify-evenly">
-                    <div>
-                      <div className="flex justify-center flex-col items-center text-white">
-                        {clientData && (
-                          <>
-                            <h5>Returned Data:</h5>
-                            <pre>
-                              <code>{JSON.stringify(clientData, null)}</code>
-                            </pre>
-                          </>
-                        )}
-                        <button
-                          onClick={handleGetClientData}
-                          className="px-4 py-4 rounded-lg bg-purple-900 hover:bg-purple-900/90 transition border-b-4 border-purple-800"
-                        >
-                          Get Client Data
-                        </button>
+                  <div className="flex flex-col space-y-2 items-center justify-center mt-5">
+                    <div className="grid grid-cols-2 space-x-5">
+                      <div className="flex flex-col justify-center items-center space-y-2">
+                        <div className="flex justify-start items-start">
+                          <h1 className="text-white font-medium text-lg">
+                            Enable NOS
+                          </h1>
+                        </div>
+                        <div className="inline-flex space-x-2">
+                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                            Yes
+                          </button>
+                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                            No
+                          </button>
+                        </div>
+                        <h1 className="text-white font-medium text-lg">
+                          Enable Neon
+                        </h1>
+
+                        <div className="inline-flex space-x-2">
+                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                            Yes
+                          </button>
+                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                            No
+                          </button>
+                        </div>
+                        <h1 className="text-white font-medium text-lg">
+                          Enable NOS
+                        </h1>
+
+                        <div className="inline-flex space-x-2">
+                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                            Yes
+                          </button>
+                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                            No
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex flex-col justify-center items-center space-y-2">
+                        <div className="flex justify-start items-start">
+                          <h1 className="text-white font-medium text-lg">
+                            Settings Transmission
+                          </h1>
+                        </div>
+                        <div className="inline-flex space-x-2">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                            <div
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              style={{ width: "20%" }}
+                            />
+                          </div>
+                        </div>
+                        <h1 className="text-white font-medium text-lg">
+                          Brake Force
+                        </h1>
+
+                        <div className="inline-flex space-x-2">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                            <div
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              style={{ width: "20%" }}
+                            />
+                          </div>
+                        </div>
+                        <h1 className="text-white font-medium text-lg">
+                          Turbo PSI
+                        </h1>
+
+                        <div className="inline-flex space-x-2">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                            <div
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              style={{ width: "20%" }}
+                            />
+                          </div>
+                        </div>
+                        <h1 className="text-white font-medium text-lg">
+                          Ignition Timing
+                        </h1>
+
+                        <div className="inline-flex space-x-2">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                            <div
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              style={{ width: "20%" }}
+                            />
+                          </div>
+                        </div>
+                        <h1 className="text-white font-medium text-lg">
+                          Driver Bias
+                        </h1>
+
+                        <div className="inline-flex space-x-2">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                            <div
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              style={{ width: "20%" }}
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -274,7 +360,7 @@ export default function Home() {
                                     {item?.artists?.map((artist: any) => (
                                       <>
                                         <div className="fade-in-top">
-                                          <div className="inline-flex space-x-10 items-center">
+                                          <div className="inline-flex space-x-10 items-center z-50">
                                             <div className="relative">
                                               <a className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                                 <div className="flex flex-col">
