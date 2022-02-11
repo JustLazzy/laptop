@@ -3,7 +3,7 @@ export const config = {
     client_id: "7b55983076bf480285fd1f24a4f10008",
     client_secret: "e87ff24e50224779b1030f0fb948ce60",
     refresh_token:
-      "BQDQntVMR1w_IA1HhFceYvWf-_SSvcO2JQnVT8gjKn2L-HPXwpD4VHM4Ph4w6OTwBFQlqqneccNXjYj4ONGWiW9wvGJF5pkWBY40y9fSLuuT9N3mvq2e9jl8dc8w3HkHxI8JAvbIqtAyCiTzIHXl35Qb8kIKLzp0Y-Qo1bNM84yxkv3_",
+      "BQB6beAbptJZd8M-Xrcdg2sAnina1dsweuf7Axb8Va7mPldzKSSjzYYc-qhsJQSMqlPLfkLQt2OQGF6q2hzNKn2wIlBHO2WVx7cXFKDJuGZnad77t0xlbMqrAd4ypAWNGs0PDu_JewdZb6AoX4GSCMYdfRGM8Cxp3XYhdMWtLSrwwGdU",
     token: "https://accounts.spotify.com/api/token",
   },
 };

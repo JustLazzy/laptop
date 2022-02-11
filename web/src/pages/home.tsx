@@ -267,68 +267,83 @@ export default function Home() {
                       {search ? (
                         <>
                           <div className="flex flex-col items-center justify-center">
-                            <div className="grid grid-cols-2 gap-4 mt-2">
+                            <div className="grid grid-cols-4 gap-4 mt-2">
                               {album?.items.map((item: any) => {
                                 return (
                                   <>
                                     {item?.artists?.map((artist: any) => (
                                       <>
-                                        <div className="fade-in-top bg-neutral-800 border-2 border-black/20 px-4 w-[450px] py-4 rounded-xl">
+                                        <div className="fade-in-top">
                                           <div className="inline-flex space-x-10 items-center">
-                                            <img
-                                              className="w-14 h-14 rounded-lg"
-                                              src={item.album.images[2].url}
-                                            />
-                                            <p>{artist.name}</p>
-                                            <p>
-                                              {formatDuration(item.duration_ms)}
-                                            </p>
-                                            <p className="text-sm">
-                                              {item.name}
-                                            </p>
-                                            <button
-                                              onClick={() =>
-                                                playMusic(item?.preview_url)
-                                              }
-                                            >
-                                              {play ? (
-                                                <>
-                                                  <div className="flex flex-col space-y-0.5 justify-center items-center">
-                                                    <svg
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                      viewBox="0 0 320 512"
-                                                      className="w-4 h-4 text-white"
-                                                    >
-                                                      <path
-                                                        fill="currentColor"
-                                                        d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"
-                                                      />
-                                                    </svg>
-                                                    <span className="text-center text-xs">
-                                                      Pause
-                                                    </span>
-                                                  </div>
-                                                </>
-                                              ) : (
-                                                <>
-                                                  <div className="flex flex-col space-y-0.5 justify-center items-center">
-                                                    <svg
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                      viewBox="0 0 384 512"
-                                                      className="w-4 h-4 text-white"
-                                                    >
-                                                      <path
-                                                        fill="currentColor"
-                                                        d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"
-                                                      />
-                                                    </svg>
-                                                    <span className="text-center text-xs">
-                                                      Play
-                                                    </span>
-                                                  </div>
-                                                </>
-                                              )}
-                                            </button>
+                                            <div className="relative">
+                                              <a className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
+                                                <div className="flex flex-col">
+                                                  <span>{artist.name}</span>
+                                                  <span className="text-sm">
+                                                    {formatDuration(
+                                                      item.duration_ms
+                                                    )}
+                                                  </span>
+                                                  <span>{item.name}</span>
+                                                  <button
+                                                    onClick={() =>
+                                                      playMusic(
+                                                        item?.preview_url
+                                                      )
+                                                    }
+                                                  >
+                                                    {play ? (
+                                                      <>
+                                                        <div className="flex flex-col space-y-0.5 justify-center items-center">
+                                                          <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 320 512"
+                                                            className="w-4 h-4 text-white"
+                                                          >
+                                                            <path
+                                                              fill="currentColor"
+                                                              d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"
+                                                            />
+                                                          </svg>
+                                                          <span className="text-center text-xs">
+                                                            Pause
+                                                          </span>
+                                                        </div>
+                                                      </>
+                                                    ) : (
+                                                      <>
+                                                        <div className="flex flex-col space-y-0.5 justify-center items-center">
+                                                          <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 384 512"
+                                                            className="w-4 h-4 text-white"
+                                                          >
+                                                            <path
+                                                              fill="currentColor"
+                                                              d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"
+                                                            />
+                                                          </svg>
+                                                          <span className="text-center text-xs">
+                                                            Play
+                                                          </span>
+                                                        </div>
+                                                      </>
+                                                    )}
+                                                  </button>
+                                                </div>
+                                              </a>
+                                              <a href="#" className="relative">
+                                                <div className="h-48 flex flex-wrap content-center">
+                                                  <img
+                                                    src={
+                                                      item.album.images[1].url
+                                                    }
+                                                    className="mx-auto w-40 h-40 rounded-lg"
+                                                    alt=""
+                                                  />
+                                                </div>
+                                              </a>
+                                            </div>
                                           </div>
                                         </div>
                                       </>
