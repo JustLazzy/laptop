@@ -26,6 +26,7 @@ export default function Home() {
   const [album, setAlbum] = useState([{}] as any);
   const [error, setError] = useState(false);
   const [selectArtist, setSelectArtist] = useState("");
+  const [enableNos, setEnableNos] = useState(false);
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState(false);
   const [play, setPlay] = useState(false);
@@ -126,30 +127,53 @@ export default function Home() {
                             No
                           </button>
                         </div>
-                        <h1 className="text-white font-medium text-lg">
-                          Enable Neon
-                        </h1>
 
-                        <div className="inline-flex space-x-2">
-                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
-                            Yes
-                          </button>
-                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
-                            No
-                          </button>
-                        </div>
-                        <h1 className="text-white font-medium text-lg">
-                          Enable NOS
-                        </h1>
+                        {!enableNos && (
+                          <>
+                            <div className="flex justify-center items-center">
+                              <h1 className="text-white font-medium text-lg">
+                                Enable Neon
+                              </h1>
+                            </div>
+                            <div className="inline-flex space-x-2">
+                              <button
+                                onClick={() => {
+                                  setEnableNos(true);
+                                }}
+                                className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium"
+                              >
+                                Yes
+                              </button>
+                              <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                                No
+                              </button>
+                            </div>
+                          </>
+                        )}
 
-                        <div className="inline-flex space-x-2">
-                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
-                            Yes
-                          </button>
-                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
-                            No
-                          </button>
-                        </div>
+                        <Transition
+                          show={enableNos}
+                          enter="transition-opacity duration-500 ease-in"
+                          enterFrom="opacity-0"
+                          enterTo="opacity-100"
+                          leave="transition-opacity duration-500 ease-out"
+                          leaveFrom="opacity-100"
+                          leaveTo="opacity-0 duration-500"
+                        >
+                          <div className="flex justify-center items-center">
+                            <h1 className="text-white font-medium text-lg">
+                              Neon Color
+                            </h1>
+                          </div>
+                          <div className="inline-flex space-x-2">
+                            <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                              <div
+                                className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                                style={{ width: "20%" }}
+                              />
+                            </div>
+                          </div>
+                        </Transition>
                       </div>
                       <div className="flex flex-col justify-center items-center space-y-2">
                         <div className="flex justify-start items-start">
