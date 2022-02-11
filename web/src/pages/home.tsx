@@ -31,6 +31,62 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState(false);
   const [play, setPlay] = useState(false);
+  const [openCalendar, setOpenCalendar] = useState(false);
+
+  const months = [
+    {
+      name: "Février",
+      days: [
+        { date: "2022-01-31" },
+        { date: "2022-02-01", isCurrentMonth: true, isToday: true },
+        { date: "2022-02-02", isCurrentMonth: true },
+        { date: "2022-02-03", isCurrentMonth: true },
+        { date: "2022-02-04", isCurrentMonth: true },
+        { date: "2022-02-05", isCurrentMonth: true },
+        { date: "2022-02-06", isCurrentMonth: true },
+        { date: "2022-02-07", isCurrentMonth: true },
+        { date: "2022-02-08", isCurrentMonth: true },
+        { date: "2022-02-09", isCurrentMonth: true },
+        { date: "2022-02-10", isCurrentMonth: true },
+        { date: "2022-02-11", isCurrentMonth: true },
+        { date: "2022-02-12", isCurrentMonth: true },
+        { date: "2022-02-13", isCurrentMonth: true },
+        { date: "2022-02-14", isCurrentMonth: true },
+        { date: "2022-02-15", isCurrentMonth: true },
+        { date: "2022-02-16", isCurrentMonth: true },
+        { date: "2022-02-17", isCurrentMonth: true },
+        { date: "2022-02-18", isCurrentMonth: true },
+        { date: "2022-02-19", isCurrentMonth: true },
+        { date: "2022-02-20", isCurrentMonth: true },
+        { date: "2022-02-21", isCurrentMonth: true },
+        { date: "2022-02-22", isCurrentMonth: true },
+        { date: "2022-02-23", isCurrentMonth: true },
+        { date: "2022-02-24", isCurrentMonth: true },
+        { date: "2022-02-25", isCurrentMonth: true },
+        { date: "2022-02-26", isCurrentMonth: true },
+        { date: "2022-02-27", isCurrentMonth: true },
+        { date: "2022-02-28", isCurrentMonth: true },
+        { date: "2022-03-01" },
+        { date: "2022-03-02" },
+        { date: "2022-03-03" },
+        { date: "2022-03-04" },
+        { date: "2022-03-05" },
+        { date: "2022-03-06" },
+        { date: "2022-03-07" },
+        { date: "2022-03-08" },
+        { date: "2022-03-09" },
+        { date: "2022-03-10" },
+        { date: "2022-03-11" },
+        { date: "2022-03-12" },
+        { date: "2022-03-13" },
+      ],
+    },
+  ];
+
+  function classNames(...classes: any) {
+    return classes.filter(Boolean).join(" ");
+  }
+
   const app = new Spotify();
 
   useEffect(() => {
@@ -72,6 +128,10 @@ export default function Home() {
   const [startMenu, setStartMenu] = useState(false);
   const [openRace, setOpenRace] = useState(false);
   const [openSpotify, setOpenSpotify] = useState(false);
+  useEffect(() => {
+    moment().format("L");
+    moment.locale();
+  }, []);
   const date = moment().add(10, "days").calendar();
   const time = moment().format("HH:mm");
   return (
@@ -885,15 +945,80 @@ export default function Home() {
             <span className="text-white/90 text-md font-medium">Spotify</span>
           </div>
         </div>
+        <Transition
+          show={openCalendar}
+          enter="transition-opacity duration-500 ease-in scale-in-hor-right"
+          enterFrom="opacity-0"
+          enterTo="opacity-400 scale-in-hor-right"
+          leave="transition-opacity duration-500 ease-out scale-out-hor-right"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0 duration-500 scale-out-hor-right"
+          className="flex justify-end items-center sticky bottom-64 z-50"
+        >
+          <div className="flex justify-center w-96 h-full items-center">
+            <div className="absolute bg-neutral-900/80 backdrop-blur-xl w-[340px] h-96 px-5 py-5 rounded-lg ml-6">
+              <div>
+                <div className="relative grid grid-cols-1">
+                  {months.map((month, monthIdx) => (
+                    <section
+                      key={monthIdx}
+                      className={classNames(
+                        monthIdx === months.length - 1 && "hidden md:block",
+                        "text-center"
+                      )}
+                    >
+                      <h2 className="font-semibold text-white">{month.name}</h2>
+                      <div className="mt-6 grid grid-cols-7 text-xs leading-6 text-white">
+                        <div>lu</div>
+                        <div>ma</div>
+                        <div>me</div>
+                        <div>je</div>
+                        <div>ve</div>
+                        <div>sa</div>
+                        <div>di</div>
+                      </div>
+                      <div className="isolate mt-2 grid grid-cols-7 gap-px text-sm">
+                        {month.days.map((day, dayIdx) => (
+                          <button
+                            key={day.date}
+                            type="button"
+                            className={classNames(
+                              day.isCurrentMonth ? "" : "",
+                              dayIdx === 0 && "text-white",
+                              dayIdx === 6 && "text-white",
+                              dayIdx === month.days.length - 7 && "text-white",
+                              dayIdx === month.days.length - 1 && "text-white",
+                              "relative text-white py-1.5 focus:z-10"
+                            )}
+                          >
+                            <time
+                              dateTime={day.date}
+                              className="hover:bg-white/10 focus:bg-orange-600 transition-colors text-white mx-auto flex h-7 w-7 items-center justify-center rounded-full"
+                            >
+                              {day?.date?.split("-")?.pop()?.replace(/^0/, "")}
+                            </time>
+                          </button>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Transition>
         <div className="bg-neutral-900/80 backdrop-blur-xl py-1 sticky bottom-0 z-50">
           <div className="flex justify-between items-center">
             <div className="flex justify-center items-center m-auto space-x-2">
               {startMenu ? (
-                <Icons
-                  icon="start"
-                  className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
-                  onClick={() => setStartMenu(false)}
-                />
+                <>
+                  <Icons
+                    icon="start"
+                    className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+                    onClick={() => setStartMenu(false)}
+                    action={startMenu ? "bg-white/10" : ""}
+                  />
+                </>
               ) : (
                 <Icons
                   icon="start"
@@ -924,12 +1049,19 @@ export default function Home() {
               >
                 <div
                   onClick={() => setOpenSpotify((openSpotify) => !openSpotify)}
-                  className={`flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+                  className={`${
+                    openSpotify ? "bg-white/10" : ""
+                  } flex flex-col justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
                 >
                   <Icons
                     icon="spotify"
                     className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
                   />
+                  {openSpotify ? (
+                    <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </Transition>
               <Transition
@@ -943,12 +1075,19 @@ export default function Home() {
               >
                 <div
                   onClick={() => setOpenRace((openRace) => !openRace)}
-                  className={`flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+                  className={`${
+                    openRace ? "bg-white/10" : ""
+                  } flex flex-col justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
                 >
                   <img
                     className="w-6 h-6 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
                     src={race}
                   />
+                  {openRace ? (
+                    <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </Transition>
               <Transition
@@ -964,16 +1103,23 @@ export default function Home() {
                   onClick={() =>
                     setTunerMode((openTunerMode) => !openTunerMode)
                   }
-                  className={`flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+                  className={`${
+                    openTunerMode ? "bg-white/10" : ""
+                  } flex flex-col justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
                 >
                   <img
-                    className="w-6 h-6 mb-0.5 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+                    className="w-6 h-6 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
                     src={tunerCars}
                   />
+                  {openTunerMode ? (
+                    <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </Transition>
             </div>
-            <div className="flex items-center justify-end px-2">
+            <div className="flex items-center justify-end px-2 space-x-1">
               <div className="flex justify-end items-center w-20 h-10 px-2 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
                 <svg
                   className="w-20 h-10"
@@ -995,10 +1141,27 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <div className="flex flex-col hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md px-1.5 py-1.5">
-                <span className="text-xs text-right text-white">{time}</span>
-                <span className="text-xs text-white">{date}</span>
-              </div>
+              {openCalendar ? (
+                <div
+                  className={`${
+                    openCalendar ? "bg-white/10" : ""
+                  } flex flex-col hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md px-1.5 py-1.5`}
+                  onClick={() => setOpenCalendar(false)}
+                >
+                  <span className="text-xs text-right text-white">{time}</span>
+                  <span className="text-xs text-white">{date}</span>
+                </div>
+              ) : (
+                <div
+                  className={`${
+                    openCalendar ? "bg-white/10" : ""
+                  } flex flex-col hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md px-1.5 py-1.5`}
+                  onClick={() => setOpenCalendar(true)}
+                >
+                  <span className="text-xs text-right text-white">{time}</span>
+                  <span className="text-xs text-white">{date}</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
