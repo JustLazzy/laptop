@@ -23,7 +23,6 @@ interface ReturnData {
   z: number;
 }
 export default function Home() {
-  const [clientData, setClientData] = useState<ReturnData | null>(null);
   const [album, setAlbum] = useState([{}] as any);
   const [error, setError] = useState(false);
   const [selectArtist, setSelectArtist] = useState("");
@@ -66,18 +65,6 @@ export default function Home() {
       audio.volume = 0.1;
       audio.play();
     }
-  };
-  const handleGetClientData = () => {
-    fetchNui<ReturnData>("getClientData")
-      .then((retData) => {
-        console.log("Got return data from client scripts:");
-        console.dir(retData);
-        setClientData(retData);
-      })
-      .catch((e) => {
-        console.error("Setting mock data due to error", e);
-        setClientData({ x: 500, y: 300, z: 200 });
-      });
   };
   const [openTunerMode, setTunerMode] = useState(false);
   const [startMenu, setStartMenu] = useState(false);
