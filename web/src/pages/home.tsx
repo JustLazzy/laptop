@@ -19,7 +19,7 @@ debugData([
 export default function Home() {
   const [album, setAlbum] = useState([{}] as any);
   const [error, setError] = useState(false);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(70);
   const [selectArtist, setSelectArtist] = useState("");
   const [enableNos, setEnableNos] = useState(false);
   const [message, setMessage] = useState("");
@@ -27,7 +27,6 @@ export default function Home() {
   const [play, setPlay] = useState(false);
   const [openCalendar, setOpenCalendar] = useState(false);
   const [openPanel, setOpenPanel] = useState(false);
-
   const months = [
     {
       name: "Février",
@@ -82,12 +81,6 @@ export default function Home() {
     return classes.filter(Boolean).join(" ");
   }
 
-  const app = new Spotify();
-
-  useEffect(() => {
-    const spotify = new Spotify();
-    console.log(spotify.getAccessToken());
-  }, []);
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (selectArtist === "") {
@@ -98,11 +91,11 @@ export default function Home() {
       return;
     }
     if (!search) {
+      const app = new Spotify();
       app.getTracks(selectArtist).then((res) => {
         res.json().then((data: Album) => {
           setAlbum(data.tracks as any);
           setSearch(true);
-          console.log(data);
         });
       });
     }
@@ -123,16 +116,65 @@ export default function Home() {
   const [startMenu, setStartMenu] = useState(false);
   const [openRace, setOpenRace] = useState(false);
   const [openSpotify, setOpenSpotify] = useState(false);
+  const [startWindows, setStartWindows] = useState(true);
   useEffect(() => {
     moment().format("L");
     moment.locale();
   }, []);
   const date = moment().add(10, "days").calendar();
   const time = moment().format("HH:mm");
+  useEffect(() => {
+    setInterval(() => {
+      setStartWindows(false);
+    }, 3000);
+  }, []);
   return (
     <>
       <div className="flex flex-col justify-between">
         <main className="flex justify-center min-h-screen items-center w-full h-full">
+          <Transition
+            show={startWindows}
+            enter="transition-opacity duration-500 ease-in"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-500 ease-out"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0 duration-500"
+            className="bg-black w-screen h-screen z-[9999]"
+          >
+            <div className="flex h-screen space-y-10 flex-col justify-center items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="140"
+                height="140"
+                version="1.1"
+                viewBox="0 0 48.745 48.747"
+              >
+                <g fill="#0078d4">
+                  <rect
+                    x="2.2848e-15"
+                    y="-.00011033"
+                    width="23.105"
+                    height="23.105"
+                  />
+                  <rect
+                    x="25.64"
+                    y="-.00011033"
+                    width="23.105"
+                    height="23.105"
+                  />
+                  <rect
+                    x="2.2848e-15"
+                    y="25.642"
+                    width="23.105"
+                    height="23.105"
+                  />
+                  <rect x="25.64" y="25.642" width="23.105" height="23.105" />
+                </g>
+              </svg>
+              <div className="border-t-transparent w-10 h-10 border-4 border-white border-dotted rounded-full animate-spin"></div>
+            </div>
+          </Transition>
           <div className="space-x-2 inline-flex z-20">
             <Transition
               show={openTunerMode}
@@ -176,7 +218,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 items-center justify-center mt-5">
-                    <div className="grid grid-cols-2 space-x-5">
+                    <div className="grid grid-cols-2 space-x-8">
                       <div className="flex flex-col justify-center items-center space-y-2">
                         <div className="flex justify-start items-start">
                           <h1 className="text-white font-medium text-lg">
@@ -184,10 +226,10 @@ export default function Home() {
                           </h1>
                         </div>
                         <div className="inline-flex space-x-2">
-                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                          <button className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
                             Yes
                           </button>
-                          <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                          <button className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
                             No
                           </button>
                         </div>
@@ -204,11 +246,11 @@ export default function Home() {
                                 onClick={() => {
                                   setEnableNos(true);
                                 }}
-                                className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium"
+                                className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium"
                               >
                                 Yes
                               </button>
-                              <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                              <button className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
                                 No
                               </button>
                             </div>
@@ -230,28 +272,12 @@ export default function Home() {
                             </h1>
                           </div>
                           <div className="inline-flex justify-center items-center space-x-2">
-                            <button
-                              className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                              onClick={() => setValue(value - 5)}
-                            >
-                              <div className="flex justify-center items-center">
-                                <span className="text-lg mb-1">-</span>
-                              </div>
-                            </button>
-                            <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                            <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                               <div
-                                className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                                className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                                 style={{ width: value }}
                               />
                             </div>
-                            <button
-                              className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                              onClick={() => setValue(value + 5)}
-                            >
-                              <div className="flex justify-center items-center">
-                                <span className="text-lg mb-1">+</span>
-                              </div>
-                            </button>
                           </div>
                         </Transition>
                       </div>
@@ -262,140 +288,60 @@ export default function Home() {
                           </h1>
                         </div>
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value - 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">-</span>
-                            </div>
-                          </button>
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: value }}
                             />
                           </div>
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value + 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">+</span>
-                            </div>
-                          </button>
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Brake Force
                         </h1>
 
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value - 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">-</span>
-                            </div>
-                          </button>
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: value }}
                             />
                           </div>
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value + 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">+</span>
-                            </div>
-                          </button>
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Turbo PSI
                         </h1>
 
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value - 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">-</span>
-                            </div>
-                          </button>
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: value }}
                             />
                           </div>
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value + 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">+</span>
-                            </div>
-                          </button>
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Ignition Timing
                         </h1>
 
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value - 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">-</span>
-                            </div>
-                          </button>
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: value }}
                             />
                           </div>
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value + 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">+</span>
-                            </div>
-                          </button>
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Driver Bias
                         </h1>
 
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value - 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">-</span>
-                            </div>
-                          </button>
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: value }}
                             />
                           </div>
-                          <button
-                            className="w-4 h-4 bg-sky-400 flex justify-center items-center rounded-lg"
-                            onClick={() => setValue(value + 5)}
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="text-lg mb-1">+</span>
-                            </div>
-                          </button>
                         </div>
                       </div>
                     </div>
@@ -630,7 +576,7 @@ export default function Home() {
               </Draggable>
             </Transition>
           </div>
-
+          {/* */}
           <Transition
             show={startMenu}
             enter="transition-opacity duration-500 ease-in slide-in-bottom"
@@ -638,7 +584,7 @@ export default function Home() {
             enterTo="opacity-500 slide-in-bottom"
             leave="transition-all"
             leaveFrom="opacity-500 slide-out-bottom"
-            className="flex absolute items-center justify-center mt-40"
+            className="flex absolute items-center justify-center my-auto"
             leaveTo="opacity-0 duration-500 slide-out-bottom"
           >
             <>
@@ -1016,27 +962,57 @@ export default function Home() {
             <div className="absolute bg-neutral-900/80 backdrop-blur-xl w-[360px] h-96 px-5 py-5 rounded-lg space-y-2">
               <div className="grid grid-cols-3 gap-4">
                 <div className="flex flex-col justify-center items-center">
-                  <button className="bg-neutral-600/50 hover:bg-neutral-800/20 cursor-pointer transition-colors focus:bg-sky-400 focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-lg">
+                  <button className="bg-neutral-700/50 backdrop-blur-sm hover:bg-neutral-600/60 cursor-pointer transition-colors focus:bg-[#d47f6b] focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-md">
                     <div className="flex justify-center items-center px-8 py-3">
-                      <span className="text-white">test</span>
+                      <span className="text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+                        </svg>
+                      </span>
                     </div>
                   </button>
                   <span className="text-center text-white text-sm mt-0.5">
-                    Bluetooth
+                    Settings
                   </span>
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                  <button className="bg-neutral-600/50 hover:bg-neutral-800/20 cursor-pointer transition-colors focus:bg-sky-400 focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-lg">
+                  <button
+                    onClick={() => {
+                      setOpenCalendar(true);
+                      setOpenPanel(false);
+                    }}
+                    className="bg-neutral-700/50 backdrop-blur-sm hover:bg-neutral-600/60 cursor-pointer transition-colors focus:bg-[#d47f6b] focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-md"
+                  >
                     <div className="flex justify-center items-center px-8 py-3">
-                      <span className="text-white">test</span>
+                      <span className="text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
+                        </svg>
+                      </span>
                     </div>
                   </button>
                   <span className="text-center text-white text-sm mt-0.5">
-                    Bluetooth
+                    Calendar
                   </span>
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                  <button className="bg-neutral-600/50 hover:bg-neutral-800/20 cursor-pointer transition-colors focus:bg-sky-400 focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-lg">
+                  <button className="bg-neutral-700/50 backdrop-blur-sm hover:bg-neutral-600/60 cursor-pointer transition-colors focus:bg-[#d47f6b] focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-md">
                     <div className="flex justify-center items-center px-8 py-3">
                       <span className="text-white">test</span>
                     </div>
@@ -1047,7 +1023,7 @@ export default function Home() {
                 </div>
                 <div className="mt-2">
                   <div className="flex flex-col justify-center items-center">
-                    <button className="bg-neutral-600/50 hover:bg-neutral-800/20 cursor-pointer transition-colors focus:bg-sky-400 focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-lg">
+                    <button className="bg-neutral-700/50 backdrop-blur-sm hover:bg-neutral-600/60 cursor-pointer transition-colors focus:bg-[#d47f6b] focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-md">
                       <div className="flex justify-center items-center px-8 py-3">
                         <span className="text-white">test</span>
                       </div>
@@ -1059,15 +1035,45 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-10">
-                <div className="flex justify-center items-center">
-                  <button>+</button>
-                  <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                <div className="flex justify-center items-center space-x-5">
+                  <button className="hover:bg-white/20 px-2 py-2 rounded-md transition-colors">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                      />
+                    </svg>
+                  </button>
+                  <div className="bg-neutral-500/50 w-64 h-1.5 rounded-lg">
                     <div
-                      className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                      className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-1.5 transition duration-300 ease-in-out"
                       style={{ width: "20%" }}
                     />
                   </div>
-                  <button>-</button>
+                  <button className="hover:bg-white/20 px-2 py-2 rounded-md transition-colors">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
