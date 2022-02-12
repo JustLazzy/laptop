@@ -10,6 +10,7 @@ import { Album } from "../types";
 import { formatDuration } from "../utils/format";
 import tunerCars from "../images/app/nfs.jpg";
 import race from "../images/app/race.jpg";
+import nitrousOn from "../images/items/nitrous.png";
 debugData([
   {
     action: "setVisible",
@@ -27,6 +28,7 @@ export default function Home() {
   const [play, setPlay] = useState(false);
   const [openCalendar, setOpenCalendar] = useState(false);
   const [openPanel, setOpenPanel] = useState(false);
+  const [nitrous, setNitrous] = useState(false);
   const months = [
     {
       name: "Février",
@@ -225,14 +227,55 @@ export default function Home() {
                             Enable NOS
                           </h1>
                         </div>
-                        <div className="inline-flex space-x-2">
-                          <button className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
-                            Yes
-                          </button>
-                          <button className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
-                            No
-                          </button>
-                        </div>
+                        {!nitrous && (
+                          <div className="inline-flex space-x-2">
+                            <button
+                              onClick={() => setNitrous(true)}
+                              className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium"
+                            >
+                              Yes
+                            </button>
+                            <button className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                              No
+                            </button>
+                          </div>
+                        )}
+                        <Transition
+                          show={nitrous}
+                          enter="transition-opacity duration-500 ease-in"
+                          enterFrom="opacity-0"
+                          enterTo="opacity-100"
+                          leave="transition-opacity duration-500 ease-out"
+                          leaveFrom="opacity-100"
+                          leaveTo="opacity-0 duration-500"
+                        >
+                          <div className="inline-flex space-x-2">
+                            <div className="flex flex-col space-y-1 justify-center items-center">
+                              <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
+                                <img src={nitrousOn} className="w-10 h-10" />
+                                <span className="text-white text-sm">
+                                  Stage 1
+                                </span>
+                              </button>
+                            </div>
+                            <div className="flex flex-col space-y-1 justify-center items-center">
+                              <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
+                                <img src={nitrousOn} className="w-10 h-10" />
+                                <span className="text-white text-sm">
+                                  Stage 2
+                                </span>
+                              </button>
+                            </div>
+                            <div className="flex flex-col space-y-1 justify-center items-center">
+                              <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
+                                <img src={nitrousOn} className="w-10 h-10" />
+                                <span className="text-white text-sm">
+                                  Stage 3
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+                        </Transition>
 
                         {!enableNos && (
                           <>
