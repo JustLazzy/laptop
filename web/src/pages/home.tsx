@@ -11,6 +11,10 @@ import { formatDuration } from "../utils/format";
 import tunerCars from "../images/app/nfs.jpg";
 import race from "../images/app/race.jpg";
 import nitrousOn from "../images/items/nitrous.png";
+import wallpaper from "../wallpaper/wallpaper.jpg";
+import wallpaper2 from "../wallpaper/windows1.jpg";
+import wallpaper3 from "../wallpaper/windows2.png";
+
 debugData([
   {
     action: "setVisible",
@@ -29,6 +33,18 @@ export default function Home() {
   const [openCalendar, setOpenCalendar] = useState(false);
   const [openPanel, setOpenPanel] = useState(false);
   const [nitrous, setNitrous] = useState(false);
+  const [background, setBackground] = useState([
+    {
+      images: wallpaper,
+    },
+    {
+      images: wallpaper2,
+    },
+    {
+      images: wallpaper3,
+    },
+  ]);
+  const [openSettings, setOpenSettings] = useState(false);
   const months = [
     {
       name: "Février",
@@ -82,6 +98,23 @@ export default function Home() {
   function classNames(...classes: any) {
     return classes.filter(Boolean).join(" ");
   }
+
+  useEffect(() => {
+    // toggle background image
+    setTimeout(() => {
+      setBackground([
+        {
+          images: wallpaper,
+        },
+        {
+          images: wallpaper2,
+        },
+        {
+          images: wallpaper3,
+        },
+      ]);
+    }, 1000);
+  }, [background]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -429,6 +462,131 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="px-3 py-3 text-white">Not finished yet.</div>
+                </div>
+              </Draggable>
+            </Transition>
+            <Transition
+              show={openSettings}
+              enter="transition-opacity duration-500 ease-in scale-in-bottom"
+              enterFrom="opacity-0"
+              enterTo="opacity-100 scale-in-bottom"
+              leave="transition-opacity duration-500 ease-out scale-out-bottom"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0 duration-500 scale-out-bottom"
+            >
+              <Draggable>
+                <div className="group w-[700px] h-[650px] bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
+                  <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
+                    <div className="flex items-center justify-between mb-2">
+                      <h1 className="text-[#F1F1F1]">Settings</h1>
+                      <div
+                        className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
+                        onClick={() => setOpenSettings(false)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke="#F1F1F1"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center my-10">
+                    <div className="grid grid-cols-2 space-y-2 space-x-4 justify-center items-center">
+                      <div className="space-y-2">
+                        <div className="relative">
+                          <a
+                            onClick={() => {
+                              document.body.style.backgroundImage = `url(${background[0].images})`;
+                            }}
+                            className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300"
+                          >
+                            <div className="flex flex-col">
+                              <span className="text-sm text-white">
+                                Nissan GTR
+                              </span>
+                              <span className="text-sm font-medium text-white">
+                                Liberty Walk
+                              </span>
+                            </div>
+                          </a>
+                          <a href="#" className="relative">
+                            <div className="flex flex-wrap content-center">
+                              <img
+                                src={background[0].images}
+                                className="mx-auto bg-auto h-40 rounded-lg"
+                                alt=""
+                              />
+                            </div>
+                          </a>
+                        </div>
+                        <div className="relative">
+                          <a
+                            onClick={() => {
+                              document.body.style.backgroundImage = `url(${background[1].images})`;
+                            }}
+                            className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300"
+                          >
+                            <div className="flex flex-col">
+                              <span className="text-sm text-white">
+                                Windows 11
+                              </span>
+                              <span className="text-sm font-medium text-white">
+                                Stylish
+                              </span>
+                            </div>
+                          </a>
+                          <a href="#" className="relative">
+                            <div className="flex flex-wrap content-center">
+                              <img
+                                src={background[1].images}
+                                className="mx-auto bg-auto h-40 rounded-lg"
+                                alt=""
+                              />
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="relative">
+                          <a
+                            onClick={() => {
+                              document.body.style.backgroundImage = `url(${background[2].images})`;
+                            }}
+                            className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300"
+                          >
+                            <div className="flex flex-col">
+                              <span className="text-sm text-white">
+                                Windows 11
+                              </span>
+                              <span className="text-sm font-medium text-white">
+                                Stylish
+                              </span>
+                            </div>
+                          </a>
+                          <a href="#" className="relative">
+                            <div className="flex flex-wrap content-center">
+                              <img
+                                src={background[2].images}
+                                className="mx-auto bg-auto h-40 rounded-lg"
+                                alt=""
+                              />
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </Draggable>
             </Transition>
@@ -895,6 +1053,7 @@ export default function Home() {
         </main>
 
         <div className="absolute px-2 py-2">
+          {/* Application Desktop */}
           <div
             onClick={() => {
               openTunerMode ? setTunerMode(false) : setTunerMode(true);
@@ -927,6 +1086,15 @@ export default function Home() {
           >
             <Icons icon="spotify" className="w-12 h-12" />
             <span className="text-white/90 text-md font-medium">Spotify</span>
+          </div>
+          <div
+            onClick={() => {
+              openSettings ? setOpenSettings(false) : setOpenSettings(true);
+            }}
+            className="flex justify-center items-center flex-col hover:bg-white/10 rounded-lg transition-colors py-4 px-4 cursor-pointer"
+          >
+            <Icons icon="settings" className="w-12 h-12" />
+            <span className="text-white/90 text-md font-medium">Settings</span>
           </div>
         </div>
         <Transition
@@ -1227,6 +1395,34 @@ export default function Home() {
                     src={tunerCars}
                   />
                   {openTunerMode ? (
+                    <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </Transition>
+              <Transition
+                show={openSettings}
+                enter="transition-opacity duration-400 ease-in"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity duration-400 ease-out"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div
+                  onClick={() =>
+                    setOpenSettings((openSettings) => !openSettings)
+                  }
+                  className={`${
+                    openSettings ? "bg-white/10" : ""
+                  } flex flex-col justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+                >
+                  <Icons
+                    icon="settings"
+                    className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
+                  />
+                  {openSettings ? (
                     <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
                   ) : (
                     ""
