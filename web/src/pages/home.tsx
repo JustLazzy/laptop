@@ -1,6 +1,6 @@
 import Icons from "../components/Icons";
 import { Transition } from "@headlessui/react";
-import moment from "moment";
+import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import { debugData } from "../utils/debugData";
@@ -152,12 +152,8 @@ export default function Home() {
   const [openRace, setOpenRace] = useState(false);
   const [openSpotify, setOpenSpotify] = useState(false);
   const [startWindows, setStartWindows] = useState(true);
-  useEffect(() => {
-    moment().format("L");
-    moment.locale();
-  }, []);
-  const date = moment().add(10, "days").calendar();
-  const time = moment().format("HH:mm");
+  const time = format(new Date(), "HH:mm");
+  const date = format(new Date(), "dd/MM/yyyy");
   useEffect(() => {
     setInterval(() => {
       setStartWindows(false);
