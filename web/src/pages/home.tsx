@@ -2,7 +2,6 @@ import Icons from "../components/Icons";
 import { Transition } from "@headlessui/react";
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
-import Draggable from "react-draggable";
 import { debugData } from "../utils/debugData";
 import { fetchNui } from "../utils/fetchNui";
 import { Spotify } from "../api/spotify";
@@ -11,10 +10,12 @@ import { formatDuration } from "../utils/format";
 import tunerCars from "../images/app/nfs.jpg";
 import race from "../images/app/race.jpg";
 import nitrousOn from "../images/items/nitrous.png";
-import wallpaper from "../wallpaper/wallpaper.jpg";
-import wallpaper2 from "../wallpaper/windows1.jpg";
-import wallpaper3 from "../wallpaper/windows2.png";
-
+import Window from "../components/Window";
+import Panel from "../components/Panel";
+import Calendar from "../components/Calendar";
+import MenuIcon from "../components/MenuIcon";
+import TaskOpen from "../components/TaskOpen";
+import OpenApp from "../components/OpenApp";
 debugData([
   {
     action: "setVisible",
@@ -33,88 +34,7 @@ export default function Home() {
   const [openCalendar, setOpenCalendar] = useState(false);
   const [openPanel, setOpenPanel] = useState(false);
   const [nitrous, setNitrous] = useState(false);
-  const [background, setBackground] = useState([
-    {
-      images: wallpaper,
-    },
-    {
-      images: wallpaper2,
-    },
-    {
-      images: wallpaper3,
-    },
-  ]);
-  const [openSettings, setOpenSettings] = useState(false);
-  const months = [
-    {
-      name: "Février",
-      days: [
-        { date: "2022-01-31" },
-        { date: "2022-02-01", isCurrentMonth: true, isToday: true },
-        { date: "2022-02-02", isCurrentMonth: true },
-        { date: "2022-02-03", isCurrentMonth: true },
-        { date: "2022-02-04", isCurrentMonth: true },
-        { date: "2022-02-05", isCurrentMonth: true },
-        { date: "2022-02-06", isCurrentMonth: true },
-        { date: "2022-02-07", isCurrentMonth: true },
-        { date: "2022-02-08", isCurrentMonth: true },
-        { date: "2022-02-09", isCurrentMonth: true },
-        { date: "2022-02-10", isCurrentMonth: true },
-        { date: "2022-02-11", isCurrentMonth: true },
-        { date: "2022-02-12", isCurrentMonth: true },
-        { date: "2022-02-13", isCurrentMonth: true },
-        { date: "2022-02-14", isCurrentMonth: true },
-        { date: "2022-02-15", isCurrentMonth: true },
-        { date: "2022-02-16", isCurrentMonth: true },
-        { date: "2022-02-17", isCurrentMonth: true },
-        { date: "2022-02-18", isCurrentMonth: true },
-        { date: "2022-02-19", isCurrentMonth: true },
-        { date: "2022-02-20", isCurrentMonth: true },
-        { date: "2022-02-21", isCurrentMonth: true },
-        { date: "2022-02-22", isCurrentMonth: true },
-        { date: "2022-02-23", isCurrentMonth: true },
-        { date: "2022-02-24", isCurrentMonth: true },
-        { date: "2022-02-25", isCurrentMonth: true },
-        { date: "2022-02-26", isCurrentMonth: true },
-        { date: "2022-02-27", isCurrentMonth: true },
-        { date: "2022-02-28", isCurrentMonth: true },
-        { date: "2022-03-01" },
-        { date: "2022-03-02" },
-        { date: "2022-03-03" },
-        { date: "2022-03-04" },
-        { date: "2022-03-05" },
-        { date: "2022-03-06" },
-        { date: "2022-03-07" },
-        { date: "2022-03-08" },
-        { date: "2022-03-09" },
-        { date: "2022-03-10" },
-        { date: "2022-03-11" },
-        { date: "2022-03-12" },
-        { date: "2022-03-13" },
-      ],
-    },
-  ];
-
-  function classNames(...classes: any) {
-    return classes.filter(Boolean).join(" ");
-  }
-
-  useEffect(() => {
-    // toggle background image
-    setTimeout(() => {
-      setBackground([
-        {
-          images: wallpaper,
-        },
-        {
-          images: wallpaper2,
-        },
-        {
-          images: wallpaper3,
-        },
-      ]);
-    }, 1000);
-  }, [background]);
+  const [openViewCalendar, setOpenViewCalendar] = useState(false);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -206,48 +126,38 @@ export default function Home() {
               <div className="border-t-transparent w-10 h-10 border-4 border-white border-dotted rounded-full animate-spin"></div>
             </div>
           </Transition>
+
           <div className="space-x-2 inline-flex z-20">
-            <Transition
-              show={openTunerMode}
-              enter="transition-opacity duration-500 ease-in scale-in-bottom"
-              enterFrom="opacity-0"
-              enterTo="opacity-100 scale-in-bottom"
-              leave="transition-opacity duration-500 ease-out scale-out-bottom"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0 duration-500 scale-out-bottom"
-            >
-              <Draggable>
-                <div className="group w-[700px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
-                  <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center justify-between space-x-2">
-                        <img src={tunerCars} className="w-5 h-5 rounded" />
-                        <h1 className="text-[#F1F1F1] font-medium">
-                          Tuner Cars
-                        </h1>
-                      </div>
-                      <div
-                        className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
-                        onClick={() => setTunerMode(false)}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke="#F1F1F1"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+            <Window
+              open={openTunerMode}
+              image={tunerCars}
+              opened={
+                <div className="flex items-center justify-between">
+                  <div
+                    className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
+                    onClick={() => setTunerMode(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke="#F1F1F1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
                   </div>
+                </div>
+              }
+              title="Tuner Mode"
+              children={
+                <>
                   <div className="flex flex-col space-y-2 items-center justify-center mt-5">
                     <div className="grid grid-cols-2 space-x-8">
                       <div className="flex flex-col justify-center items-center space-y-2">
@@ -418,213 +328,78 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </Draggable>
-            </Transition>
-            <Transition
-              show={openRace}
-              enter="transition-opacity duration-500 ease-in scale-in-bottom"
-              enterFrom="opacity-0"
-              enterTo="opacity-100 scale-in-bottom"
-              leave="transition-opacity duration-500 ease-out scale-out-bottom"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0 duration-500 scale-out-bottom"
-            >
-              <Draggable>
-                <div className="group w-[550px] h-96 bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
-                  <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
-                    <div className="flex items-center justify-between mb-2">
-                      <h1 className="text-[#F1F1F1]">Races</h1>
-                      <div
-                        className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
-                        onClick={() => setOpenRace(false)}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke="#F1F1F1"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                </>
+              }
+              size="w-[700px] h-96"
+            />
+
+            <Window
+              open={openRace}
+              image={race}
+              opened={
+                <div className="flex items-center justify-between">
+                  <div
+                    className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
+                    onClick={() => setOpenRace(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke="#F1F1F1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
                   </div>
+                </div>
+              }
+              title="Races"
+              children={
+                <>
                   <div className="px-3 py-3 text-white">Not finished yet.</div>
-                </div>
-              </Draggable>
-            </Transition>
-            <Transition
-              show={openSettings}
-              enter="transition-opacity duration-500 ease-in scale-in-bottom"
-              enterFrom="opacity-0"
-              enterTo="opacity-100 scale-in-bottom"
-              leave="transition-opacity duration-500 ease-out scale-out-bottom"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0 duration-500 scale-out-bottom"
-            >
-              <Draggable>
-                <div className="group w-[700px] h-[650px] bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
-                  <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
-                    <div className="flex items-center justify-between mb-2">
-                      <h1 className="text-[#F1F1F1]">Settings</h1>
-                      <div
-                        className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
-                        onClick={() => setOpenSettings(false)}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke="#F1F1F1"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-center items-center my-10">
-                    <div className="grid grid-cols-2 space-y-2 space-x-4 justify-center items-center">
-                      <div className="space-y-2">
-                        <div className="relative">
-                          <a
-                            onClick={() => {
-                              document.body.style.backgroundImage = `url(${background[0].images})`;
-                            }}
-                            className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300"
-                          >
-                            <div className="flex flex-col">
-                              <span className="text-sm text-white">
-                                Nissan GTR
-                              </span>
-                              <span className="text-sm font-medium text-white">
-                                Liberty Walk
-                              </span>
-                            </div>
-                          </a>
-                          <a href="#" className="relative">
-                            <div className="flex flex-wrap content-center">
-                              <img
-                                src={background[0].images}
-                                className="mx-auto bg-auto h-40 rounded-lg"
-                                alt=""
-                              />
-                            </div>
-                          </a>
-                        </div>
-                        <div className="relative">
-                          <a
-                            onClick={() => {
-                              document.body.style.backgroundImage = `url(${background[1].images})`;
-                            }}
-                            className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300"
-                          >
-                            <div className="flex flex-col">
-                              <span className="text-sm text-white">
-                                Windows 11
-                              </span>
-                              <span className="text-sm font-medium text-white">
-                                Stylish
-                              </span>
-                            </div>
-                          </a>
-                          <a href="#" className="relative">
-                            <div className="flex flex-wrap content-center">
-                              <img
-                                src={background[1].images}
-                                className="mx-auto bg-auto h-40 rounded-lg"
-                                alt=""
-                              />
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="relative">
-                          <a
-                            onClick={() => {
-                              document.body.style.backgroundImage = `url(${background[2].images})`;
-                            }}
-                            className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300"
-                          >
-                            <div className="flex flex-col">
-                              <span className="text-sm text-white">
-                                Windows 11
-                              </span>
-                              <span className="text-sm font-medium text-white">
-                                Stylish
-                              </span>
-                            </div>
-                          </a>
-                          <a href="#" className="relative">
-                            <div className="flex flex-wrap content-center">
-                              <img
-                                src={background[2].images}
-                                className="mx-auto bg-auto h-40 rounded-lg"
-                                alt=""
-                              />
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                </>
+              }
+              size="w-[700px] h-96"
+            />
+
+            <Window
+              open={openSpotify}
+              image="spotify"
+              isSvg={true}
+              opened={
+                <div className="flex items-center justify-between">
+                  <div
+                    className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
+                    onClick={() => setOpenSpotify(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke="#F1F1F1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
                   </div>
                 </div>
-              </Draggable>
-            </Transition>
-            <Transition
-              show={openSpotify}
-              enter="transition-opacity duration-500 ease-in scale-in-bottom"
-              enterFrom="opacity-0"
-              enterTo="opacity-100 scale-in-bottom"
-              leave="transition-opacity duration-500 ease-out scale-out-bottom"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0 duration-500 scale-out-bottom"
-            >
-              <Draggable>
-                <div className="group w-[1000px] h-[600px] bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20">
-                  <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
-                    <div className="flex items-center justify-between">
-                      <h1 className="inline-flex justify-center items-center text-[#F1F1F1]">
-                        <Icons icon="spotify" className="w-5 h-5 mr-2 " />
-                        Spotify
-                      </h1>
-                      <div
-                        className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
-                        onClick={() => setOpenSpotify(false)}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke="#F1F1F1"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+              }
+              title="Spotify"
+              children={
+                <>
                   <div className="flex-col px-3 py-3 text-white h-[500px] overflow-auto">
                     <Transition
                       show={error}
@@ -769,9 +544,10 @@ export default function Home() {
                       )}
                     </div>
                   </div>
-                </div>
-              </Draggable>
-            </Transition>
+                </>
+              }
+              size="w-[1000px] h-[600px]"
+            />
           </div>
           {/* */}
           <Transition
@@ -834,140 +610,32 @@ export default function Home() {
                       </div>
                       <div className="flex justify-center items-center mt-10">
                         <div className="flex items-center justify-center">
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="spotify" className="w-9 h-9" />
-
-                              <span className="text-white/90">Spotify</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="twitter" className="w-9 h-9" />
-
-                              <span className="text-white/90">Twitter</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="settings" className="w-9 h-9" />
-
-                              <span className="text-white/90">Settings</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="mail" className="w-9 h-9" />
-
-                              <span className="text-white/90">Mail</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="xbox" className="w-9 h-9" />
-
-                              <span className="text-white/90">Xbox</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="photos" className="w-9 h-9" />
-
-                              <span className="text-white/90">Photos</span>
-                            </div>
-                          </div>
+                          <MenuIcon icon="spotify" title="Spotify" />
+                          <MenuIcon icon="twitter" title="Twitter" />
+                          <MenuIcon icon="settings" title="Settings" />
+                          <MenuIcon icon="mail" title="Mail" />
+                          <MenuIcon icon="xbox" title="Xbox" />
+                          <MenuIcon icon="photos" title="Photos" />
                         </div>
                       </div>
                       <div className="flex justify-center items-center mt-7">
                         <div className="flex items-center justify-center">
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="spotify" className="w-9 h-9" />
-
-                              <span className="text-white/90">Spotify</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="twitter" className="w-9 h-9" />
-
-                              <span className="text-white/90">Twitter</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="settings" className="w-9 h-9" />
-
-                              <span className="text-white/90">Settings</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="mail" className="w-9 h-9" />
-
-                              <span className="text-white/90">Mail</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="xbox" className="w-9 h-9" />
-
-                              <span className="text-white/90">Xbox</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="photos" className="w-9 h-9" />
-
-                              <span className="text-white/90">Photos</span>
-                            </div>
-                          </div>
+                          <MenuIcon icon="spotify" title="Spotify" />
+                          <MenuIcon icon="twitter" title="Twitter" />
+                          <MenuIcon icon="settings" title="Settings" />
+                          <MenuIcon icon="mail" title="Mail" />
+                          <MenuIcon icon="xbox" title="Xbox" />
+                          <MenuIcon icon="photos" title="Photos" />
                         </div>
                       </div>
                       <div className="flex justify-center items-center mt-7">
                         <div className="flex items-center justify-center">
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="spotify" className="w-9 h-9" />
-
-                              <span className="text-white/90">Spotify</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="twitter" className="w-9 h-9" />
-
-                              <span className="text-white/90">Twitter</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="settings" className="w-9 h-9" />
-
-                              <span className="text-white/90">Settings</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="mail" className="w-9 h-9" />
-
-                              <span className="text-white/90">Mail</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="xbox" className="w-9 h-9" />
-
-                              <span className="text-white/90">Xbox</span>
-                            </div>
-                          </div>
-                          <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                            <div className="flex justify-center items-center flex-col space-y-2 mt-2">
-                              <Icons icon="photos" className="w-9 h-9" />
-
-                              <span className="text-white/90">Photos</span>
-                            </div>
-                          </div>
+                          <MenuIcon icon="spotify" title="Spotify" />
+                          <MenuIcon icon="twitter" title="Twitter" />
+                          <MenuIcon icon="settings" title="Settings" />
+                          <MenuIcon icon="mail" title="Mail" />
+                          <MenuIcon icon="xbox" title="Xbox" />
+                          <MenuIcon icon="photos" title="Photos" />
                         </div>
                       </div>
                       <div className="w-[536px] h-[204px] mt-5">
@@ -1050,242 +718,42 @@ export default function Home() {
 
         <div className="absolute px-2 py-2">
           {/* Application Desktop */}
-          <div
+          <OpenApp
             onClick={() => {
               openTunerMode ? setTunerMode(false) : setTunerMode(true);
             }}
-            className="flex justify-center items-center flex-col hover:bg-white/10 rounded-lg transition-colors py-4 px-4 cursor-pointer"
-          >
-            <img
-              className="w-12 h-12 rounded-lg"
-              src={tunerCars}
-              alt="Tuner Cars"
-            />
-            <span className="text-white/90 text-md font-medium">
-              Tuner Cars
-            </span>
-          </div>
-          <div
+            isSvg={false}
+            icon={tunerCars}
+            title="Tuner Cars"
+          />
+          <OpenApp
             onClick={() => {
               openRace ? setOpenRace(false) : setOpenRace(true);
             }}
-            className="flex justify-center items-center flex-col hover:bg-white/10 rounded-lg transition-colors py-4 px-4 cursor-pointer"
-          >
-            <img className="w-12 h-12 rounded-lg" src={race} alt="Races" />
-            <span className="text-white/90 text-md font-medium">Races</span>
-          </div>
-          <div
+            isSvg={false}
+            icon={race}
+            title="Races"
+          />
+          <OpenApp
             onClick={() => {
               openSpotify ? setOpenSpotify(false) : setOpenSpotify(true);
             }}
-            className="flex justify-center items-center flex-col hover:bg-white/10 rounded-lg transition-colors py-4 px-4 cursor-pointer"
-          >
-            <Icons icon="spotify" className="w-12 h-12" />
-            <span className="text-white/90 text-md font-medium">Spotify</span>
-          </div>
-          <div
-            onClick={() => {
-              openSettings ? setOpenSettings(false) : setOpenSettings(true);
-            }}
-            className="flex justify-center items-center flex-col hover:bg-white/10 rounded-lg transition-colors py-4 px-4 cursor-pointer"
-          >
-            <Icons icon="settings" className="w-12 h-12" />
-            <span className="text-white/90 text-md font-medium">Settings</span>
-          </div>
+            isSvg={true}
+            icon="spotify"
+            title="Spotify"
+          />
         </div>
-        <Transition
-          show={openCalendar}
-          enter="transition-opacity duration-500 ease-in slide-in-right"
-          enterFrom="opacity-0"
-          enterTo="opacity-400 slide-in-right"
-          leave="transition-opacity duration-500 ease-out slide-out-right"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0 duration-500 slide-out-right"
-          className="flex justify-end items-center sticky bottom-64 z-50"
-        >
-          <div className="flex justify-center w-96 h-full items-center">
-            <div className="absolute bg-neutral-900/80 backdrop-blur-xl w-[340px] h-96 px-5 py-5 rounded-lg ml-6">
-              <div>
-                <div className="relative grid grid-cols-1">
-                  {months.map((month, monthIdx) => (
-                    <section
-                      key={monthIdx}
-                      className={classNames(
-                        monthIdx === months.length - 1 && "hidden md:block",
-                        "text-center"
-                      )}
-                    >
-                      <h2 className="font-semibold text-white">{month.name}</h2>
-                      <div className="mt-6 grid grid-cols-7 text-xs leading-6 text-white">
-                        <div>lu</div>
-                        <div>ma</div>
-                        <div>me</div>
-                        <div>je</div>
-                        <div>ve</div>
-                        <div>sa</div>
-                        <div>di</div>
-                      </div>
-                      <div className="isolate mt-2 grid grid-cols-7 gap-px text-sm">
-                        {month.days.map((day, dayIdx) => (
-                          <button
-                            key={day.date}
-                            type="button"
-                            className={classNames(
-                              day.isCurrentMonth ? "" : "",
-                              dayIdx === 0 && "text-white",
-                              dayIdx === 6 && "text-white",
-                              dayIdx === month.days.length - 7 && "text-white",
-                              dayIdx === month.days.length - 1 && "text-white",
-                              "relative text-white py-1.5 focus:z-10"
-                            )}
-                          >
-                            <time
-                              dateTime={day.date}
-                              className="hover:bg-white/10 focus:bg-orange-600 transition-colors text-white mx-auto flex h-7 w-7 items-center justify-center rounded-full"
-                            >
-                              {day?.date?.split("-")?.pop()?.replace(/^0/, "")}
-                            </time>
-                          </button>
-                        ))}
-                      </div>
-                    </section>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </Transition>
-        <Transition
-          show={openPanel}
-          enter="transition-opacity duration-500 ease-in slide-in-right"
-          enterFrom="opacity-0"
-          enterTo="opacity-400 slide-in-right"
-          leave="transition-opacity duration-500 ease-out slide-out-right"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0 duration-500 slide-out-right"
-          className="flex justify-end items-center sticky bottom-64 z-50"
-        >
-          <div className="flex justify-center w-96 h-full items-center">
-            <div className="absolute bg-neutral-900/80 backdrop-blur-xl w-[360px] h-96 px-5 py-5 rounded-lg space-y-2">
-              <div className="grid grid-cols-3 gap-4">
-                <div className="flex flex-col justify-center items-center">
-                  <button className="bg-neutral-700/50 backdrop-blur-sm hover:bg-neutral-600/60 cursor-pointer transition-colors focus:bg-[#d47f6b] focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-md">
-                    <div className="flex justify-center items-center px-8 py-3">
-                      <span className="text-white">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
-                        </svg>
-                      </span>
-                    </div>
-                  </button>
-                  <span className="text-center text-white text-sm mt-0.5">
-                    Settings
-                  </span>
-                </div>
-                <div className="flex flex-col justify-center items-center">
-                  <button
-                    onClick={() => {
-                      setOpenCalendar(true);
-                      setOpenPanel(false);
-                    }}
-                    className="bg-neutral-700/50 backdrop-blur-sm hover:bg-neutral-600/60 cursor-pointer transition-colors focus:bg-[#d47f6b] focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-md"
-                  >
-                    <div className="flex justify-center items-center px-8 py-3">
-                      <span className="text-white">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </button>
-                  <span className="text-center text-white text-sm mt-0.5">
-                    Calendar
-                  </span>
-                </div>
-                <div className="flex flex-col justify-center items-center">
-                  <button className="bg-neutral-700/50 backdrop-blur-sm hover:bg-neutral-600/60 cursor-pointer transition-colors focus:bg-[#d47f6b] focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-md">
-                    <div className="flex justify-center items-center px-8 py-3">
-                      <span className="text-white">test</span>
-                    </div>
-                  </button>
-                  <span className="text-center text-white text-sm mt-0.5">
-                    Bluetooth
-                  </span>
-                </div>
-                <div className="mt-2">
-                  <div className="flex flex-col justify-center items-center">
-                    <button className="bg-neutral-700/50 backdrop-blur-sm hover:bg-neutral-600/60 cursor-pointer transition-colors focus:bg-[#d47f6b] focus:border-transparent border border-neutral-700 backdrop-blur-xl w-[6.5rem] h-12 rounded-md">
-                      <div className="flex justify-center items-center px-8 py-3">
-                        <span className="text-white">test</span>
-                      </div>
-                    </button>
-                    <span className="text-center text-white text-sm mt-0.5">
-                      Bluetooth
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-10">
-                <div className="flex justify-center items-center space-x-5">
-                  <button className="hover:bg-white/20 px-2 py-2 rounded-md transition-colors">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-                      />
-                    </svg>
-                  </button>
-                  <div className="bg-neutral-500/50 w-64 h-1.5 rounded-lg">
-                    <div
-                      className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-1.5 transition duration-300 ease-in-out"
-                      style={{ width: "20%" }}
-                    />
-                  </div>
-                  <button className="hover:bg-white/20 px-2 py-2 rounded-md transition-colors">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Transition>
+        <Calendar
+          open={openCalendar}
+          openCalendar={openViewCalendar}
+          onClick={() =>
+            openViewCalendar
+              ? setOpenViewCalendar(false)
+              : setOpenViewCalendar(true)
+          }
+        />
+
+        <Panel open={openPanel} />
         <div className="bg-neutral-900/80 backdrop-blur-xl py-1 sticky bottom-0 z-50">
           <div className="flex justify-between items-center">
             <div className="flex justify-center items-center m-auto space-x-2">
@@ -1317,114 +785,24 @@ export default function Home() {
                 icon="edge"
                 className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
               />
-              <Transition
-                show={openSpotify}
-                enter="transition-opacity duration-400 ease-in"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition-opacity duration-400 ease-out"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-              >
-                <div
-                  onClick={() => setOpenSpotify((openSpotify) => !openSpotify)}
-                  className={`${
-                    openSpotify ? "bg-white/10" : ""
-                  } flex flex-col justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
-                >
-                  <Icons
-                    icon="spotify"
-                    className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
-                  />
-                  {openSpotify ? (
-                    <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </Transition>
-              <Transition
-                show={openRace}
-                enter="transition-opacity duration-400 ease-in"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition-opacity duration-400 ease-out"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-              >
-                <div
-                  onClick={() => setOpenRace((openRace) => !openRace)}
-                  className={`${
-                    openRace ? "bg-white/10" : ""
-                  } flex flex-col justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
-                >
-                  <img
-                    className="w-6 h-6 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
-                    src={race}
-                  />
-                  {openRace ? (
-                    <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </Transition>
-              <Transition
-                show={openTunerMode}
-                enter="transition-opacity duration-400 ease-in"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition-opacity duration-400 ease-out"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-              >
-                <div
-                  onClick={() =>
-                    setTunerMode((openTunerMode) => !openTunerMode)
-                  }
-                  className={`${
-                    openTunerMode ? "bg-white/10" : ""
-                  } flex flex-col justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
-                >
-                  <img
-                    className="w-6 h-6 rounded hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
-                    src={tunerCars}
-                  />
-                  {openTunerMode ? (
-                    <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </Transition>
-              <Transition
-                show={openSettings}
-                enter="transition-opacity duration-400 ease-in"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition-opacity duration-400 ease-out"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-              >
-                <div
-                  onClick={() =>
-                    setOpenSettings((openSettings) => !openSettings)
-                  }
-                  className={`${
-                    openSettings ? "bg-white/10" : ""
-                  } flex flex-col justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
-                >
-                  <Icons
-                    icon="settings"
-                    className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
-                  />
-                  {openSettings ? (
-                    <div className="w-2 h-0.5 rounded-full bg-white/40 mt-0.5" />
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </Transition>
+              <TaskOpen
+                open={openSpotify}
+                onClick={() => setOpenSpotify((openSpotify) => !openSpotify)}
+                icon="spotify"
+                isSvg={false}
+              />
+              <TaskOpen
+                open={openRace}
+                onClick={() => setOpenRace((openRace) => !openRace)}
+                icon={race}
+                isSvg={true}
+              />
+              <TaskOpen
+                open={openTunerMode}
+                onClick={() => setTunerMode((openTunerMode) => !openTunerMode)}
+                icon={tunerCars}
+                isSvg={true}
+              />
             </div>
             <div className="flex items-center justify-end px-2 space-x-1">
               {openPanel ? (
