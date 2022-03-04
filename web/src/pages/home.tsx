@@ -1099,12 +1099,12 @@ export default function Home() {
         </div>
         <Transition
           show={openCalendar}
-          enter="transition-opacity duration-500 ease-in scale-in-hor-right"
+          enter="transition-opacity duration-500 ease-in slide-in-right"
           enterFrom="opacity-0"
-          enterTo="opacity-400 scale-in-hor-right"
-          leave="transition-opacity duration-500 ease-out scale-out-hor-right"
+          enterTo="opacity-400 slide-in-right"
+          leave="transition-opacity duration-500 ease-out slide-out-right"
           leaveFrom="opacity-100"
-          leaveTo="opacity-0 duration-500 scale-out-hor-right"
+          leaveTo="opacity-0 duration-500 slide-out-right"
           className="flex justify-end items-center sticky bottom-64 z-50"
         >
           <div className="flex justify-center w-96 h-full items-center">
@@ -1161,12 +1161,12 @@ export default function Home() {
         </Transition>
         <Transition
           show={openPanel}
-          enter="transition-opacity duration-500 ease-in scale-in-hor-right"
+          enter="transition-opacity duration-500 ease-in slide-in-right"
           enterFrom="opacity-0"
-          enterTo="opacity-400 scale-in-hor-right"
-          leave="transition-opacity duration-500 ease-out scale-out-hor-right"
+          enterTo="opacity-400 slide-in-right"
+          leave="transition-opacity duration-500 ease-out slide-out-right"
           leaveFrom="opacity-100"
-          leaveTo="opacity-0 duration-500 scale-out-hor-right"
+          leaveTo="opacity-0 duration-500 slide-out-right"
           className="flex justify-end items-center sticky bottom-64 z-50"
         >
           <div className="flex justify-center w-96 h-full items-center">
