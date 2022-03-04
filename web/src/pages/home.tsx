@@ -785,7 +785,7 @@ export default function Home() {
             enterTo="opacity-500 slide-in-bottom"
             leave="transition-all"
             leaveFrom="opacity-500 slide-out-bottom"
-            className="flex absolute items-center justify-center my-auto"
+            className="fixed bottom-0 my-16"
             leaveTo="opacity-0 duration-500 slide-out-bottom"
           >
             <>
