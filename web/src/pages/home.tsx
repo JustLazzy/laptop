@@ -1,6 +1,7 @@
 import { Transition } from "@headlessui/react";
 import { format } from "date-fns";
 import { FormEvent, useEffect, useState } from "react";
+import { isBrowser } from "react-device-detect";
 
 import { fetchNui } from "../utils/fetchNui";
 import { formatDuration } from "../utils/format";
@@ -20,14 +21,16 @@ import Icons from "../components/Icons";
 import tunerCars from "../images/app/nfs.jpg";
 import race from "../images/app/race.jpg";
 import nitrousOn from "../images/items/nitrous.png";
+import { debugData } from "../utils/debugData";
 
-//debugData([
-//  {
-//    action: "setVisible",
-//    data: true,
-//  },
-//]);
-
+if (isBrowser) {
+  debugData([
+    {
+      action: "setVisible",
+      data: true,
+    },
+  ]);
+}
 export default function Home() {
   const [album, setAlbum] = useState([{}] as any);
   const [error, setError] = useState(false);
