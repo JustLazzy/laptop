@@ -1,27 +1,34 @@
-import Icons from "../components/Icons";
 import { Transition } from "@headlessui/react";
 import { format } from "date-fns";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+
 import { debugData } from "../utils/debugData";
 import { fetchNui } from "../utils/fetchNui";
-import { Spotify } from "../api/spotify";
-import { Album } from "../types";
 import { formatDuration } from "../utils/format";
-import tunerCars from "../images/app/nfs.jpg";
-import race from "../images/app/race.jpg";
-import nitrousOn from "../images/items/nitrous.png";
+
+import { Spotify } from "../api/spotify";
+
+import { Album } from "../types";
+
 import Window from "../components/Window";
 import Panel from "../components/Panel";
 import Calendar from "../components/Calendar";
 import MenuIcon from "../components/MenuIcon";
 import TaskOpen from "../components/TaskOpen";
 import OpenApp from "../components/OpenApp";
-debugData([
-  {
-    action: "setVisible",
-    data: true,
-  },
-]);
+import Icons from "../components/Icons";
+
+import tunerCars from "../images/app/nfs.jpg";
+import race from "../images/app/race.jpg";
+import nitrousOn from "../images/items/nitrous.png";
+
+//debugData([
+//  {
+//    action: "setVisible",
+//    data: true,
+//  },
+//]);
+
 export default function Home() {
   const [album, setAlbum] = useState([{}] as any);
   const [error, setError] = useState(false);
@@ -34,8 +41,15 @@ export default function Home() {
   const [openPanel, setOpenPanel] = useState(false);
   const [nitrous, setNitrous] = useState(false);
   const [openViewCalendar, setOpenViewCalendar] = useState(false);
+  const [openTunerMode, setTunerMode] = useState(false);
+  const [startMenu, setStartMenu] = useState(false);
+  const [openRace, setOpenRace] = useState(false);
+  const [openSpotify, setOpenSpotify] = useState(false);
+  const [startWindows, setStartWindows] = useState(true);
+  const time = format(new Date(), "HH:mm");
+  const date = format(new Date(), "dd/MM/yyyy");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (selectArtist === "") {
       setSearch(false);
@@ -54,8 +68,8 @@ export default function Home() {
       });
     }
   };
-  const playMusic = (link: any) => {
-    const audio = new Audio(link);
+  const playMusic = (src: string) => {
+    const audio = new Audio(src);
     if (play) {
       audio.pause();
       audio.volume = 0;
@@ -66,18 +80,13 @@ export default function Home() {
       audio.play();
     }
   };
-  const [openTunerMode, setTunerMode] = useState(false);
-  const [startMenu, setStartMenu] = useState(false);
-  const [openRace, setOpenRace] = useState(false);
-  const [openSpotify, setOpenSpotify] = useState(false);
-  const [startWindows, setStartWindows] = useState(true);
-  const time = format(new Date(), "HH:mm");
-  const date = format(new Date(), "dd/MM/yyyy");
+
   useEffect(() => {
     setInterval(() => {
       setStartWindows(false);
     }, 3000);
   }, []);
+
   return (
     <>
       <div className="flex flex-col justify-between">
@@ -373,9 +382,7 @@ export default function Home() {
               }
               title="Races"
               children={
-                <>
-                  <div className="px-3 py-3 text-white">Not finished yet.</div>
-                </>
+                <div className="px-3 py-3 text-white">Not finished yet.</div>
               }
               size="w-[700px] h-96"
             />
@@ -563,7 +570,6 @@ export default function Home() {
               size="w-[1000px] h-[600px]"
             />
           </div>
-          {/* */}
           <Transition
             show={startMenu}
             enter="transition-opacity duration-500 ease-in slide-in-bottom"
@@ -574,35 +580,93 @@ export default function Home() {
             className="fixed bottom-0 my-16"
             leaveTo="opacity-0 duration-500 slide-out-bottom"
           >
-            <>
-              <div className="w-[642px] h-[726px] bg-neutral-900/80 backdrop-blur-xl rounded-lg shadow-lg">
-                <div className="px-10 py-10">
-                  <div className="space-y-8">
-                    <div>
-                      <div className="flex justify-start items-start">
-                        <div className="ml-2">
-                          <Icons
-                            icon="searching"
-                            className="absolute mt-3 w-4 h-4"
-                          />
-                        </div>
+            <div className="w-[642px] h-[726px] bg-neutral-900/80 backdrop-blur-xl rounded-lg shadow-lg">
+              <div className="px-10 py-10">
+                <div className="space-y-8">
+                  <div>
+                    <div className="flex justify-start items-start">
+                      <div className="ml-2">
+                        <Icons
+                          icon="searching"
+                          className="absolute mt-3 w-4 h-4"
+                        />
                       </div>
-                      <input
-                        type="text"
-                        placeholder="Type here to search"
-                        className="w-full h-10 px-8 py-4 rounded-[0.250rem] bg-neutral-900 text-gray-100 placeholder-gray-100 border-b-[3px] border-r-2 border-r-neutral-800 border-l-2 border-l-neutral-800 border-t-2 border-t-neutral-800 border-b-orange-700 focus:outline-none focus:shadow-outline"
-                      />
                     </div>
-                    <div className="w-[576px] h-[302px]">
+                    <input
+                      type="text"
+                      placeholder="Type here to search"
+                      className="w-full h-10 px-8 py-4 rounded-[0.250rem] bg-neutral-900 text-gray-100 placeholder-gray-100 border-b-[3px] border-r-2 border-r-neutral-800 border-l-2 border-l-neutral-800 border-t-2 border-t-neutral-800 border-b-orange-700 focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+                  <div className="w-[576px] h-[302px]">
+                    <div className="flex justify-between">
+                      <div>
+                        <h1 className="text-white/90 font-medium">Pinned</h1>
+                      </div>
+                      <div className="hidden">
+                        <button className="bg-white px-3 py-1 rounded-lg border-2 border-gray-300">
+                          <div className="inline-flex justify-start items-center">
+                            <span className="text-white/90 font-medium">
+                              All apps
+                            </span>
+                            <div className="w-[10px] h-[22px] flex justify-center items-center ml-2">
+                              <svg
+                                className="w-3 h-3"
+                                viewBox="0 0 5 8"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0.125977 7.4375C0.125977 7.35286 0.156901 7.27962 0.21875 7.21777L3.43164 4L0.21875 0.782227C0.156901 0.720378 0.125977 0.647135 0.125977 0.5625C0.125977 0.477865 0.156901 0.404622 0.21875 0.342773C0.280599 0.280924 0.353841 0.25 0.438477 0.25C0.523112 0.25 0.596354 0.280924 0.658203 0.342773L4.0957 3.78027C4.15755 3.84212 4.18848 3.91536 4.18848 4C4.18848 4.08464 4.15755 4.15788 4.0957 4.21973L0.658203 7.65723C0.596354 7.71908 0.523112 7.75 0.438477 7.75C0.353841 7.75 0.280599 7.71908 0.21875 7.65723C0.156901 7.59538 0.125977 7.52214 0.125977 7.4375Z"
+                                  fill="black"
+                                  fillOpacity="0.6063"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex justify-center items-center mt-10">
+                      <div className="flex items-center justify-center">
+                        <MenuIcon icon="spotify" title="Spotify" />
+                        <MenuIcon icon="twitter" title="Twitter" />
+                        <MenuIcon icon="settings" title="Settings" />
+                        <MenuIcon icon="mail" title="Mail" />
+                        <MenuIcon icon="xbox" title="Xbox" />
+                        <MenuIcon icon="photos" title="Photos" />
+                      </div>
+                    </div>
+                    <div className="flex justify-center items-center mt-7">
+                      <div className="flex items-center justify-center">
+                        <MenuIcon icon="spotify" title="Spotify" />
+                        <MenuIcon icon="twitter" title="Twitter" />
+                        <MenuIcon icon="settings" title="Settings" />
+                        <MenuIcon icon="mail" title="Mail" />
+                        <MenuIcon icon="xbox" title="Xbox" />
+                        <MenuIcon icon="photos" title="Photos" />
+                      </div>
+                    </div>
+                    <div className="flex justify-center items-center mt-7">
+                      <div className="flex items-center justify-center">
+                        <MenuIcon icon="spotify" title="Spotify" />
+                        <MenuIcon icon="twitter" title="Twitter" />
+                        <MenuIcon icon="settings" title="Settings" />
+                        <MenuIcon icon="mail" title="Mail" />
+                        <MenuIcon icon="xbox" title="Xbox" />
+                        <MenuIcon icon="photos" title="Photos" />
+                      </div>
+                    </div>
+                    <div className="w-[536px] h-[204px] mt-5">
                       <div className="flex justify-between">
-                        <div>
-                          <h1 className="text-white/90 font-medium">Pinned</h1>
-                        </div>
+                        <h1 className="text-white/90 font-medium">
+                          Recommanded
+                        </h1>
                         <div className="hidden">
                           <button className="bg-white px-3 py-1 rounded-lg border-2 border-gray-300">
                             <div className="inline-flex justify-start items-center">
                               <span className="text-white/90 font-medium">
-                                All apps
+                                More
                               </span>
                               <div className="w-[10px] h-[22px] flex justify-center items-center ml-2">
                                 <svg
@@ -622,101 +686,41 @@ export default function Home() {
                           </button>
                         </div>
                       </div>
-                      <div className="flex justify-center items-center mt-10">
-                        <div className="flex items-center justify-center">
-                          <MenuIcon icon="spotify" title="Spotify" />
-                          <MenuIcon icon="twitter" title="Twitter" />
-                          <MenuIcon icon="settings" title="Settings" />
-                          <MenuIcon icon="mail" title="Mail" />
-                          <MenuIcon icon="xbox" title="Xbox" />
-                          <MenuIcon icon="photos" title="Photos" />
-                        </div>
+                      <div className="flex flex-col justify-start items-start p-[2.95rem]">
+                        <p className="text-sm text-start text-white">
+                          Plus vous utilisez votre appareil, plus nous vous
+                          montrerons de nouvelles applications ici.
+                        </p>
                       </div>
-                      <div className="flex justify-center items-center mt-7">
-                        <div className="flex items-center justify-center">
-                          <MenuIcon icon="spotify" title="Spotify" />
-                          <MenuIcon icon="twitter" title="Twitter" />
-                          <MenuIcon icon="settings" title="Settings" />
-                          <MenuIcon icon="mail" title="Mail" />
-                          <MenuIcon icon="xbox" title="Xbox" />
-                          <MenuIcon icon="photos" title="Photos" />
-                        </div>
-                      </div>
-                      <div className="flex justify-center items-center mt-7">
-                        <div className="flex items-center justify-center">
-                          <MenuIcon icon="spotify" title="Spotify" />
-                          <MenuIcon icon="twitter" title="Twitter" />
-                          <MenuIcon icon="settings" title="Settings" />
-                          <MenuIcon icon="mail" title="Mail" />
-                          <MenuIcon icon="xbox" title="Xbox" />
-                          <MenuIcon icon="photos" title="Photos" />
-                        </div>
-                      </div>
-                      <div className="w-[536px] h-[204px] mt-5">
-                        <div className="flex justify-between">
-                          <h1 className="text-white/90 font-medium">
-                            Recommanded
-                          </h1>
-                          <div className="hidden">
-                            <button className="bg-white px-3 py-1 rounded-lg border-2 border-gray-300">
-                              <div className="inline-flex justify-start items-center">
-                                <span className="text-white/90 font-medium">
-                                  More
-                                </span>
-                                <div className="w-[10px] h-[22px] flex justify-center items-center ml-2">
-                                  <svg
-                                    className="w-3 h-3"
-                                    viewBox="0 0 5 8"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M0.125977 7.4375C0.125977 7.35286 0.156901 7.27962 0.21875 7.21777L3.43164 4L0.21875 0.782227C0.156901 0.720378 0.125977 0.647135 0.125977 0.5625C0.125977 0.477865 0.156901 0.404622 0.21875 0.342773C0.280599 0.280924 0.353841 0.25 0.438477 0.25C0.523112 0.25 0.596354 0.280924 0.658203 0.342773L4.0957 3.78027C4.15755 3.84212 4.18848 3.91536 4.18848 4C4.18848 4.08464 4.15755 4.15788 4.0957 4.21973L0.658203 7.65723C0.596354 7.71908 0.523112 7.75 0.438477 7.75C0.353841 7.75 0.280599 7.71908 0.21875 7.65723C0.156901 7.59538 0.125977 7.52214 0.125977 7.4375Z"
-                                      fill="black"
-                                      fillOpacity="0.6063"
-                                    />
-                                  </svg>
-                                </div>
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                        <div className="flex flex-col justify-start items-start p-[2.95rem]">
-                          <p className="text-sm text-start text-white">
-                            Plus vous utilisez votre appareil, plus nous vous
-                            montrerons de nouvelles applications ici.
-                          </p>
-                        </div>
 
-                        <div className="top-0 -ml-10">
-                          <div className="w-[642px] h-[62px] border-b-transparent border border-l-transparent border-r-transparent border-t-neutral-800/70 rounded-b-lg">
-                            <div className="flex justify-evenly	space-x-60 mt-0.5">
-                              <div className="w-[120px] h-[48px] inline-flex space-x-2 justify-center items-center mt-1 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                                <img
-                                  src="https://avatars.githubusercontent.com/u/38817327?v=4"
-                                  className="w-8 h-8 rounded-full"
-                                  alt="me"
+                      <div className="top-0 -ml-10">
+                        <div className="w-[642px] h-[62px] border-b-transparent border border-l-transparent border-r-transparent border-t-neutral-800/70 rounded-b-lg">
+                          <div className="flex justify-evenly	space-x-60 mt-0.5">
+                            <div className="w-[120px] h-[48px] inline-flex space-x-2 justify-center items-center mt-1 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
+                              <img
+                                src="https://avatars.githubusercontent.com/u/38817327?v=4"
+                                className="w-8 h-8 rounded-full"
+                                alt="me"
+                              />
+                              <span className="text-white/90 font-medium">
+                                Amine
+                              </span>
+                            </div>
+                            <div className="flex justify-center items-center">
+                              <div
+                                onClick={() => fetchNui("hideFrame")}
+                                className="w-10 h-10 flex justify-center items-center hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md"
+                              >
+                                <Icons
+                                  icon="poweroff"
+                                  className="w-5 h-5 text-white"
                                 />
-                                <span className="text-white/90 font-medium">
-                                  Amine
-                                </span>
                               </div>
-                              <div className="flex justify-center items-center">
-                                <div
-                                  onClick={() => fetchNui("hideFrame")}
-                                  className="w-10 h-10 flex justify-center items-center hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md"
-                                >
-                                  <Icons
-                                    icon="poweroff"
-                                    className="w-5 h-5 text-white"
-                                  />
-                                </div>
-                                <div className="w-10 h-10 flex justify-center items-center hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                                  <Icons
-                                    icon="setting"
-                                    className="w-5 h-5 text-white"
-                                  />
-                                </div>
+                              <div className="w-10 h-10 flex justify-center items-center hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
+                                <Icons
+                                  icon="setting"
+                                  className="w-5 h-5 text-white"
+                                />
                               </div>
                             </div>
                           </div>
@@ -726,12 +730,11 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           </Transition>
         </main>
 
         <div className="absolute px-2 py-2">
-          {/* Application Desktop */}
           <OpenApp
             onClick={() => {
               openTunerMode ? setTunerMode(false) : setTunerMode(true);
