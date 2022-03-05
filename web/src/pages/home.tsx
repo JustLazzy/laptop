@@ -2,7 +2,6 @@ import { Transition } from "@headlessui/react";
 import { format } from "date-fns";
 import { FormEvent, useEffect, useState } from "react";
 
-import { debugData } from "../utils/debugData";
 import { fetchNui } from "../utils/fetchNui";
 import { formatDuration } from "../utils/format";
 
