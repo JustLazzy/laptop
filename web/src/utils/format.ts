@@ -1,10 +1,5 @@
-import moment from "moment";
-
-export function formatDuration(duration: number) {
-  const momentDuration = moment.duration(duration);
-  const durationStr = moment
-    .utc(momentDuration.as("milliseconds"))
-    .format("HH:mm:ss");
-  const parts = durationStr.split(":");
-  return `${parts[1]}:${parts[0]}`;
-}
+export const formatDuration = (duration: number) => {
+  const hours = Math.floor(duration / 60);
+  const minutes = duration % 60;
+  return `${hours}h ${minutes}m`;
+};
