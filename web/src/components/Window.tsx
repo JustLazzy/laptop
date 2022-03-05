@@ -1,5 +1,4 @@
 import { Transition } from "@headlessui/react";
-import { ReactNode } from "react";
 import Draggable from "react-draggable";
 import { WindowProps } from "../interfaces";
 import Icons from "./Icons";
@@ -33,7 +32,7 @@ const Window = ({
                 {isSvg ? (
                   <Icons icon={image} className="w-5 h-5 mr-2" />
                 ) : (
-                  <img src={image} className="w-6 h-6 rounded-md" />
+                  <img src={image} className="w-6 h-6 rounded-md" alt="" />
                 )}
 
                 <h1 className="text-[#F1F1F1]">{title}</h1>

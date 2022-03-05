@@ -25,7 +25,6 @@ debugData([
 export default function Home() {
   const [album, setAlbum] = useState([{}] as any);
   const [error, setError] = useState(false);
-  const [value, setValue] = useState(70);
   const [selectArtist, setSelectArtist] = useState("");
   const [enableNos, setEnableNos] = useState(false);
   const [message, setMessage] = useState("");
@@ -191,7 +190,11 @@ export default function Home() {
                           <div className="inline-flex space-x-2">
                             <div className="flex flex-col space-y-1 justify-center items-center">
                               <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
-                                <img src={nitrousOn} className="w-10 h-10" />
+                                <img
+                                  src={nitrousOn}
+                                  className="w-10 h-10"
+                                  alt=""
+                                />
                                 <span className="text-white text-sm">
                                   Stage 1
                                 </span>
@@ -199,7 +202,11 @@ export default function Home() {
                             </div>
                             <div className="flex flex-col space-y-1 justify-center items-center">
                               <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
-                                <img src={nitrousOn} className="w-10 h-10" />
+                                <img
+                                  src={nitrousOn}
+                                  className="w-10 h-10"
+                                  alt=""
+                                />
                                 <span className="text-white text-sm">
                                   Stage 2
                                 </span>
@@ -207,7 +214,11 @@ export default function Home() {
                             </div>
                             <div className="flex flex-col space-y-1 justify-center items-center">
                               <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
-                                <img src={nitrousOn} className="w-10 h-10" />
+                                <img
+                                  src={nitrousOn}
+                                  className="w-10 h-10"
+                                  alt=""
+                                />
                                 <span className="text-white text-sm">
                                   Stage 3
                                 </span>
@@ -257,7 +268,7 @@ export default function Home() {
                             <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                               <div
                                 className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                                style={{ width: value }}
+                                style={{ width: "20%" }}
                               />
                             </div>
                           </div>
@@ -273,7 +284,7 @@ export default function Home() {
                           <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: value }}
+                              style={{ width: "20%" }}
                             />
                           </div>
                         </div>
@@ -285,7 +296,7 @@ export default function Home() {
                           <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: value }}
+                              style={{ width: "20%" }}
                             />
                           </div>
                         </div>
@@ -297,7 +308,7 @@ export default function Home() {
                           <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: value }}
+                              style={{ width: "20%" }}
                             />
                           </div>
                         </div>
@@ -309,7 +320,7 @@ export default function Home() {
                           <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: value }}
+                              style={{ width: "20%" }}
                             />
                           </div>
                         </div>
@@ -321,7 +332,7 @@ export default function Home() {
                           <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
-                              style={{ width: value }}
+                              style={{ width: "20%" }}
                             />
                           </div>
                         </div>
@@ -457,7 +468,10 @@ export default function Home() {
                                         <div className="fade-in-top">
                                           <div className="inline-flex space-x-10 items-center z-50">
                                             <div className="relative">
-                                              <a className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
+                                              <a
+                                                href="!#"
+                                                className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300"
+                                              >
                                                 <div className="flex flex-col">
                                                   <span className="text-sm">
                                                     {artist.name}
@@ -517,7 +531,7 @@ export default function Home() {
                                                   </button>
                                                 </div>
                                               </a>
-                                              <a href="#" className="relative">
+                                              <a href="!#" className="relative">
                                                 <div className="h-48 flex flex-wrap content-center">
                                                   <img
                                                     src={

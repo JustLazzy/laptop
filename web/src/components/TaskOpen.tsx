@@ -28,6 +28,7 @@ const TaskOpen = ({ open, onClick, icon, isSvg }: TaskOpenProps) => {
           <img
             src={icon}
             className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300 rounded"
+            alt=""
           />
         )}
         {open ? (
