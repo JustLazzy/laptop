@@ -1,4 +1,6 @@
-const Icons = ({ icon, className, onClick, action }: any) => {
+import { IIconProps } from "../interfaces";
+
+const Icons = ({ icon, className, onClick, action }: IIconProps) => {
   switch (icon) {
     case "start":
       return (

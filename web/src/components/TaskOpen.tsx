@@ -1,11 +1,7 @@
 import { Transition } from "@headlessui/react";
+import { TaskOpenProps } from "../interfaces";
 import Icons from "./Icons";
-interface TaskOpenProps {
-  open: boolean;
-  onClick: () => void;
-  icon: string;
-  isSvg?: boolean;
-}
+
 const TaskOpen = ({ open, onClick, icon, isSvg }: TaskOpenProps) => {
   return (
     <Transition

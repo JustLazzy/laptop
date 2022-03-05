@@ -1,17 +1,9 @@
 import { Transition } from "@headlessui/react";
 import { ReactNode } from "react";
 import Draggable from "react-draggable";
+import { WindowProps } from "../interfaces";
 import Icons from "./Icons";
-//{ setActive: (active: boolean) => void } & any
-export interface WindowProps {
-  open: boolean;
-  image: string;
-  title: string;
-  isSvg?: boolean;
-  size: string;
-  opened: ReactNode;
-  children: ReactNode;
-}
+
 const Window = ({
   open,
   image,

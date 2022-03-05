@@ -1,9 +1,6 @@
+import { MenuProps } from "../interfaces";
 import Icons from "./Icons";
 
-interface MenuProps {
-  icon: string;
-  title: string;
-}
 const MenuIcon = ({ icon, title }: MenuProps) => {
   return (
     <div className="w-[96px] h-[84px] hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">

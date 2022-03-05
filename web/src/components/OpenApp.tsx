@@ -1,11 +1,6 @@
+import { OpenAppProps } from "../interfaces";
 import Icons from "./Icons";
 
-interface OpenAppProps {
-  onClick: () => void;
-  icon: string;
-  isSvg?: boolean;
-  title: string;
-}
 const OpenApp = ({ icon, onClick, isSvg, title }: OpenAppProps) => {
   return (
     <div

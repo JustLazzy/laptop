@@ -1,7 +1,6 @@
 import { Transition } from "@headlessui/react";
-interface PanelProps {
-  open: boolean;
-}
+import { PanelProps } from "../interfaces";
+
 const Panel = ({ open }: PanelProps) => {
   return (
     <Transition

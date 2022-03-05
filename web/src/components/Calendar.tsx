@@ -1,10 +1,6 @@
 import { Transition } from "@headlessui/react";
-import { format, isValid } from "date-fns";
-export interface OpenViewCalendarProps {
-  onClick: () => void;
-  open: boolean;
-  openCalendar: boolean;
-}
+import { format } from "date-fns";
+import { OpenViewCalendarProps } from "../interfaces";
 const Calendar = ({ open, openCalendar, onClick }: OpenViewCalendarProps) => {
   const date = format(new Date(), "EEEE, MMMM dd");
   const month = format(new Date(), "MMMM");
