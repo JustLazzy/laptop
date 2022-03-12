@@ -22,6 +22,7 @@ import tunerCars from "../images/app/nfs.jpg";
 import race from "../images/app/race.jpg";
 import nitrousOn from "../images/items/nitrous.png";
 import { debugData } from "../utils/debugData";
+import CurrentPlaying from "../components/CurrentPlaying";
 
 if (isBrowser) {
   debugData([
@@ -817,6 +818,7 @@ export default function Home() {
         />
 
         <Panel open={openPanel} />
+        <CurrentPlaying open={openPanel} />
         <div className="bg-neutral-900/70 backdrop-blur-2xl py-1 sticky bottom-0 z-50">
           <div className="flex justify-between items-center">
             <div className="flex justify-center items-center m-auto space-x-2">
