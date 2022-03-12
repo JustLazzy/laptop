@@ -441,156 +441,479 @@ export default function Home() {
               title="Spotify"
               children={
                 <>
-                  <div className="flex-col px-3 py-3 text-white h-[500px] overflow-auto">
-                    <Transition
-                      show={error}
-                      enter="transition-opacity duration-400 ease-in"
-                      enterFrom="opacity-0"
-                      enterTo="opacity-100"
-                      leave="transition-opacity duration-400 ease-out"
-                      leaveFrom="opacity-100"
-                      leaveTo="opacity-0"
-                    >
-                      <div className="flex items-center justify-center mb-3">
-                        <div className="bg-red-600 border-b-4 border-red-700 font-medium w-60 text-white text-center p-3 rounded-lg">
-                          {message}
-                        </div>
+                  <div className="flex-1 flex overflow-y-hidden">
+                    <div className="sidebar bg-gray-900-spotify w-48 flex-none flex flex-col justify-between font-semibold">
+                      <ul className="py-6">
+                        <li className="border-l-4 border-green-600">
+                          <a
+                            href="#"
+                            className="flex items-center mx-4 mt-4 group"
+                          >
+                            <svg
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              className="fill-current text-white h-6 w-6"
+                            >
+                              <path d="M13 20v-5h-2v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-7.59l-.3.3a1 1 0 11-1.4-1.42l9-9a1 1 0 011.4 0l9 9a1 1 0 01-1.4 1.42l-.3-.3V20a2 2 0 01-2 2h-3a2 2 0 01-2-2zm5 0v-9.59l-6-6-6 6V20h3v-5c0-1.1.9-2 2-2h2a2 2 0 012 2v5h3z"></path>
+                            </svg>
+                            <span className="ml-2 text-white">Home</span>
+                          </a>
+                        </li>
+                        <li className="border-l-4 border-transparent">
+                          <a
+                            href="#"
+                            className="flex items-center hover:text-white mx-4 mt-4 group"
+                          >
+                            <svg
+                              width="24"
+                              height="24"
+                              className="fill-current h-6 w-6 text-white"
+                            >
+                              <path fill="none" d="M15 5.414V7h1.586z"></path>
+                              <path
+                                fill="none"
+                                d="M14 9a1 1 0 01-1-1V4H9v12h9V9h-4z"
+                              ></path>
+                              <path d="M20 17V8h-.009a.996.996 0 00-.284-.707l-5-5A.99.99 0 0014 2.01V2H8a1 1 0 00-1 1v14a1 1 0 001 1h11a1 1 0 001-1zM15 5.414L16.586 7H15V5.414zM9 16V4h4v4a1 1 0 001 1h4v7H9z"></path>
+                              <path d="M3 8v13a1 1 0 001 1h12v-2H5V8H3z"></path>
+                            </svg>
+                            <span className="ml-2 text-white">Browse</span>
+                          </a>
+                        </li>
+                        <li className="border-l-4 border-transparent">
+                          <a
+                            href="#"
+                            className="flex items-center hover:text-white mx-4 mt-4 group"
+                          >
+                            <svg
+                              viewBox="0 0 24 24"
+                              className="fill-current h-6 w-6 text-white"
+                            >
+                              <g data-name="Layer 2">
+                                <g data-name="radio">
+                                  <path d="M12 8a3 3 0 00-1 5.83 1 1 0 000 .17v6a1 1 0 002 0v-6a1 1 0 000-.17A3 3 0 0012 8zm0 4a1 1 0 111-1 1 1 0 01-1 1zM3.5 11a6.87 6.87 0 012.64-5.23 1 1 0 10-1.28-1.54A8.84 8.84 0 001.5 11a8.84 8.84 0 003.36 6.77 1 1 0 101.28-1.54A6.87 6.87 0 013.5 11z"></path>
+                                  <path d="M16.64 6.24a1 1 0 00-1.28 1.52A4.28 4.28 0 0117 11a4.28 4.28 0 01-1.64 3.24A1 1 0 0016 16a1 1 0 00.64-.24A6.2 6.2 0 0019 11a6.2 6.2 0 00-2.36-4.76zM8.76 6.36a1 1 0 00-1.4-.12A6.2 6.2 0 005 11a6.2 6.2 0 002.36 4.76 1 1 0 001.4-.12 1 1 0 00-.12-1.4A4.28 4.28 0 017 11a4.28 4.28 0 011.64-3.24 1 1 0 00.12-1.4z"></path>
+                                  <path d="M19.14 4.23a1 1 0 10-1.28 1.54A6.87 6.87 0 0120.5 11a6.87 6.87 0 01-2.64 5.23 1 1 0 001.28 1.54A8.84 8.84 0 0022.5 11a8.84 8.84 0 00-3.36-6.77z"></path>
+                                </g>
+                              </g>
+                            </svg>
+                            <span className="ml-2 text-white">Radio</span>
+                          </a>
+                        </li>
+                      </ul>
+                      <div className="sidebar-spotify overflow-y-auto px-5 mt-2">
+                        <h3 className="uppercase tracking-widest text-gray-50 font-normal text-xs">
+                          Your Library
+                        </h3>
+                        <ul className="leading-extra-loose">
+                          <li className="truncate">
+                            <a
+                              href="#"
+                              className="text-neutral-400 hover:text-neutral-300"
+                            >
+                              Made For You
+                            </a>
+                          </li>
+                          <li className="truncate">
+                            <a
+                              href="#"
+                              className="text-neutral-400 hover:text-neutral-300"
+                            >
+                              Recently Played
+                            </a>
+                          </li>
+                          <li className="truncate">
+                            <a
+                              href="#"
+                              className="text-neutral-400 hover:text-neutral-300"
+                            >
+                              Liked Songs
+                            </a>
+                          </li>
+                          <li className="truncate">
+                            <a
+                              href="#"
+                              className="text-neutral-400 hover:text-neutral-300"
+                            >
+                              Albums
+                            </a>
+                          </li>
+                          <li className="truncate">
+                            <a
+                              href="#"
+                              className="text-neutral-400 hover:text-neutral-300"
+                            >
+                              Artists
+                            </a>
+                          </li>
+                          <li className="truncate">
+                            <a
+                              href="#"
+                              className="text-neutral-400 hover:text-neutral-300"
+                            >
+                              Podcasts
+                            </a>
+                          </li>
+                        </ul>
+                        <h3 className="uppercase tracking-widest text-gray-50 font-normal text-xs mt-6">
+                          Playlists
+                        </h3>
+                        <ul className="leading-extra-loose mb-6">
+                          <li className="truncate">
+                            <a
+                              href="#"
+                              className="text-neutral-400 hover:text-neutral-300"
+                            >
+                              Acoustic Hits
+                            </a>
+                          </li>
+                        </ul>
                       </div>
-                    </Transition>
-
-                    <form
-                      method="POST"
-                      className="mb-2"
-                      onSubmit={handleSubmit}
-                    >
-                      <div className="flex justify-center">
-                        <h1 className="inline-flex text-4xl font-medium items-center justify-center">
-                          Spotify
-                          <Icons icon="spotify" className="w-7 h-7 ml-2 mt-2" />
-                        </h1>
-                      </div>
-                      <div className="flex items-center justify-center space-x-3 mt-4">
-                        <input
-                          type="text"
-                          className="text-black px-2 py-2 rounded-md ring ring-green-800/30 focus:outline-none"
-                          placeholder="Rechercher une musique"
-                          onChange={(e: any) => setSelectArtist(e.target.value)}
-                        />
-                        <button
-                          className="px-5 py-2 rounded-lg bg-green-600 hover:bg-green-700/90 hover:border-green-800 transition border-b-4 border-green-700"
-                          type="submit"
-                        >
-                          Rechercher
-                        </button>
-                      </div>
-                    </form>
-
-                    <div className="m-auto">
-                      {search ? (
-                        <>
-                          <div className="flex flex-col items-center justify-center">
-                            <div className="grid grid-cols-4 gap-4 mt-2">
-                              {album?.items.map((item: any) => {
-                                return (
-                                  <>
-                                    {item?.artists?.map((artist: any) => (
-                                      <>
-                                        <div className="fade-in-top">
-                                          <div className="inline-flex space-x-10 items-center z-50">
-                                            <div className="relative">
-                                              <a
-                                                href="!#"
-                                                className="absolute inset-0 z-10 rounded-lg backdrop-blur-sm text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300"
-                                              >
-                                                <div className="flex flex-col">
-                                                  <span className="text-sm">
-                                                    {artist.name}
-                                                  </span>
-                                                  <span className="text-sm font-medium">
-                                                    {formatDuration(
-                                                      item.duration_ms
-                                                    )}
-                                                  </span>
-                                                  <span className="text-sm">
-                                                    {item.name}
-                                                  </span>
-                                                  <button
-                                                    onClick={() =>
-                                                      playMusic(
-                                                        item?.preview_url
-                                                      )
-                                                    }
-                                                  >
-                                                    {play ? (
-                                                      <>
-                                                        <div className="flex flex-col space-y-0.5 justify-center items-center">
-                                                          <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            viewBox="0 0 320 512"
-                                                            className="w-4 h-4 text-white"
-                                                          >
-                                                            <path
-                                                              fill="currentColor"
-                                                              d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"
-                                                            />
-                                                          </svg>
-                                                          <span className="text-center text-xs">
-                                                            Pause
-                                                          </span>
-                                                        </div>
-                                                      </>
-                                                    ) : (
-                                                      <>
-                                                        <div className="flex flex-col space-y-0.5 justify-center items-center">
-                                                          <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            viewBox="0 0 384 512"
-                                                            className="w-4 h-4 text-white"
-                                                          >
-                                                            <path
-                                                              fill="currentColor"
-                                                              d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"
-                                                            />
-                                                          </svg>
-                                                          <span className="text-center text-xs">
-                                                            Play
-                                                          </span>
-                                                        </div>
-                                                      </>
-                                                    )}
-                                                  </button>
-                                                </div>
-                                              </a>
-                                              <a href="!#" className="relative">
-                                                <div className="h-48 flex flex-wrap content-center">
-                                                  <img
-                                                    src={
-                                                      item.album.images[1].url
-                                                    }
-                                                    className="mx-auto w-40 h-40 rounded-lg"
-                                                    alt=""
-                                                  />
-                                                </div>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </>
-                                    ))}
-                                  </>
-                                );
-                              })}
+                    </div>
+                    <div className="bg-gray-800-spotify flex-1 flex flex-col">
+                      <div className="top-bar flex items-center justify-between px-4 py-2">
+                        <div className="flex items-center">
+                          <button>
+                            <svg
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              className="fill-current hover:text-gray-50 text-white h-10 w-10"
+                            >
+                              <path d="M14.7 15.3a1 1 0 01-1.4 1.4l-4-4a1 1 0 010-1.4l4-4a1 1 0 011.4 1.4L11.42 12l3.3 3.3z"></path>
+                            </svg>
+                          </button>
+                          <button className="ml-1">
+                            <svg
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              className="fill-current hover:text-gray-50 text-white h-10 w-10"
+                            >
+                              <path
+                                d="M9.3 8.7a1 1 0 011.4-1.4l4 4a1 1 0 010 1.4l-4 4a1 1 0 01-1.4-1.4l3.29-3.3-3.3-3.3z"
+                                className="py-0.5"
+                              ></path>
+                            </svg>
+                          </button>
+                          <div className="ml-4 relative">
+                            <input
+                              placeholder="Search"
+                              className="bg-white text-gray-800 placeholder-gray-800 rounded-full px-3 pl-8 py-1 focus:outline-none"
+                            />
+                            <div className="absolute top-0">
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                className="fill-current text-gray-800 h-6 w-6 pt-1 pl-2"
+                              >
+                                <path
+                                  d="M16.32 14.9l5.39 5.4a1 1 0 01-1.42 1.4l-5.38-5.38a8 8 0 111.41-1.41zM10 16a6 6 0 100-12 6 6 0 000 12z"
+                                  className="heroicon-ui"
+                                ></path>
+                              </svg>
                             </div>
                           </div>
-                        </>
-                      ) : (
-                        <></>
-                      )}
+                        </div>
+                        <div className="flex items-center">
+                          <button>
+                            <svg
+                              viewBox="0 0 496 512"
+                              className="fill-current hover:text-gray-50 text-white w-6 h-6"
+                            >
+                              <path d="M248 104c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 144c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm0-240C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-49.7 0-95.1-18.3-130.1-48.4 14.9-23 40.4-38.6 69.6-39.5 20.8 6.4 40.6 9.6 60.5 9.6s39.7-3.1 60.5-9.6c29.2 1 54.7 16.5 69.6 39.5-35 30.1-80.4 48.4-130.1 48.4zm162.7-84.1c-24.4-31.4-62.1-51.9-105.1-51.9-10.2 0-26 9.6-57.6 9.6-31.5 0-47.4-9.6-57.6-9.6-42.9 0-80.6 20.5-105.1 51.9C61.9 339.2 48 299.2 48 256c0-110.3 89.7-200 200-200s200 89.7 200 200c0 43.2-13.9 83.2-37.3 115.9z"></path>
+                            </svg>
+                          </button>
+                          <a
+                            href="#"
+                            className="ml-2 hover:underline text-white"
+                          >
+                            Amine
+                          </a>
+                          <button className="ml-4">
+                            <svg
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              className="fill-current hover:text-gray-50 text-white w-6 h-6"
+                            >
+                              <path
+                                d="M15.3 9.3a1 1 0 011.4 1.4l-4 4a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4l3.3 3.29 3.3-3.3z"
+                                className="heroicon-ui"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div className="content-spotify overflow-y-auto">
+                        <div className="container mx-auto">
+                          <h2 className="mt-24 text-5xl font-semibold text-white">
+                            Home
+                          </h2>
+                          <div className="mt-12">
+                            <h3 className="font-semibold text-xl border-b border-gray-900 pb-2 text-white">
+                              Recently Played
+                            </h3>
+                            <div className="flex items-center mt-4 -mx-4">
+                              <div className="w-1/5 px-4">
+                                <div>
+                                  <a href="#">
+                                    <img
+                                      src="https://picsum.photos/200"
+                                      alt="album cover"
+                                    />
+                                  </a>
+                                </div>
+                                <div>
+                                  <a
+                                    href="#"
+                                    className="font-semibold block text-neutral-50 mt-2"
+                                  >
+                                    Acoustic Pop Covers 2019
+                                  </a>
+                                  <div className="text-gray-50 mt-2">
+                                    Amazing Acoustic Covers updated every week.
+                                  </div>
+                                  <div className="uppercase tracking-widest text-xs text-gray-50 mt-2">
+                                    6679 Followers
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="w-1/5 px-4">
+                                <div>
+                                  <a href="#">
+                                    <img
+                                      src="https://picsum.photos/200"
+                                      alt="album cover"
+                                    />
+                                  </a>
+                                </div>
+                                <div>
+                                  <a
+                                    href="#"
+                                    className="font-semibold block text-neutral-50 mt-2"
+                                  >
+                                    Acoustic Pop Covers 2019
+                                  </a>
+                                  <div className="text-gray-50 mt-2">
+                                    Amazing Acoustic Covers updated every week.
+                                  </div>
+                                  <div className="uppercase tracking-widest text-xs text-gray-50 mt-2">
+                                    6679 Followers
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="w-1/5 px-4">
+                                <div>
+                                  <a href="#">
+                                    <img
+                                      src="https://picsum.photos/200"
+                                      alt="album cover"
+                                    />
+                                  </a>
+                                </div>
+                                <div>
+                                  <a
+                                    href="#"
+                                    className="font-semibold block text-neutral-50 mt-2"
+                                  >
+                                    Acoustic Pop Covers 2019
+                                  </a>
+                                  <div className="text-gray-50 mt-2">
+                                    Amazing Acoustic Covers updated every week.
+                                  </div>
+                                  <div className="uppercase tracking-widest text-xs text-gray-50 mt-2">
+                                    6679 Followers
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="w-1/5 px-4">
+                                <div>
+                                  <a href="#">
+                                    <img
+                                      src="https://picsum.photos/200"
+                                      alt="album cover"
+                                    />
+                                  </a>
+                                </div>
+                                <div>
+                                  <a
+                                    href="#"
+                                    className="font-semibold block text-neutral-50 mt-2"
+                                  >
+                                    Acoustic Pop Covers 2019
+                                  </a>
+                                  <div className="text-gray-50 mt-2">
+                                    Amazing Acoustic Covers updated every week.
+                                  </div>
+                                  <div className="uppercase tracking-widest text-xs text-gray-50 mt-2">
+                                    6679 Followers
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="w-1/5 px-4">
+                                <div>
+                                  <a href="#">
+                                    <img
+                                      src="https://picsum.photos/200"
+                                      alt="album cover"
+                                    />
+                                  </a>
+                                </div>
+                                <div>
+                                  <a
+                                    href="#"
+                                    className="font-semibold block text-neutral-50 mt-2"
+                                  >
+                                    Acoustic Pop Covers 2019
+                                  </a>
+                                  <div className="text-gray-50 mt-2">
+                                    Amazing Acoustic Covers updated every week.
+                                  </div>
+                                  <div className="uppercase tracking-widest text-xs text-gray-50 mt-2">
+                                    6679 Followers
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-neutral-800 flex-none h-22 px-5 flex items-center justify-between bottom-0 fixed w-full py-4">
+                    <div className="flex items-center">
+                      <a href="#">
+                        <img
+                          src="https://picsum.photos/200"
+                          alt="album cover"
+                          className="w-14 h-14"
+                        />
+                      </a>
+                      <div className="ml-3">
+                        <div>
+                          <a href="#" className="hover:underline text-white">
+                            Name of Song
+                          </a>
+                        </div>
+                        <div>
+                          <a
+                            href="#"
+                            className="text-xs text-gray-50 hover:underline hover:text-white"
+                          >
+                            Artist Name
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="player-controls flex flex-col justify-center">
+                      <div className="flex justify-center">
+                        <button>
+                          <svg
+                            viewBox="0 0 20 20"
+                            className="fill-current hover:text-gray-50 text-white h-4 w-4"
+                          >
+                            <path d="M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z"></path>
+                          </svg>
+                        </button>
+                        <button className="ml-8">
+                          <svg
+                            viewBox="0 0 20 20"
+                            className="fill-current hover:text-gray-50 text-white h-6 w-6"
+                          >
+                            <path d="M4 5h3v10H4V5zm12 0v10l-9-5 9-5z"></path>
+                          </svg>
+                        </button>
+                        <button className="ml-8">
+                          <svg
+                            viewBox="0 0 20 20"
+                            className="fill-current hover:text-gray-50 text-white h-8 w-8"
+                          >
+                            <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM7 6l8 4-8 4V6z"></path>
+                          </svg>
+                        </button>
+                        <button className="ml-8">
+                          <svg
+                            viewBox="0 0 20 20"
+                            className="fill-current hover:text-gray-50 text-white h-6 w-6"
+                          >
+                            <path d="M13 5h3v10h-3V5zM4 5l9 5-9 5V5z"></path>
+                          </svg>
+                        </button>
+                        <button className="ml-8">
+                          <svg
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            className="fill-current hover:text-gray-50 text-white h-4 w-4"
+                          >
+                            <path d="M5.41 16H18a2 2 0 002-2 1 1 0 012 0 4 4 0 01-4 4H5.41l2.3 2.3a1 1 0 01-1.42 1.4l-4-4a1 1 0 010-1.4l4-4a1 1 0 111.42 1.4L5.4 16zM6 8a2 2 0 00-2 2 1 1 0 01-2 0 4 4 0 014-4h12.59l-2.3-2.3a1 1 0 111.42-1.4l4 4a1 1 0 010 1.4l-4 4a1 1 0 01-1.42-1.4L18.6 8H6z"></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div className="max-w-full mt-3 flex items-center justify-center">
+                        <div className="text-xs text-gray-50">1:20</div>
+                        <div className="bg-gray-50 rounded-lg w-full xl:w-200 h-1 ml-3"></div>
+                        <div className="ml-3 text-xs text-gray-50">3:21</div>
+                      </div>
+                    </div>
+                    <div className="volume-controls flex items-center">
+                      <button>
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          className="fill-current hover:text-gray-50 text-gray-50 h-6 w-6"
+                        >
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"></path>
+                        </svg>
+                      </button>
+                      <button className="ml-4">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          className="fill-current text-gray-50 hover:text-gray-50 h-5 w-5"
+                        >
+                          <path fill="none" d="M0 0h24v24H0z"></path>
+                          <path d="M3 6h18V4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v-2H3V6zm10 6H9v1.78c-.61.55-1 1.33-1 2.22s.39 1.67 1 2.22V20h4v-1.78c.61-.55 1-1.34 1-2.22s-.39-1.67-1-2.22V12zm-2 5.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM22 8h-6c-.5 0-1 .5-1 1v10c0 .5.5 1 1 1h6c.5 0 1-.5 1-1V9c0-.5-.5-1-1-1zm-1 10h-4v-8h4v8z"></path>
+                        </svg>
+                      </button>
+                      <button className="ml-4">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          className="fill-current text-gray-50 hover:text-gray-50 h-5 w-5"
+                        >
+                          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </button>
+                      <div className="bg-white hover:bg-gray-50 rounded-lg w-20 h-1 ml-3"></div>
+                      <button className="ml-4">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          className="fill-current text-white hover:text-gray-50  h-4 w-4"
+                        >
+                          <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
+                        </svg>
+                      </button>
                     </div>
                   </div>
                 </>
               }
-              size="w-[1000px] h-[600px]"
+              size="w-[1400px] h-[800px]"
             />
           </div>
           <Transition
@@ -661,58 +984,16 @@ export default function Home() {
                       <MenuIcon icon="photos" title="Photos" />
                     </div>
                   </div>
-                  <div className="flex justify-center items-center mt-7">
-                    <div className="flex items-center justify-center">
-                      <MenuIcon icon="spotify" title="Spotify" />
-                      <MenuIcon icon="twitter" title="Twitter" />
-                      <MenuIcon icon="settings" title="Settings" />
-                      <MenuIcon icon="mail" title="Mail" />
-                      <MenuIcon icon="xbox" title="Xbox" />
-                      <MenuIcon icon="photos" title="Photos" />
-                    </div>
-                  </div>
-                  <div className="flex justify-center items-center mt-7">
-                    <div className="flex items-center justify-center">
-                      <MenuIcon icon="spotify" title="Spotify" />
-                      <MenuIcon icon="twitter" title="Twitter" />
-                      <MenuIcon icon="settings" title="Settings" />
-                      <MenuIcon icon="mail" title="Mail" />
-                      <MenuIcon icon="xbox" title="Xbox" />
-                      <MenuIcon icon="photos" title="Photos" />
-                    </div>
-                  </div>
-                  <div className="w-[536px] h-[204px] mt-5">
+
+                  <div className="w-[536px] h-[204px] mb-20 bottom-0 fixed">
                     <div className="flex justify-between px-7">
                       <h1 className="text-white/90 font-medium text-sm">
                         Recommanded
                       </h1>
-                      <div className="hidden">
-                        <button className="bg-white px-3 py-1 rounded-lg border-2 border-gray-300">
-                          <div className="inline-flex justify-start items-center">
-                            <span className="text-white/90 font-medium">
-                              More
-                            </span>
-                            <div className="w-[10px] h-[22px] flex justify-center items-center ml-2">
-                              <svg
-                                className="w-3 h-3"
-                                viewBox="0 0 5 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M0.125977 7.4375C0.125977 7.35286 0.156901 7.27962 0.21875 7.21777L3.43164 4L0.21875 0.782227C0.156901 0.720378 0.125977 0.647135 0.125977 0.5625C0.125977 0.477865 0.156901 0.404622 0.21875 0.342773C0.280599 0.280924 0.353841 0.25 0.438477 0.25C0.523112 0.25 0.596354 0.280924 0.658203 0.342773L4.0957 3.78027C4.15755 3.84212 4.18848 3.91536 4.18848 4C4.18848 4.08464 4.15755 4.15788 4.0957 4.21973L0.658203 7.65723C0.596354 7.71908 0.523112 7.75 0.438477 7.75C0.353841 7.75 0.280599 7.71908 0.21875 7.65723C0.156901 7.59538 0.125977 7.52214 0.125977 7.4375Z"
-                                  fill="black"
-                                  fillOpacity="0.6063"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </button>
-                      </div>
                     </div>
-                    <div className="flex justify-between items-center px-7 py-7 space-x-4">
+                    <div className="flex justify-between items-center px-7 py-7 space-x-8 w-full">
                       <div
-                        className="inline-flex space-x-3 items-center hover:bg-white/5 px-3 py-2 rounded-md w-64 transition cursor-pointer"
+                        className="inline-flex space-x-3 items-center hover:bg-white/5 px-3 py-2 rounded-md w-full transition cursor-pointer"
                         onClick={() =>
                           openSpotify
                             ? setOpenSpotify(false)
@@ -729,13 +1010,14 @@ export default function Home() {
                           </p>
                         </div>
                       </div>
+
                       <div
-                        className="inline-flex space-x-3 items-center hover:bg-white/5 px-3 py-2 rounded-md w-64 transition cursor-pointer"
+                        className="inline-flex space-x-3 items-center hover:bg-white/5 px-3 py-2 rounded-md w-full transition cursor-pointer"
                         onClick={() =>
                           openRace ? setOpenRace(false) : setOpenRace(true)
                         }
                       >
-                        <img src={race} className="w-6 h-6 rounded" />
+                        <img src={race} className="w-6 h-6 rounded" alt="" />
                         <div className="flex flex-col">
                           <h1 className="text-white/90 font-medium text-sm">
                             Races
