@@ -179,11 +179,16 @@ const Panel = ({ open }: PanelProps) => {
                 />
               </svg>
             </button>
-
-            <div className="w-[245px] h-1.5 bg-neutral-400/70 dark:bg-neutral-300/50 rounded-lg">
+            <div className="inline-flex items-center">
+              <div className="w-[245px] h-1.5 bg-neutral-400/70 dark:bg-neutral-300/50 rounded-lg">
+                <div
+                  className="h-full bg-sky-400 dark:bg-sky-400 rounded-lg max-w-[245px] relative"
+                  style={{ width: "50%" }}
+                />
+              </div>
               <div
-                className="h-full bg-sky-400 dark:bg-sky-400 rounded-lg max-w-[245px]"
-                style={{ width: "50%" }}
+                className="absolute w-5 h-5 bg-white rounded-full shadow-md cursor-move"
+                style={{ transform: `translateX(599%)` }}
               />
             </div>
           </div>
@@ -203,10 +208,16 @@ const Panel = ({ open }: PanelProps) => {
               </svg>
             </button>
 
-            <div className="w-full h-1.5 bg-neutral-400/70 dark:bg-neutral-300/50 rounded-lg">
+            <div className="inline-flex items-center">
+              <div className="w-[245px] h-1.5 bg-neutral-400/70 dark:bg-neutral-300/50 rounded-lg">
+                <div
+                  className="h-full bg-sky-400 dark:bg-sky-400 rounded-lg max-w-[245px] relative"
+                  style={{ width: "50%" }}
+                />
+              </div>
               <div
-                className="h-full bg-sky-400 dark:bg-sky-400 rounded-lg max-w-[287px]"
-                style={{ width: "50%" }}
+                className="absolute w-5 h-5 bg-white rounded-full shadow-md cursor-move"
+                style={{ transform: `translateX(599%)` }}
               />
             </div>
             <button className="px-2 py-2 rounded-md transition hover:bg-black/5 dark:hover:bg-white/10">

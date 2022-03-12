@@ -291,61 +291,81 @@ export default function Home() {
                             Settings Transmission
                           </h1>
                         </div>
-                        <div className="inline-flex justify-center items-center space-x-2">
+                        <div className="inline-flex items-center space-x-2">
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
+                          <div
+                            className="absolute w-5 h-5 bg-white rounded-full shadow-md cursor-move"
+                            style={{ transform: `translateX(120%)` }}
+                          />
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Brake Force
                         </h1>
 
-                        <div className="inline-flex justify-center items-center space-x-2">
+                        <div className="inline-flex items-center space-x-2">
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
+                          <div
+                            className="absolute w-5 h-5 bg-white rounded-full shadow-md cursor-move"
+                            style={{ transform: `translateX(120%)` }}
+                          />
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Turbo PSI
                         </h1>
 
-                        <div className="inline-flex justify-center items-center space-x-2">
+                        <div className="inline-flex items-center space-x-2">
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
+                          <div
+                            className="absolute w-5 h-5 bg-white rounded-full shadow-md cursor-move"
+                            style={{ transform: `translateX(120%)` }}
+                          />
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Ignition Timing
                         </h1>
 
-                        <div className="inline-flex justify-center items-center space-x-2">
+                        <div className="inline-flex items-center space-x-2">
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
+                          <div
+                            className="absolute w-5 h-5 bg-white rounded-full shadow-md cursor-move"
+                            style={{ transform: `translateX(120%)` }}
+                          />
                         </div>
                         <h1 className="text-white font-medium text-lg">
                           Driver Bias
                         </h1>
 
-                        <div className="inline-flex justify-center items-center space-x-2">
+                        <div className="inline-flex items-center space-x-2">
                           <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
+                          <div
+                            className="absolute w-5 h-5 bg-white rounded-full shadow-md cursor-move"
+                            style={{ transform: `translateX(120%)` }}
+                          />
                         </div>
                       </div>
                     </div>
