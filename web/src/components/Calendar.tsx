@@ -25,7 +25,7 @@ const Calendar = ({ open, openCalendar, onClick }: OpenViewCalendarProps) => {
       leaveTo="opacity-0 duration-500 slide-out-right"
       className={`absolute right-[13px] bottom-[65px] w-[335px] h-[400px] ${
         openCalendar ? "" : "!h-14"
-      } flex flex-col bg-neutral-700/90 border border-neutral-600 backdrop-blur-lg rounded-lg shadow-2xl duration-200 overflow-hidden`}
+      } flex flex-col bg-neutral-900/70 backdrop-blur-2xl border border-neutral-600 rounded-lg shadow-2xl duration-200 overflow-hidden`}
     >
       <div
         className={`${
@@ -43,7 +43,7 @@ const Calendar = ({ open, openCalendar, onClick }: OpenViewCalendarProps) => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
-              className="transform rotate-180 fill-current w-[10px] h-[10px] text-gray-700 dark:text-gray-200"
+              className="transition-all ease-in-out transform rotate-180 fill-current w-[10px] h-[10px] text-gray-700 dark:text-gray-200"
             >
               <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
             </svg>
@@ -60,7 +60,7 @@ const Calendar = ({ open, openCalendar, onClick }: OpenViewCalendarProps) => {
       </div>
       <Transition
         show={openCalendar}
-        enter="transition-opacity ease-in "
+        enter="transition-opacity ease-in"
         enterFrom="opacity-0"
         enterTo="opacity-400"
         leave="transition-opacity ease-out"
@@ -99,36 +99,29 @@ const Calendar = ({ open, openCalendar, onClick }: OpenViewCalendarProps) => {
         {openCalendar ? (
           <div className="flex-grow grid items-center grid-rows-6 grid-cols-7 p-4 gap-2">
             <div className="flex justify-center items-center text-xs text-gray-600 dark:text-gray-100">
-              {" "}
-              Su{" "}
+              Su
             </div>
             <div className="flex justify-center items-center text-xs text-gray-600 dark:text-gray-100">
-              {" "}
-              Mo{" "}
+              Mo
             </div>
             <div className="flex justify-center items-center text-xs text-gray-600 dark:text-gray-100">
-              {" "}
-              Tu{" "}
+              Tu
             </div>
             <div className="flex justify-center items-center text-xs text-gray-600 dark:text-gray-100">
-              {" "}
-              We{" "}
+              We
             </div>
             <div className="flex justify-center items-center text-xs text-gray-600 dark:text-gray-100">
-              {" "}
-              Th{" "}
+              Th
             </div>
             <div className="flex justify-center items-center text-xs text-gray-600 dark:text-gray-100">
-              {" "}
-              Fr{" "}
+              Fr
             </div>
             <div className="flex justify-center items-center text-xs text-gray-600 dark:text-gray-100">
-              {" "}
-              Sa{" "}
+              Sa
             </div>
             {array[0].name.map((i) => (
               <button
-                className={`flex justify-center items-center text-sm rounded-full w-8 h-8 duration-150 text-gray-600 bg-transparent focus:text-white dark:focus:bg-[#d47f6b] focus:bg-[#0067c0] hover:bg-opacity-10 dark:text-gray-300 dark:hover:bg-white dark:hover:bg-opacity-10`}
+                className={`flex justify-center items-center text-sm rounded-full w-8 h-8 duration-150 text-gray-600 bg-transparent focus:text-white dark:focus:bg-sky-400 focus:bg-sky-400 hover:bg-opacity-10 dark:text-gray-300 dark:hover:bg-white dark:hover:bg-opacity-10`}
               >
                 {i}
               </button>

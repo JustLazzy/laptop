@@ -6,7 +6,7 @@ const Icons = ({ icon, className, onClick, action }: IIconProps) => {
       return (
         <div
           onClick={onClick}
-          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md`}
         >
           <svg
             className={className}
@@ -44,7 +44,7 @@ const Icons = ({ icon, className, onClick, action }: IIconProps) => {
       return (
         <div
           onClick={onClick}
-          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md`}
         >
           <svg
             className={className}
@@ -79,7 +79,7 @@ const Icons = ({ icon, className, onClick, action }: IIconProps) => {
     case "teams":
       return (
         <div
-          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md`}
         >
           <svg
             className={className}
@@ -114,7 +114,7 @@ const Icons = ({ icon, className, onClick, action }: IIconProps) => {
     case "edge":
       return (
         <div
-          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md`}
         >
           <svg
             className={className}
@@ -181,7 +181,7 @@ const Icons = ({ icon, className, onClick, action }: IIconProps) => {
       return (
         <div
           onClick={onClick}
-          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+          className={`${action} flex justify-center items-center w-10 h-10 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md`}
         >
           <svg
             className={className}

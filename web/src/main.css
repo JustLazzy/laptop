@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-center bg-cover select-none overflow-hidden bg-[url('./images/wallpaper.jpg')] font-default;
+  @apply bg-center bg-cover select-none overflow-hidden bg-[url('./images/wallpaper6.jpg')] font-default;
 }
 #root {
   @apply flex flex-col min-h-screen;

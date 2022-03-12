@@ -180,11 +180,11 @@ export default function Home() {
                           <div className="inline-flex space-x-2">
                             <button
                               onClick={() => setNitrous(true)}
-                              className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium"
+                              className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium"
                             >
                               Yes
                             </button>
-                            <button className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                            <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
                               No
                             </button>
                           </div>
@@ -250,11 +250,11 @@ export default function Home() {
                                 onClick={() => {
                                   setEnableNos(true);
                                 }}
-                                className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium"
+                                className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium"
                               >
                                 Yes
                               </button>
-                              <button className="py-2 px-14 bg-neutral-800 hover:bg-[#d47f6b] focus:bg-[#d47f6b] focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
+                              <button className="py-2 px-14 bg-neutral-800 hover:bg-sky-400 focus:bg-sky-400 focus:text-black/90 transition duration-300 rounded-md hover:text-black/90 text-white font-medium">
                                 No
                               </button>
                             </div>
@@ -276,9 +276,9 @@ export default function Home() {
                             </h1>
                           </div>
                           <div className="inline-flex justify-center items-center space-x-2">
-                            <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
+                            <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                               <div
-                                className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                                className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                                 style={{ width: "20%" }}
                               />
                             </div>
@@ -292,9 +292,9 @@ export default function Home() {
                           </h1>
                         </div>
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
@@ -304,9 +304,9 @@ export default function Home() {
                         </h1>
 
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
@@ -316,9 +316,9 @@ export default function Home() {
                         </h1>
 
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
@@ -328,9 +328,9 @@ export default function Home() {
                         </h1>
 
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
@@ -340,9 +340,9 @@ export default function Home() {
                         </h1>
 
                         <div className="inline-flex justify-center items-center space-x-2">
-                          <div className="bg-[#d47f6b]/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
                             <div
-                              className="bg-[#d47f6b] max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
+                              className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
                             />
                           </div>
@@ -579,37 +579,97 @@ export default function Home() {
             enterTo="opacity-500 slide-in-bottom"
             leave="transition-all"
             leaveFrom="opacity-500 slide-out-bottom"
-            className="fixed bottom-0 my-16"
             leaveTo="opacity-0 duration-500 slide-out-bottom"
+            className="fixed bottom-0 my-16 w-[642px] h-[726px] bg-neutral-900/70 backdrop-blur-2xl rounded-lg shadow-lg"
           >
-            <div className="w-[642px] h-[726px] bg-neutral-900/80 backdrop-blur-xl rounded-lg shadow-lg">
-              <div className="px-10 py-10">
-                <div className="space-y-8">
-                  <div>
-                    <div className="flex justify-start items-start">
-                      <div className="ml-2">
-                        <Icons
-                          icon="searching"
-                          className="absolute mt-3 w-4 h-4"
-                        />
-                      </div>
+            <div className="px-10 py-10">
+              <div className="space-y-7">
+                <div>
+                  <div className="flex justify-start items-start">
+                    <div className="ml-4">
+                      <Icons
+                        icon="searching"
+                        className="absolute mt-3 w-3.5 h-3.5"
+                      />
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Type here to search"
-                      className="w-full h-10 px-8 py-4 rounded-[0.250rem] bg-neutral-900 text-gray-100 placeholder-gray-100 border-b-[3px] border-r-2 border-r-neutral-800 border-l-2 border-l-neutral-800 border-t-2 border-t-neutral-800 border-b-orange-700 focus:outline-none focus:shadow-outline"
-                    />
                   </div>
-                  <div className="w-[576px] h-[302px]">
-                    <div className="flex justify-between">
-                      <div>
-                        <h1 className="text-white/90 font-medium">Pinned</h1>
-                      </div>
+                  <input
+                    type="text"
+                    placeholder="Type here to search"
+                    className="w-full h-10 px-10 py-4 text-sm rounded-[0.250rem] bg-neutral-900 text-gray-100 placeholder-neutral-400 border-b-[2.5px] border-r-neutral-700/40 border-r-[1px] border-l-[1px] border-l-neutral-700/40 border-t-[1px] border-t-neutral-700/40 border border-b-sky-400 focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+                <div className="w-[576px] h-[302px]">
+                  <div className="flex justify-between px-7">
+                    <div>
+                      <h1 className="text-white/90 font-medium text-sm">
+                        Pinned
+                      </h1>
+                    </div>
+                    <div className="hidden">
+                      <button className="bg-white px-3 py-1 rounded-lg border-2 border-gray-300">
+                        <div className="inline-flex justify-start items-center">
+                          <span className="text-white/90 font-medium">
+                            All apps
+                          </span>
+                          <div className="w-[10px] h-[22px] flex justify-center items-center ml-2">
+                            <svg
+                              className="w-3 h-3"
+                              viewBox="0 0 5 8"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M0.125977 7.4375C0.125977 7.35286 0.156901 7.27962 0.21875 7.21777L3.43164 4L0.21875 0.782227C0.156901 0.720378 0.125977 0.647135 0.125977 0.5625C0.125977 0.477865 0.156901 0.404622 0.21875 0.342773C0.280599 0.280924 0.353841 0.25 0.438477 0.25C0.523112 0.25 0.596354 0.280924 0.658203 0.342773L4.0957 3.78027C4.15755 3.84212 4.18848 3.91536 4.18848 4C4.18848 4.08464 4.15755 4.15788 4.0957 4.21973L0.658203 7.65723C0.596354 7.71908 0.523112 7.75 0.438477 7.75C0.353841 7.75 0.280599 7.71908 0.21875 7.65723C0.156901 7.59538 0.125977 7.52214 0.125977 7.4375Z"
+                                fill="black"
+                                fillOpacity="0.6063"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center mt-7">
+                    <div className="flex items-center justify-center">
+                      <MenuIcon icon="spotify" title="Spotify" />
+                      <MenuIcon icon="twitter" title="Twitter" />
+                      <MenuIcon icon="settings" title="Settings" />
+                      <MenuIcon icon="mail" title="Mail" />
+                      <MenuIcon icon="xbox" title="Xbox" />
+                      <MenuIcon icon="photos" title="Photos" />
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center mt-7">
+                    <div className="flex items-center justify-center">
+                      <MenuIcon icon="spotify" title="Spotify" />
+                      <MenuIcon icon="twitter" title="Twitter" />
+                      <MenuIcon icon="settings" title="Settings" />
+                      <MenuIcon icon="mail" title="Mail" />
+                      <MenuIcon icon="xbox" title="Xbox" />
+                      <MenuIcon icon="photos" title="Photos" />
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center mt-7">
+                    <div className="flex items-center justify-center">
+                      <MenuIcon icon="spotify" title="Spotify" />
+                      <MenuIcon icon="twitter" title="Twitter" />
+                      <MenuIcon icon="settings" title="Settings" />
+                      <MenuIcon icon="mail" title="Mail" />
+                      <MenuIcon icon="xbox" title="Xbox" />
+                      <MenuIcon icon="photos" title="Photos" />
+                    </div>
+                  </div>
+                  <div className="w-[536px] h-[204px] mt-5">
+                    <div className="flex justify-between px-7">
+                      <h1 className="text-white/90 font-medium text-sm">
+                        Recommanded
+                      </h1>
                       <div className="hidden">
                         <button className="bg-white px-3 py-1 rounded-lg border-2 border-gray-300">
                           <div className="inline-flex justify-start items-center">
                             <span className="text-white/90 font-medium">
-                              All apps
+                              More
                             </span>
                             <div className="w-[10px] h-[22px] flex justify-center items-center ml-2">
                               <svg
@@ -629,101 +689,65 @@ export default function Home() {
                         </button>
                       </div>
                     </div>
-                    <div className="flex justify-center items-center mt-10">
-                      <div className="flex items-center justify-center">
-                        <MenuIcon icon="spotify" title="Spotify" />
-                        <MenuIcon icon="twitter" title="Twitter" />
-                        <MenuIcon icon="settings" title="Settings" />
-                        <MenuIcon icon="mail" title="Mail" />
-                        <MenuIcon icon="xbox" title="Xbox" />
-                        <MenuIcon icon="photos" title="Photos" />
-                      </div>
-                    </div>
-                    <div className="flex justify-center items-center mt-7">
-                      <div className="flex items-center justify-center">
-                        <MenuIcon icon="spotify" title="Spotify" />
-                        <MenuIcon icon="twitter" title="Twitter" />
-                        <MenuIcon icon="settings" title="Settings" />
-                        <MenuIcon icon="mail" title="Mail" />
-                        <MenuIcon icon="xbox" title="Xbox" />
-                        <MenuIcon icon="photos" title="Photos" />
-                      </div>
-                    </div>
-                    <div className="flex justify-center items-center mt-7">
-                      <div className="flex items-center justify-center">
-                        <MenuIcon icon="spotify" title="Spotify" />
-                        <MenuIcon icon="twitter" title="Twitter" />
-                        <MenuIcon icon="settings" title="Settings" />
-                        <MenuIcon icon="mail" title="Mail" />
-                        <MenuIcon icon="xbox" title="Xbox" />
-                        <MenuIcon icon="photos" title="Photos" />
-                      </div>
-                    </div>
-                    <div className="w-[536px] h-[204px] mt-5">
-                      <div className="flex justify-between">
-                        <h1 className="text-white/90 font-medium">
-                          Recommanded
-                        </h1>
-                        <div className="hidden">
-                          <button className="bg-white px-3 py-1 rounded-lg border-2 border-gray-300">
-                            <div className="inline-flex justify-start items-center">
-                              <span className="text-white/90 font-medium">
-                                More
-                              </span>
-                              <div className="w-[10px] h-[22px] flex justify-center items-center ml-2">
-                                <svg
-                                  className="w-3 h-3"
-                                  viewBox="0 0 5 8"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M0.125977 7.4375C0.125977 7.35286 0.156901 7.27962 0.21875 7.21777L3.43164 4L0.21875 0.782227C0.156901 0.720378 0.125977 0.647135 0.125977 0.5625C0.125977 0.477865 0.156901 0.404622 0.21875 0.342773C0.280599 0.280924 0.353841 0.25 0.438477 0.25C0.523112 0.25 0.596354 0.280924 0.658203 0.342773L4.0957 3.78027C4.15755 3.84212 4.18848 3.91536 4.18848 4C4.18848 4.08464 4.15755 4.15788 4.0957 4.21973L0.658203 7.65723C0.596354 7.71908 0.523112 7.75 0.438477 7.75C0.353841 7.75 0.280599 7.71908 0.21875 7.65723C0.156901 7.59538 0.125977 7.52214 0.125977 7.4375Z"
-                                    fill="black"
-                                    fillOpacity="0.6063"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                          </button>
+                    <div className="flex justify-between items-center px-7 py-7 space-x-4">
+                      <div
+                        className="inline-flex space-x-3 items-center hover:bg-white/5 px-3 py-2 rounded-md w-64 transition cursor-pointer"
+                        onClick={() =>
+                          openSpotify
+                            ? setOpenSpotify(false)
+                            : setOpenSpotify(true)
+                        }
+                      >
+                        <Icons icon="spotify" className="w-6 h-6" />
+                        <div className="flex flex-col">
+                          <h1 className="text-white/90 font-medium text-sm">
+                            Spotify
+                          </h1>
+                          <p className="text-white/60 font-medium text-xs">
+                            Recently Added
+                          </p>
                         </div>
                       </div>
-                      <div className="flex flex-col justify-start items-start p-[2.95rem]">
-                        <p className="text-sm text-start text-white">
-                          Plus vous utilisez votre appareil, plus nous vous
-                          montrerons de nouvelles applications ici.
-                        </p>
+                      <div
+                        className="inline-flex space-x-3 items-center hover:bg-white/5 px-3 py-2 rounded-md w-64 transition cursor-pointer"
+                        onClick={() =>
+                          openRace ? setOpenRace(false) : setOpenRace(true)
+                        }
+                      >
+                        <img src={race} className="w-6 h-6 rounded" />
+                        <div className="flex flex-col">
+                          <h1 className="text-white/90 font-medium text-sm">
+                            Races
+                          </h1>
+                          <p className="text-white/60 font-medium text-xs">
+                            Recently Added
+                          </p>
+                        </div>
                       </div>
+                    </div>
 
-                      <div className="top-0 -ml-10">
-                        <div className="w-[642px] h-[62px] border-b-transparent border border-l-transparent border-r-transparent border-t-neutral-800/70 rounded-b-lg">
-                          <div className="flex justify-evenly	space-x-60 mt-0.5">
-                            <div className="w-[120px] h-[48px] inline-flex space-x-2 justify-center items-center mt-1 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                              <img
-                                src="https://avatars.githubusercontent.com/u/38817327?v=4"
-                                className="w-8 h-8 rounded-full"
-                                alt="me"
+                    <div className="bottom-0 fixed -ml-10 ">
+                      <div className="w-[642px] h-[62px] border-b-transparent border border-l-transparent border-r-transparent border-t-neutral-800/70 rounded-b-lg">
+                        <div className="flex justify-evenly	space-x-60 mt-1">
+                          <div className="w-[100px] h-[40px] inline-flex space-x-3 justify-center items-center mt-1 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md">
+                            <img
+                              src="https://avatars.githubusercontent.com/u/38817327?v=4"
+                              className="w-8 h-8 rounded-full"
+                              alt="me"
+                            />
+                            <span className="text-white/90 font-medium text-xs">
+                              Amine
+                            </span>
+                          </div>
+                          <div className="flex justify-center items-center">
+                            <div
+                              onClick={() => fetchNui("hideFrame")}
+                              className="w-10 h-10 flex justify-center items-center hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md"
+                            >
+                              <Icons
+                                icon="poweroff"
+                                className="w-4 h-4 text-white"
                               />
-                              <span className="text-white/90 font-medium">
-                                Amine
-                              </span>
-                            </div>
-                            <div className="flex justify-center items-center">
-                              <div
-                                onClick={() => fetchNui("hideFrame")}
-                                className="w-10 h-10 flex justify-center items-center hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md"
-                              >
-                                <Icons
-                                  icon="poweroff"
-                                  className="w-5 h-5 text-white"
-                                />
-                              </div>
-                              <div className="w-10 h-10 flex justify-center items-center hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md">
-                                <Icons
-                                  icon="setting"
-                                  className="w-5 h-5 text-white"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -773,7 +797,7 @@ export default function Home() {
         />
 
         <Panel open={openPanel} />
-        <div className="bg-neutral-900/80 backdrop-blur-xl py-1 sticky bottom-0 z-50">
+        <div className="bg-neutral-900/70 backdrop-blur-2xl py-1 sticky bottom-0 z-50">
           <div className="flex justify-between items-center">
             <div className="flex justify-center items-center m-auto space-x-2">
               {startMenu ? (
@@ -782,7 +806,7 @@ export default function Home() {
                     icon="start"
                     className="w-6 h-6 hover:scale-[0.80] hover:transition hover:transform ease-in-out duration-300"
                     onClick={() => setStartMenu(false)}
-                    action={startMenu ? "bg-white/10" : ""}
+                    action={startMenu ? "bg-white/5" : ""}
                   />
                 </>
               ) : (
@@ -828,8 +852,8 @@ export default function Home() {
                 <div
                   onClick={() => setOpenPanel(false)}
                   className={`${
-                    openPanel ? "bg-white/10" : ""
-                  } flex justify-end items-center w-20 h-10 px-2 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md`}
+                    openPanel ? "bg-white/5" : ""
+                  } flex justify-end items-center w-20 h-10 px-2 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md`}
                 >
                   <svg
                     className="w-20 h-10"
@@ -854,7 +878,7 @@ export default function Home() {
               ) : (
                 <div
                   onClick={() => setOpenPanel(true)}
-                  className="flex justify-end items-center w-20 h-10 px-2 hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md"
+                  className="flex justify-end items-center w-20 h-10 px-2 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md"
                 >
                   <svg
                     className="w-20 h-10"
@@ -880,8 +904,8 @@ export default function Home() {
               {openCalendar ? (
                 <div
                   className={`${
-                    openCalendar ? "bg-white/10" : ""
-                  } flex flex-col hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md px-1.5 py-1.5`}
+                    openCalendar ? "bg-white/5" : ""
+                  } flex flex-col hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md px-1.5 py-1.5`}
                   onClick={() => setOpenCalendar(false)}
                 >
                   <span className="text-xs text-right text-white">{time}</span>
@@ -890,8 +914,8 @@ export default function Home() {
               ) : (
                 <div
                   className={`${
-                    openCalendar ? "bg-white/10" : ""
-                  } flex flex-col hover:bg-white/10 transition-colors ease-in-out duration-150 rounded-md px-1.5 py-1.5`}
+                    openCalendar ? "bg-white/5" : ""
+                  } flex flex-col hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md px-1.5 py-1.5`}
                   onClick={() => setOpenCalendar(true)}
                 >
                   <span className="text-xs text-right text-white">{time}</span>
