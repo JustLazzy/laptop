@@ -53,7 +53,7 @@ const Panel = ({ open }: PanelProps) => {
                   </div>
                 </div>
               </button>
-              <span className="text-center text-black dark:text-white font-normal text-sm">
+              <span className="text-center text-black dark:text-white font-normal text-xs">
                 WIFI
               </span>
             </div>
@@ -79,7 +79,7 @@ const Panel = ({ open }: PanelProps) => {
                   </div>
                 </div>
               </button>
-              <span className="text-center text-black dark:text-white font-normal text-sm">
+              <span className="text-center text-black dark:text-white font-normal text-xs">
                 Bluetooth
               </span>
             </div>
@@ -105,7 +105,7 @@ const Panel = ({ open }: PanelProps) => {
                   </div>
                 </div>
               </button>
-              <span className="text-center text-black dark:text-white font-normal text-sm">
+              <span className="text-center text-black dark:text-white font-normal text-xs">
                 Airplane mode
               </span>
             </div>
@@ -133,7 +133,7 @@ const Panel = ({ open }: PanelProps) => {
                   </div>
                 </div>
               </button>
-              <span className="text-center text-black dark:text-white font-normal text-sm">
+              <span className="text-center text-black dark:text-white font-normal text-xs">
                 Night light
               </span>
             </div>
@@ -159,7 +159,7 @@ const Panel = ({ open }: PanelProps) => {
                   </div>
                 </div>
               </button>
-              <span className="text-center text-black dark:text-white font-normal text-sm">
+              <span className="text-center text-black dark:text-white font-normal text-xs">
                 Mobile hostpot
               </span>
             </div>
