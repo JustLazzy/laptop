@@ -11,6 +11,7 @@ const Window = ({
   opened,
   isSvg,
   size,
+  isTitle,
 }: WindowProps) => {
   return (
     <Transition
@@ -26,21 +27,34 @@ const Window = ({
         <div
           className={`group ${size} bg-neutral-900 shadow-lg border border-neutral-800 rounded-md z-20`}
         >
-          <div className="bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10">
-            <div className="flex items-center justify-between mb-2">
-              <div className="inline-flex space-x-2 items-center">
-                {isSvg ? (
-                  <Icons icon={image} className="w-5 h-5 mr-2" />
-                ) : (
-                  <img src={image} className="w-6 h-6 rounded-md" alt="" />
-                )}
+          <div
+            className={
+              isTitle
+                ? `bg-neutral-900 rounded-tl-md rounded-tr-md px-2 py-2 h-10`
+                : `rounded-tl-md rounded-tr-md`
+            }
+          >
+            <div
+              className={`flex items-center ${
+                isTitle ? "justify-between" : "justify-end"
+              } mb-2`}
+            >
+              {isTitle && (
+                <>
+                  <div className="inline-flex space-x-2 items-center">
+                    {isSvg ? (
+                      <Icons icon={image} className="w-5 h-5 mr-2" />
+                    ) : (
+                      <img src={image} className="w-6 h-6 rounded-md" alt="" />
+                    )}
+                    <h1 className="text-[#F1F1F1]">{title}</h1>
+                  </div>
+                </>
+              )}
 
-                <h1 className="text-[#F1F1F1]">{title}</h1>
-              </div>
               {opened}
             </div>
           </div>
-
           {children}
         </div>
       </Draggable>

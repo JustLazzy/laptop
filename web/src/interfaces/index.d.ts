@@ -33,6 +33,7 @@ export interface WindowProps {
   title: string;
   isSvg?: boolean;
   size: string;
+  isTitle: boolean;
   opened: ReactNode;
   children: ReactNode;
 }

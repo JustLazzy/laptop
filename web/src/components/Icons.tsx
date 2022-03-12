@@ -2,6 +2,250 @@ import { IIconProps } from "../interfaces";
 
 const Icons = ({ icon, className, onClick, action }: IIconProps) => {
   switch (icon) {
+    case "dot":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 12C6 13.1046 5.10457 14 4 14C2.89543 14 2 13.1046 2 12C2 10.8954 2.89543 10 4 10C5.10457 10 6 10.8954 6 12Z"
+            fill="currentColor"
+          />
+          <path
+            d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+            fill="currentColor"
+          />
+          <path
+            d="M22 12C22 13.1046 21.1046 14 20 14C18.8954 14 18 13.1046 18 12C18 10.8954 18.8954 10 20 10C21.1046 10 22 10.8954 22 12Z"
+            fill="currentColor"
+          />
+        </svg>
+      );
+    case "dislike":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 15.75C12.7279 15.75 15.75 12.7279 15.75 9C15.75 5.27208 12.7279 2.25 9 2.25C5.27208 2.25 2.25 5.27208 2.25 9C2.25 12.7279 5.27208 15.75 9 15.75Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.27502 4.27502L13.725 13.725"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      );
+    case "hearts":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.625 10.179L8.99998 15.75L3.37498 10.179C3.00396 9.81797 2.71171 9.38402 2.51664 8.90449C2.32157 8.42495 2.2279 7.91022 2.24153 7.39271C2.25517 6.8752 2.3758 6.36611 2.59585 5.89751C2.8159 5.42891 3.13058 5.01095 3.5201 4.66995C3.90961 4.32894 4.36551 4.07228 4.85909 3.91612C5.35267 3.75997 5.87324 3.7077 6.38801 3.76261C6.90278 3.81752 7.40061 3.97843 7.85014 4.23519C8.29967 4.49195 8.69117 4.83901 8.99998 5.25451C9.31013 4.84203 9.70208 4.498 10.1513 4.24396C10.6005 3.98993 11.0974 3.83135 11.6107 3.77815C12.124 3.72495 12.6428 3.77828 13.1346 3.9348C13.6263 4.09132 14.0805 4.34767 14.4686 4.68778C14.8568 5.0279 15.1706 5.44447 15.3903 5.91143C15.61 6.37839 15.731 6.88567 15.7457 7.40154C15.7604 7.91741 15.6684 8.43076 15.4756 8.90945C15.2827 9.38814 14.9932 9.82188 14.625 10.1835"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      );
+    case "playedSong":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 42 42"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="21.0001" cy="21" r="16.9615" fill="white" />
+          <g clip-path="url(#clip0_11_2023)">
+            <path
+              d="M18.5769 15.3462H16.9615C16.5154 15.3462 16.1538 15.7078 16.1538 16.1539V25.8462C16.1538 26.2923 16.5154 26.6539 16.9615 26.6539H18.5769C19.023 26.6539 19.3846 26.2923 19.3846 25.8462V16.1539C19.3846 15.7078 19.023 15.3462 18.5769 15.3462Z"
+              fill="#2C2C2C"
+            />
+            <path
+              d="M25.0384 15.3462H23.423C22.977 15.3462 22.6153 15.7078 22.6153 16.1539V25.8462C22.6153 26.2923 22.977 26.6539 23.423 26.6539H25.0384C25.4845 26.6539 25.8461 26.2923 25.8461 25.8462V16.1539C25.8461 15.7078 25.4845 15.3462 25.0384 15.3462Z"
+              fill="#2C2C2C"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_11_2023">
+              <rect
+                width="19.3846"
+                height="19.3846"
+                fill="white"
+                transform="translate(11.3076 11.3077)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+      );
+    case "shuffle":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2H15.75M15.75 2V5.75M15.75 2L3 14.75M15.75 11.75V15.5M15.75 15.5H12M15.75 15.5L11.25 11M3 2.75L6.75 6.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      );
+    case "nexts":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 4V14.5L13 9.25L4 4Z"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M14 4V14.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      );
+    case "repeat":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9V6.75C3 6.15326 3.23705 5.58097 3.65901 5.15901C4.08097 4.73705 4.65326 4.5 5.25 4.5H15M15 4.5L12.75 2.25M15 4.5L12.75 6.75M15 9V11.25C15 11.8467 14.7629 12.419 14.341 12.841C13.919 13.2629 13.3467 13.5 12.75 13.5H3M3 13.5L5.25 15.75M3 13.5L5.25 11.25"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      );
+    case "sounds":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.25 6C11.7157 6.3493 12.0937 6.80224 12.3541 7.32295C12.6145 7.84366 12.75 8.41783 12.75 9C12.75 9.58217 12.6145 10.1563 12.3541 10.6771C12.0937 11.1978 11.7157 11.6507 11.25 12"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.5 11.25H3C2.80109 11.25 2.61032 11.171 2.46967 11.0303C2.32902 10.8897 2.25 10.6989 2.25 10.5V7.49998C2.25 7.30107 2.32902 7.1103 2.46967 6.96965C2.61032 6.829 2.80109 6.74998 3 6.74998H4.5L7.125 3.37498C7.19055 3.24765 7.29949 3.14797 7.43212 3.09395C7.56475 3.03993 7.71233 3.03512 7.84819 3.08041C7.98405 3.1257 8.09923 3.21809 8.17292 3.34088C8.24662 3.46368 8.27395 3.60879 8.25 3.74998V14.25C8.27395 14.3912 8.24662 14.5363 8.17292 14.6591C8.09923 14.7819 7.98405 14.8743 7.84819 14.9195C7.71233 14.9648 7.56475 14.96 7.43212 14.906C7.29949 14.852 7.19055 14.7523 7.125 14.625L4.5 11.25Z"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      );
+    case "devices":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.5 3H1.5V12H7.5M3.5 15H7.5M9.5 3V15H16.5V3H9.5Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M14.5 11C14.5 11.8284 13.8284 12.5 13 12.5C12.1716 12.5 11.5 11.8284 11.5 11C11.5 10.1716 12.1716 9.5 13 9.5C13.8284 9.5 14.5 10.1716 14.5 11ZM13.5 6C13.5 6.27614 13.2761 6.5 13 6.5C12.7239 6.5 12.5 6.27614 12.5 6C12.5 5.72386 12.7239 5.5 13 5.5C13.2761 5.5 13.5 5.72386 13.5 6Z"
+            stroke="currentColor"
+          />
+        </svg>
+      );
+    case "lists":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M2.5 7.5V3.5L6 5.5L2.5 7.5Z" fill="currentColor" />
+          <path
+            d="M8.5 6.5H16.5M16.5 10.5H1.5M1.5 14.5H16.5M2.5 3.5V7.5L6 5.5L2.5 3.5Z"
+            stroke="currentColor"
+            stroke-linejoin="round"
+          />
+        </svg>
+      );
+    case "microphone":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.5863 8.86586C13.4817 10.779 11.0354 11.4345 9.12221 10.33C7.9642 9.66139 7.26663 8.5016 7.14172 7.26379C7.06043 6.45828 7.22199 5.62124 7.65811 4.86586C8.76268 2.95269 11.209 2.29719 13.1222 3.40176C15.0354 4.50633 15.6909 6.95269 14.5863 8.86586Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M7.3501 8.72949L4.8501 14.2295L7.66468 15.8545L11.4254 11.0106"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M14.5863 8.86586C13.4817 10.779 11.0354 11.4345 9.12221 10.33C7.9642 9.66139 7.26663 8.5016 7.14172 7.26379C7.06043 6.45828 7.22199 5.62124 7.65811 4.86586C8.76268 2.95269 11.209 2.29719 13.1222 3.40176C15.0354 4.50633 15.6909 6.95269 14.5863 8.86586Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M7.3501 8.72949L4.8501 14.2295L7.66468 15.8545L11.4254 11.0106"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      );
     case "next":
       return (
         <svg
