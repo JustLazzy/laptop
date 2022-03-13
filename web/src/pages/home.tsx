@@ -16,6 +16,7 @@ import Calendar from "../components/Calendar";
 import MenuIcon from "../components/MenuIcon";
 import TaskOpen from "../components/TaskOpen";
 import OpenApp from "../components/OpenApp";
+import Notification from "../components/Notification";
 import Icons from "../components/Icons";
 
 import tunerCars from "../images/app/nfs.jpg";
@@ -49,6 +50,7 @@ export default function Home() {
   const [openRace, setOpenRace] = useState(false);
   const [openSpotify, setOpenSpotify] = useState(false);
   const [startWindows, setStartWindows] = useState(true);
+  const [openNotification, setOpenNotification] = useState(true);
   const time = format(new Date(), "HH:mm");
   const date = format(new Date(), "dd/MM/yyyy");
 
@@ -92,6 +94,20 @@ export default function Home() {
 
   return (
     <>
+      <div className="flex justify-end">
+        <div className="flex flex-col space-y-2 bottom-14 absolute right-2">
+          <Notification
+            message="hello there"
+            type=""
+            titleHeader="Tuner Mode"
+            open={openNotification}
+            onClick={() => setOpenNotification(false)}
+            isSvg={false}
+            icon={tunerCars}
+            title="test"
+          />
+        </div>
+      </div>
       <div className="flex flex-col justify-between">
         <main className="flex justify-center min-h-screen items-center w-full h-full">
           <Transition
@@ -202,7 +218,7 @@ export default function Home() {
                         >
                           <div className="inline-flex space-x-2">
                             <div className="flex flex-col space-y-1 justify-center items-center">
-                              <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
+                              <button className="hover:bg-white/5 py-2 px-3 transition-colors rounded-lg">
                                 <img
                                   src={nitrousOn}
                                   className="w-10 h-10"
@@ -214,7 +230,7 @@ export default function Home() {
                               </button>
                             </div>
                             <div className="flex flex-col space-y-1 justify-center items-center">
-                              <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
+                              <button className="hover:bg-white/5 py-2 px-3 transition-colors rounded-lg">
                                 <img
                                   src={nitrousOn}
                                   className="w-10 h-10"
@@ -226,7 +242,7 @@ export default function Home() {
                               </button>
                             </div>
                             <div className="flex flex-col space-y-1 justify-center items-center">
-                              <button className="hover:bg-white/20 py-2 px-3 transition-colors rounded-lg">
+                              <button className="hover:bg-white/5 py-2 px-3 transition-colors rounded-lg">
                                 <img
                                   src={nitrousOn}
                                   className="w-10 h-10"
@@ -446,28 +462,48 @@ export default function Home() {
                 <>
                   <div className="w-56 h-[720px] bg-black px-4 py-2">
                     <Icons icon="dot" className="w-8 h-8 text-white" />
-                    <div className="mt-5 pr-1">
-                      <div className="flex flex-col space-y-1">
+                    <div className="mt-5 pr-1 px-5">
+                      <div className="flex flex-col items-start justify-center space-y-3">
                         <a
-                          href=""
-                          className="hover:bg-[#282828] text-white px-20 py-3 rounded-md transition duration-200"
+                          href="#"
+                          className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
                         >
-                          Home
+                          <Icons icon="home" className="w-6 h-7" />
+                          <span>Home</span>
                         </a>
                         <a
-                          href=""
-                          className="hover:bg-[#282828] text-white px-20 py-3 rounded-md transition duration-200"
+                          href="#"
+                          className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
                         >
-                          Home
+                          <Icons icon="searchSong" className="w-6 h-7" />
+                          <span>Search</span>
                         </a>
                         <a
-                          href=""
-                          className="hover:bg-[#282828] text-white px-20 py-3 rounded-md transition duration-200"
+                          href="#"
+                          className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
                         >
-                          Home
+                          <Icons icon="library" className="w-6 h-7" />
+                          <span>Your Library</span>
                         </a>
                       </div>
                     </div>
+                    <div className="mt-7 px-5 space-y-2">
+                      <a
+                        href="#"
+                        className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
+                      >
+                        <Icons icon="create" className="w-6 h-7" />
+                        <span>Create Playlist</span>
+                      </a>
+                      <a
+                        href="#"
+                        className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
+                      >
+                        <Icons icon="loveSong" className="w-6 h-7" />
+                        <span>Liked Songs</span>
+                      </a>
+                    </div>
+                    <div className="w-full bg-neutral-800 h-[1px] mt-3"></div>
                   </div>
                   <div className="bg-neutral-800 flex-none h-22 px-5 flex items-center justify-between bottom-0 fixed w-full py-4">
                     <div className="flex items-center space-x-4">
@@ -496,11 +532,11 @@ export default function Home() {
                       <div className=" inline-flex space-x-2">
                         <Icons
                           icon="hearts"
-                          className="text-[#999999] w-5 h-5"
+                          className="text-[#999999] hover:text-white transition w-5 h-5"
                         />
                         <Icons
                           icon="dislike"
-                          className="text-[#999999] w-5 h-5"
+                          className="text-[#999999] hover:text-white transition w-5 h-5"
                         />
                       </div>
                     </div>
@@ -509,31 +545,31 @@ export default function Home() {
                         <button>
                           <Icons
                             icon="shuffle"
-                            className="h-5 w-5 text-[#999999] rotate-180"
+                            className="h-5 w-5 text-[#999999] hover:text-white transition rotate-180"
                           />
                         </button>
                         <button className="ml-8">
                           <Icons
                             icon="nexts"
-                            className="h-5 w-5 text-[#999999] rotate-180"
+                            className="h-5 w-5 text-[#999999] hover:text-white transition rotate-180"
                           />
                         </button>
                         <button className="ml-8">
                           <Icons
                             icon="playedSong"
-                            className="h-10 w-10 rotate-180"
+                            className="h-10 w-10 rotate-180 transform hover:scale-105 transition"
                           />
                         </button>
                         <button className="ml-8">
                           <Icons
                             icon="nexts"
-                            className="h-5 w-5 text-[#999999]"
+                            className="h-5 w-5 text-[#999999] hover:text-white transition"
                           />
                         </button>
                         <button className="ml-8">
                           <Icons
                             icon="repeat"
-                            className="h-5 w-5 text-[#999999]"
+                            className="h-5 w-5 text-[#999999] hover:text-white transition"
                           />
                         </button>
                       </div>
@@ -552,25 +588,25 @@ export default function Home() {
                       <button>
                         <Icons
                           icon="microphone"
-                          className="h-5 w-5 text-[#999999]"
+                          className="h-5 w-5 text-[#999999] hover:text-white transition"
                         />
                       </button>
                       <button className="ml-4">
                         <Icons
                           icon="lists"
-                          className="h-5 w-5 text-[#999999]"
+                          className="h-5 w-5 text-[#999999] hover:text-white transition"
                         />
                       </button>
                       <button className="ml-4">
                         <Icons
                           icon="devices"
-                          className="h-5 w-5 text-[#999999]"
+                          className="h-5 w-5 text-[#999999] hover:text-white transition"
                         />
                       </button>
                       <button className="ml-4">
                         <Icons
                           icon="sounds"
-                          className="h-5 w-5 text-[#999999]"
+                          className="h-5 w-5 text-[#999999] hover:text-white transition"
                         />
                       </button>
                       <div className="bg-[#535353] rounded-lg w-20 h-1 ml-3">
@@ -589,7 +625,7 @@ export default function Home() {
                           stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          className="fill-current text-[#999999] hover:text-gray-50  h-4 w-4"
+                          className="fill-current text-[#999999] hover:text-white transition h-4 w-4"
                         >
                           <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
                         </svg>
@@ -747,7 +783,6 @@ export default function Home() {
             </div>
           </Transition>
         </main>
-
         <div className="absolute px-2 py-2">
           <OpenApp
             onClick={() => {
@@ -783,7 +818,6 @@ export default function Home() {
               : setOpenViewCalendar(true)
           }
         />
-
         <Panel open={openPanel} />
         <CurrentPlaying open={openPanel} />
         <div className="bg-neutral-900/70 backdrop-blur-2xl py-1 sticky bottom-0 z-50">

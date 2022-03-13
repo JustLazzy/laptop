@@ -44,3 +44,13 @@ export interface IIconProps {
   onClick?: () => void;
   action?: string;
 }
+export interface NotificationProps {
+  message: string;
+  type: string;
+  open: boolean;
+  isSvg: boolean;
+  titleHeader: string;
+  title: string;
+  icon: string;
+  onClick: () => void;
+}

@@ -2,6 +2,106 @@ import { IIconProps } from "../interfaces";
 
 const Icons = ({ icon, className, onClick, action }: IIconProps) => {
   switch (icon) {
+    case "loveSong":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 2C0 0.89543 0.895431 0 2 0H22C23.1046 0 24 0.895431 24 2V22C24 23.1046 23.1046 24 22 24H2C0.89543 24 0 23.1046 0 22V2Z"
+            fill="url(#paint0_linear_302_322)"
+          />
+          <path
+            d="M0 2C0 0.89543 0.895431 0 2 0H22C23.1046 0 24 0.895431 24 2V22C24 23.1046 23.1046 24 22 24H2C0.89543 24 0 23.1046 0 22V2Z"
+            fill="black"
+            fill-opacity="0.19"
+          />
+          <path
+            d="M7.84012 12.3608C7.56543 12.0602 7.34906 11.6988 7.20464 11.2995C7.06022 10.9001 6.99087 10.4715 7.00096 10.0405C7.01106 9.60959 7.10037 9.18566 7.26328 8.79543C7.42619 8.40521 7.65918 8.05716 7.94756 7.77319C8.23593 7.48922 8.57346 7.27549 8.93889 7.14545C9.30431 7.01541 9.68972 6.97189 10.0708 7.01762C10.4519 7.06335 10.8205 7.19734 11.1533 7.41115C11.4861 7.62497 11.776 7.91398 12.0046 8.25998C12.2342 7.91649 12.5244 7.63001 12.857 7.41846C13.1896 7.20691 13.5574 7.07486 13.9375 7.03056C14.3175 6.98626 14.7016 7.03067 15.0657 7.16101C15.4298 7.29135 15.766 7.50482 16.0534 7.78804C16.3408 8.07127 16.5731 8.41817 16.7357 8.80702C16.8984 9.19588 16.988 9.61831 16.9989 10.0479C17.0097 10.4775 16.9417 10.905 16.7989 11.3036C16.6561 11.7022 16.4417 12.0634 16.1691 12.3646"
+            fill="white"
+          />
+          <path
+            d="M7.8329 12.3087L11.2501 16.1523C11.6478 16.5997 12.347 16.5997 12.7448 16.1523L16.1619 12.3087H7.8329Z"
+            fill="white"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_302_322"
+              x1="-4"
+              y1="-5"
+              x2="24"
+              y2="24"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#5220F2" />
+              <stop offset="1" stop-color="#BCE0DA" />
+            </linearGradient>
+          </defs>
+        </svg>
+      );
+    case "create":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M2 0C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.89543 24 2 24H22C23.1046 24 24 23.1046 24 22V2C24 0.895431 23.1046 0 22 0H2ZM12.7273 8H11.2727V11.2727H8V12.7273H11.2727V16H12.7273V12.7273H16V11.2727H12.7273V8Z"
+            fill="currentColor"
+          />
+        </svg>
+      );
+    case "library":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 21.7991L2 3M6.99104 21.7991L6.99104 3M11.9821 21.7991L11.9821 3M22 22L15.3453 4.19035"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      );
+    case "searchSong":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.5925 17.6418C18.5056 16.0139 19.7194 13.5864 19.7194 10.875C19.7194 5.97345 15.7528 2 10.8597 2C5.96663 2 2 5.97345 2 10.875C2 15.7765 5.96663 19.7499 10.8597 19.7499C13.046 19.7499 15.0473 18.9567 16.5925 17.6418ZM16.5925 17.6418L22 23"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      );
+    case "home":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2L3 7.35897V21H10V14.1795H14V21H21V7.35897L12 2Z"
+            stroke="currentColor"
+          />
+        </svg>
+      );
     case "dot":
       return (
         <svg
