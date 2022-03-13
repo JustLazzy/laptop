@@ -2,6 +2,39 @@ import { IIconProps } from "../interfaces";
 
 const Icons = ({ icon, className, onClick, action }: IIconProps) => {
   switch (icon) {
+    case "rectangle":
+      return (
+        <>
+          <svg
+            className={className}
+            viewBox="0 0 6 4"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="0.05"
+              y="0.05"
+              width="5.9"
+              height="3.9"
+              stroke="white"
+              stroke-width="0.1"
+            />
+          </svg>
+        </>
+      );
+    case "horizontal-line":
+      return (
+        <svg
+          className={className}
+          width="12"
+          height="1"
+          viewBox="0 0 12 1"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="12" height="1" rx="0.5" fill="currentColor" />
+        </svg>
+      );
     case "loveSong":
       return (
         <svg

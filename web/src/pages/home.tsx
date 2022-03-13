@@ -294,7 +294,7 @@ export default function Home() {
                             </h1>
                           </div>
                           <div className="inline-flex justify-center items-center space-x-2">
-                            <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                            <div className="bg-neutral-600/40 w-64 h-2.5 rounded-lg">
                               <div
                                 className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                                 style={{ width: "20%" }}
@@ -310,7 +310,7 @@ export default function Home() {
                           </h1>
                         </div>
                         <div className="inline-flex items-center space-x-2">
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-neutral-600/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
@@ -326,7 +326,7 @@ export default function Home() {
                         </h1>
 
                         <div className="inline-flex items-center space-x-2">
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-neutral-600/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
@@ -342,7 +342,7 @@ export default function Home() {
                         </h1>
 
                         <div className="inline-flex items-center space-x-2">
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-neutral-600/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
@@ -358,7 +358,7 @@ export default function Home() {
                         </h1>
 
                         <div className="inline-flex items-center space-x-2">
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-neutral-600/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
@@ -374,7 +374,7 @@ export default function Home() {
                         </h1>
 
                         <div className="inline-flex items-center space-x-2">
-                          <div className="bg-sky-400/40 w-64 h-2.5 rounded-lg">
+                          <div className="bg-neutral-600/40 w-64 h-2.5 rounded-lg">
                             <div
                               className="bg-sky-400 max-w-[16rem] rounded-lg h-2.5 transition duration-300 ease-in-out"
                               style={{ width: "20%" }}
@@ -434,14 +434,14 @@ export default function Home() {
               isSvg={true}
               isTitle={false}
               opened={
-                <div className="flex items-center justify-center">
+                <>
                   <div
-                    className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer w-10 absolute right-1 top-1"
+                    className="p-2 hover:bg-red-600 transition-colors rounded-tr-md px-6 cursor-pointer w-16 absolute right-0 top-0"
                     onClick={() => setOpenSpotify(false)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="h-5 w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -455,13 +455,27 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                </div>
+                  <div
+                    className="p-2 hover:bg-neutral-600/80 transition-colors px-6 cursor-pointer w-16 absolute right-16 top-0"
+                    onClick={() => setOpenSpotify(false)}
+                  >
+                    <Icons icon="rectangle" className="text-white w-3 h-5" />
+                  </div>
+                  <div
+                    className="p-2 hover:bg-neutral-600/80 transition-colors px-[26px] cursor-pointer w-16 absolute right-32 top-0 py-[17px]"
+                    onClick={() => setOpenSpotify(false)}
+                  >
+                    <Icons icon="horizontal-line" className="text-white" />
+                  </div>
+                </>
               }
               title="Spotify"
               children={
                 <>
-                  <div className="w-56 h-[720px] bg-black px-4 py-2">
-                    <Icons icon="dot" className="w-8 h-8 text-white" />
+                  <div className="w-56 h-[720px] bg-black py-2 rounded-tl-lg">
+                    <div className="px-5">
+                      <Icons icon="dot" className="w-8 h-8 text-white" />
+                    </div>
                     <div className="mt-5 pr-1 px-5">
                       <div className="flex flex-col items-start justify-center space-y-3">
                         <a
@@ -504,6 +518,44 @@ export default function Home() {
                       </a>
                     </div>
                     <div className="w-full bg-neutral-800 h-[1px] mt-3"></div>
+                    <div className="h-[400px] overflow-auto mt-6">
+                      <div className="flex flex-col space-y-3 items-start px-5 py-5">
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
+                          (item) => (
+                            <a
+                              href="#"
+                              className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
+                            >
+                              <span>Playlist ({item})</span>
+                            </a>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <div className="absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 space-y-6">
+                      <h1 className="text-white font-bold text-3xl">
+                        Good evening
+                      </h1>
+                      <div className="grid grid-cols-3 gap-4">
+                        {[1, 2, 3, 4, 5, 6].map((item) => (
+                          <>
+                            <div className="bg-neutral-700/60 hover:bg-neutral-700/70 transition w-72 rounded-lg h-20">
+                              <div className="inline-flex space-x-5 items-center h-20">
+                                <img
+                                  src="https://picsum.photos/200"
+                                  className="w-20 bg-auto rounded-tl-lg rounded-bl-lg"
+                                />
+                                <span className="text-white font-medium text-md">
+                                  Playlist
+                                </span>
+                              </div>
+                            </div>
+                          </>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                   <div className="bg-neutral-800 flex-none h-22 px-5 flex items-center justify-between bottom-0 fixed w-full py-4">
                     <div className="flex items-center space-x-4">
@@ -529,7 +581,7 @@ export default function Home() {
                           </a>
                         </div>
                       </div>
-                      <div className=" inline-flex space-x-2">
+                      <div className="inline-flex space-x-2">
                         <Icons
                           icon="hearts"
                           className="text-[#999999] hover:text-white transition w-5 h-5"
@@ -540,7 +592,7 @@ export default function Home() {
                         />
                       </div>
                     </div>
-                    <div className="player-controls flex flex-col justify-center">
+                    <div className="flex flex-col justify-center">
                       <div className="flex justify-center">
                         <button>
                           <Icons

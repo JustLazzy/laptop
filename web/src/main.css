@@ -9,7 +9,7 @@ body {
   @apply flex flex-col min-h-screen;
 }
 ::-webkit-scrollbar {
-  @apply hidden;
+  @apply bg-transparent px-2;
 }
 ::-webkit-scrollbar-button {
   @apply hidden;
@@ -21,10 +21,7 @@ body {
   @apply hidden;
 }
 ::-webkit-scrollbar-thumb {
-  @apply hidden;
-}
-::-webkit-scrollbar-corner {
-  @apply hidden;
+  @apply bg-neutral-600;
 }
 .scale-out-bottom {
   -webkit-animation: scale-out-bottom 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53)

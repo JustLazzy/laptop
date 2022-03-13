@@ -37,7 +37,7 @@ const Window = ({
             <div
               className={`flex items-center ${
                 isTitle ? "justify-between" : "justify-end"
-              } mb-2`}
+              }`}
             >
               {isTitle && (
                 <>
