@@ -569,7 +569,86 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                      <div className="fixed right-0 top-0 w-60 h-[720px] bg-black py-2 rounded-tr-lg"></div>
+                      <div className="fixed right-0 top-0 w-60 h-[720px] bg-black py-10 rounded-tr-lg text-white px-4">
+                        <div className="flex justify-between items-center">
+                          <h1 className="text-neutral-300 font-semibold">
+                            Friend Activity
+                          </h1>
+                          <div className="rounded-full transition hover:bg-white/10 px-2 py-2">
+                            <Icons
+                              icon="user-add"
+                              className="w-5 h-5 text-white"
+                            />
+                          </div>
+                        </div>
+                        <div className="mt-8">
+                          <p className="text-xs text-neutral-300 leading-5">
+                            Let friends and followers on Spotify see what you're
+                            listening to.
+                          </p>
+                          <div className="mt-4">
+                            <div className="space-y-2">
+                              <div className="inline-flex space-x-2 items-center">
+                                <div className="bg-neutral-700 px-3 py-3 rounded-full relative">
+                                  <div className="absolute top-0 right-0 mt-1.5">
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full " />
+                                  </div>
+                                  <Icons
+                                    icon="user"
+                                    className="w-6 h-6 text-neutral-300"
+                                  />
+                                </div>
+                                <div className="flex flex-col space-y-2">
+                                  <span className="bg-neutral-700 w-24 h-2 rounded-full"></span>
+                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
+                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
+                                </div>
+                              </div>
+                              <div className="inline-flex space-x-2 items-center">
+                                <div className="bg-neutral-700 px-3 py-3 rounded-full relative">
+                                  <div className="absolute top-0 right-0 mt-1.5">
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full " />
+                                  </div>
+                                  <Icons
+                                    icon="user"
+                                    className="w-6 h-6 text-neutral-300"
+                                  />
+                                </div>
+                                <div className="flex flex-col space-y-2">
+                                  <span className="bg-neutral-700 w-24 h-2 rounded-full"></span>
+                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
+                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
+                                </div>
+                              </div>
+                              <div className="inline-flex space-x-2 items-center">
+                                <div className="bg-neutral-700 px-3 py-3 rounded-full relative">
+                                  <div className="absolute top-0 right-0 mt-1.5">
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full " />
+                                  </div>
+                                  <Icons
+                                    icon="user"
+                                    className="w-6 h-6 text-neutral-300"
+                                  />
+                                </div>
+                                <div className="flex flex-col space-y-2">
+                                  <span className="bg-neutral-700 w-24 h-2 rounded-full"></span>
+                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
+                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="mt-4">
+                            <p className="text-xs text-neutral-300 leading-5">{`Go to settings -> Social and enable 'Share my listening activity on Spotify.'You can turn this off at any time.`}</p>
+
+                            <div className="flex justify-center items-center mt-3">
+                              <button className="px-14 py-3 bg-white text-black uppercase rounded-full font-semibold hover:scale-105 transition">
+                                Settings
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
