@@ -548,58 +548,34 @@ export default function Home() {
                           </h1>
                           <div className="flex flex-wrap gap-4">
                             <Card
-                              playlist={`Perfect Playlist`}
-                              cover="https://picsum.photos/200"
-                              onClick={() =>
-                                setTypeAlbum(
-                                  "bg-gradient-to-b from-blue-700 via-neutral-900"
-                                )
-                              }
-                            />
-                            <Card
-                              playlist={`Perfect Playlist`}
-                              cover="https://picsum.photos/200"
-                              onClick={() =>
-                                setTypeAlbum(
-                                  "bg-gradient-to-b from-yellow-700 via-neutral-900"
-                                )
-                              }
-                            />
-                            <Card
-                              playlist={`Perfect Playlist`}
-                              cover="https://picsum.photos/200"
-                              onClick={() =>
-                                setTypeAlbum(
-                                  "bg-gradient-to-b from-red-700 via-neutral-900"
-                                )
-                              }
-                            />
-                            <Card
-                              playlist={`Perfect Playlist`}
-                              cover="https://picsum.photos/200"
-                              onClick={() =>
-                                setTypeAlbum(
-                                  "bg-gradient-to-b from-purple-700 via-neutral-900"
-                                )
-                              }
-                            />
-                            <Card
-                              playlist={`Perfect Playlist`}
+                              playlist={`Playlist`}
                               cover="https://picsum.photos/200"
                               onClick={() =>
                                 setTypeAlbum(
                                   "bg-gradient-to-b from-green-700 via-neutral-900"
                                 )
                               }
+                              type="all"
                             />
                             <Card
-                              playlist={`Perfect Playlist`}
+                              playlist={`Playlist`}
                               cover="https://picsum.photos/200"
                               onClick={() =>
                                 setTypeAlbum(
-                                  "bg-gradient-to-b from-emerald-700 via-neutral-900"
+                                  "bg-gradient-to-b from-purple-700 via-neutral-900"
                                 )
                               }
+                              type="dance"
+                            />
+                            <Card
+                              playlist={`Playlist`}
+                              cover="https://picsum.photos/200"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-rose-700 via-neutral-900"
+                                )
+                              }
+                              type="turnUp-US"
                             />
                           </div>
                         </div>
