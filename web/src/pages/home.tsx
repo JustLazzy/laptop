@@ -549,7 +549,7 @@ export default function Home() {
                           <div className="flex flex-wrap gap-4">
                             <Card
                               playlist={``}
-                              cover="https://picsum.photos/200"
+                              cover="https://fr.shopping.rakuten.com/photo/2-Pac-All-Eyez-On-Me-CD-Album-1159598566_ML.jpg"
                               onClick={() =>
                                 setTypeAlbum(
                                   "bg-gradient-to-b from-green-700 via-neutral-900"
@@ -559,7 +559,7 @@ export default function Home() {
                             />
                             <Card
                               playlist={``}
-                              cover="https://picsum.photos/200"
+                              cover="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/dance-music-mixtape-album-cover-a-design-template-63fcc393e10827fe18b6930369335a19_screen.jpg?ts=1635197724"
                               onClick={() =>
                                 setTypeAlbum(
                                   "bg-gradient-to-b from-purple-700 via-neutral-900"
@@ -569,13 +569,43 @@ export default function Home() {
                             />
                             <Card
                               playlist={``}
-                              cover="https://picsum.photos/200"
+                              cover="https://trentetroisdegres.fr/wp-content/uploads/2019/11/Image-26-11-2019-à-14.38.jpeg"
                               onClick={() =>
                                 setTypeAlbum(
                                   "bg-gradient-to-b from-rose-700 via-neutral-900"
                                 )
                               }
                               type="turnUp-US"
+                            />
+                            <Card
+                              playlist={``}
+                              cover="https://www.booska-p.com/wp-content/uploads/2018/03/drake-nothing-was-the-same-deluxe.jpg"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-yellow-700 via-neutral-900"
+                                )
+                              }
+                              type="Drake"
+                            />
+                            <Card
+                              playlist={``}
+                              cover="https://intrld.com/wp-content/uploads/2017/02/Future-Future-album-cover-art.jpg"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-lime-700 via-neutral-900"
+                                )
+                              }
+                              type="Future"
+                            />
+                            <Card
+                              playlist={``}
+                              cover="https://m.media-amazon.com/images/I/61KqQy-n4eL._AC_SX425_.jpg"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-teal-700 via-neutral-900"
+                                )
+                              }
+                              type="LilUziVert"
                             />
                           </div>
                         </div>
