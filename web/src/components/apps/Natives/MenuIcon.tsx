@@ -1,5 +1,5 @@
-import { MenuProps } from "../interfaces";
-import Icons from "./Icons";
+import { MenuProps } from "../../../interfaces";
+import Icons from "../../Icons";
 
 const MenuIcon = ({ icon, title }: MenuProps) => {
   return (

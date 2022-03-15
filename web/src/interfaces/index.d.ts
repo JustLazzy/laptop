@@ -54,3 +54,20 @@ export interface NotificationProps {
   icon: string;
   onClick: () => void;
 }
+
+export interface PlaylistCardProps {
+  playlist: string;
+  cover: string;
+  onClick: () => void;
+}
+
+export interface PlaylistItemProps {
+  playlist: string;
+}
+
+export interface NowPlayingProps {
+  name: string;
+  artist: string;
+  cover: string;
+  isLiked: boolean;
+}

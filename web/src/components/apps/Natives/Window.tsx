@@ -1,7 +1,7 @@
 import { Transition } from "@headlessui/react";
 import Draggable from "react-draggable";
-import { WindowProps } from "../interfaces";
-import Icons from "./Icons";
+import { WindowProps } from "../../../interfaces";
+import Icons from "../../Icons";
 
 const Window = ({
   open,

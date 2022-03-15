@@ -10,12 +10,10 @@ import { Spotify } from "../api/spotify";
 
 import { Album } from "../types";
 
-import Window from "../components/Window";
-import Panel from "../components/Panel";
-import Calendar from "../components/Calendar";
-import MenuIcon from "../components/MenuIcon";
-import TaskOpen from "../components/TaskOpen";
-import OpenApp from "../components/OpenApp";
+import Window from "../components/apps/Natives/Window";
+import Panel from "../components/apps/Panel";
+import MenuIcon from "../components/apps/Natives/MenuIcon";
+import OpenApp from "../components/apps/Natives/OpenApp";
 import Notification from "../components/Notification";
 import Icons from "../components/Icons";
 
@@ -23,7 +21,12 @@ import tunerCars from "../images/app/nfs.jpg";
 import race from "../images/app/race.jpg";
 import nitrousOn from "../images/items/nitrous.png";
 import { debugData } from "../utils/debugData";
-import CurrentPlaying from "../components/CurrentPlaying";
+import CurrentPlaying from "../components/apps/Spotify/Songs/CurrentPlaying";
+import Card from "../components/apps/Spotify/Playlist/Card";
+import Item from "../components/apps/Spotify/Playlist/Item";
+import NowPlaying from "../components/apps/Spotify/Songs/NowPlaying";
+import Calendar from "../components/apps/Calendar";
+import TaskOpen from "../components/apps/Natives/TaskOpen";
 
 if (isBrowser) {
   debugData([
@@ -522,12 +525,7 @@ export default function Home() {
                       <div className="flex flex-col space-y-3 items-start px-5 py-5">
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
                           (item) => (
-                            <a
-                              href="#"
-                              className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
-                            >
-                              <span>Playlist ({item})</span>
-                            </a>
+                            <Item playlist={`Playlist (${item})`} />
                           )
                         )}
                       </div>
@@ -541,57 +539,24 @@ export default function Home() {
                       <div className="grid grid-cols-3 gap-4">
                         {[1, 2, 3, 4, 5, 6].map((item) => (
                           <>
-                            <div className="bg-neutral-700/60 hover:bg-neutral-700/70 transition w-72 rounded-lg h-20">
-                              <div className="inline-flex space-x-5 items-center h-20">
-                                <img
-                                  src="https://picsum.photos/200"
-                                  className="w-20 bg-auto rounded-tl-lg rounded-bl-lg"
-                                />
-                                <span className="text-white font-medium text-md">
-                                  Playlist
-                                </span>
-                              </div>
-                            </div>
+                            <Card
+                              playlist="Perfect Playlist"
+                              cover="https://picsum.photos/200"
+                              onClick={() => null}
+                            />
                           </>
                         ))}
                       </div>
                     </div>
                   </div>
                   <div className="bg-neutral-800 flex-none h-22 px-5 flex items-center justify-between bottom-0 fixed w-full py-4">
-                    <div className="flex items-center space-x-4">
-                      <a href="#">
-                        <img
-                          src="https://picsum.photos/200"
-                          alt="album cover"
-                          className="w-14 h-14"
-                        />
-                      </a>
-                      <div className="ml-3">
-                        <div>
-                          <a href="#" className="hover:underline text-white">
-                            Name of Song
-                          </a>
-                        </div>
-                        <div>
-                          <a
-                            href="#"
-                            className="text-xs text-gray-50 hover:underline hover:text-white"
-                          >
-                            Artist Name
-                          </a>
-                        </div>
-                      </div>
-                      <div className="inline-flex space-x-2">
-                        <Icons
-                          icon="hearts"
-                          className="text-[#999999] hover:text-white transition w-5 h-5"
-                        />
-                        <Icons
-                          icon="dislike"
-                          className="text-[#999999] hover:text-white transition w-5 h-5"
-                        />
-                      </div>
-                    </div>
+                    <NowPlaying
+                      name="Name of Song"
+                      artist="Artist Name"
+                      cover="https://picsum.photos/200"
+                      isLiked={true}
+                    />
+
                     <div className="flex flex-col justify-center">
                       <div className="flex justify-center">
                         <button>

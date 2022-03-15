@@ -1,6 +1,6 @@
 import { Transition } from "@headlessui/react";
-import { PanelProps } from "../interfaces";
-import Icons from "./Icons";
+import { PanelProps } from "../../../../interfaces";
+import Icons from "../../../Icons";
 
 const CurrentPlaying = ({ open }: PanelProps) => {
   return (

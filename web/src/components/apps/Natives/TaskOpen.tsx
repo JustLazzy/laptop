@@ -1,6 +1,6 @@
 import { Transition } from "@headlessui/react";
-import { TaskOpenProps } from "../interfaces";
-import Icons from "./Icons";
+import { TaskOpenProps } from "../../../interfaces";
+import Icons from "../../Icons";
 
 const TaskOpen = ({ open, onClick, icon, isSvg }: TaskOpenProps) => {
   return (
