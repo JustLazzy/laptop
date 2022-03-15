@@ -73,3 +73,9 @@ export interface NowPlayingProps {
   cover: string;
   isLiked: boolean;
 }
+
+export interface ItemSelectProps {
+  onClick: () => void;
+  icon: string;
+  name: string;
+}

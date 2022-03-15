@@ -28,6 +28,8 @@ import NowPlaying from "../components/apps/Spotify/Songs/NowPlaying";
 import Calendar from "../components/apps/Calendar";
 import TaskOpen from "../components/apps/Natives/TaskOpen";
 import BigCard from "../components/apps/Spotify/Playlist/BigCard";
+import Activity from "../components/apps/Spotify/Activity";
+import ItemSelect from "../components/apps/Spotify/Playlist/ItemSelect";
 
 if (isBrowser) {
   debugData([
@@ -483,46 +485,36 @@ export default function Home() {
                     </div>
                     <div className="mt-5 pr-1 px-5">
                       <div className="flex flex-col items-start justify-center space-y-3">
-                        <a
-                          href="#"
-                          className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
-                        >
-                          <Icons icon="home" className="w-6 h-7" />
-                          <span>Home</span>
-                        </a>
-                        <a
-                          href="#"
-                          className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
-                        >
-                          <Icons icon="searchSong" className="w-6 h-7" />
-                          <span>Search</span>
-                        </a>
-                        <a
-                          href="#"
-                          className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
-                        >
-                          <Icons icon="library" className="w-6 h-7" />
-                          <span>Your Library</span>
-                        </a>
+                        <ItemSelect
+                          name="Home"
+                          icon="home"
+                          onClick={() => null}
+                        />
+                        <ItemSelect
+                          name="Search"
+                          icon="searchSong"
+                          onClick={() => null}
+                        />
+                        <ItemSelect
+                          name="Your Library"
+                          icon="library"
+                          onClick={() => null}
+                        />
                       </div>
                     </div>
                     <div className="mt-7 px-5 space-y-2">
-                      <a
-                        href="#"
-                        className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
-                      >
-                        <Icons icon="create" className="w-6 h-7" />
-                        <span>Create Playlist</span>
-                      </a>
-                      <a
-                        href="#"
-                        className="group rounded-md text-md font-semibold transition duration-200 inline-flex space-x-3 items-center hover:text-white text-[#999999]"
-                      >
-                        <Icons icon="loveSong" className="w-6 h-7" />
-                        <span>Liked Songs</span>
-                      </a>
+                      <ItemSelect
+                        name="Create Playlist"
+                        icon="create"
+                        onClick={() => null}
+                      />
+                      <ItemSelect
+                        name="Liked Songs"
+                        icon="loveSong"
+                        onClick={() => null}
+                      />
                     </div>
-                    <div className="w-full bg-neutral-800 h-[1px] mt-3"></div>
+                    <div className="w-44 m-auto bg-neutral-800 h-[0.1px] mt-3"></div>
                     <div className="h-[400px] overflow-auto">
                       <div className="flex flex-col space-y-3 items-start px-5 py-5">
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
@@ -644,54 +636,9 @@ export default function Home() {
                           </p>
                           <div className="mt-4">
                             <div className="space-y-2">
-                              <div className="inline-flex space-x-2 items-center">
-                                <div className="bg-neutral-700 px-3 py-3 rounded-full relative">
-                                  <div className="absolute top-0 right-0 mt-1.5">
-                                    <div className="w-2 h-2 bg-blue-500 rounded-full " />
-                                  </div>
-                                  <Icons
-                                    icon="user"
-                                    className="w-6 h-6 text-neutral-300"
-                                  />
-                                </div>
-                                <div className="flex flex-col space-y-2">
-                                  <span className="bg-neutral-700 w-24 h-2 rounded-full"></span>
-                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
-                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
-                                </div>
-                              </div>
-                              <div className="inline-flex space-x-2 items-center">
-                                <div className="bg-neutral-700 px-3 py-3 rounded-full relative">
-                                  <div className="absolute top-0 right-0 mt-1.5">
-                                    <div className="w-2 h-2 bg-blue-500 rounded-full " />
-                                  </div>
-                                  <Icons
-                                    icon="user"
-                                    className="w-6 h-6 text-neutral-300"
-                                  />
-                                </div>
-                                <div className="flex flex-col space-y-2">
-                                  <span className="bg-neutral-700 w-24 h-2 rounded-full"></span>
-                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
-                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
-                                </div>
-                              </div>
-                              <div className="inline-flex space-x-2 items-center">
-                                <div className="bg-neutral-700 px-3 py-3 rounded-full relative">
-                                  <div className="absolute top-0 right-0 mt-1.5">
-                                    <div className="w-2 h-2 bg-blue-500 rounded-full " />
-                                  </div>
-                                  <Icons
-                                    icon="user"
-                                    className="w-6 h-6 text-neutral-300"
-                                  />
-                                </div>
-                                <div className="flex flex-col space-y-2">
-                                  <span className="bg-neutral-700 w-24 h-2 rounded-full"></span>
-                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
-                                  <span className="bg-neutral-700 w-20 h-2 rounded-full"></span>
-                                </div>
-                              </div>
+                              <Activity />
+                              <Activity />
+                              <Activity />
                             </div>
                           </div>
                           <div className="mt-4">
