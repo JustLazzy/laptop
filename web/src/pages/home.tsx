@@ -30,6 +30,7 @@ import TaskOpen from "../components/apps/Natives/TaskOpen";
 import BigCard from "../components/apps/Spotify/Playlist/BigCard";
 import Activity from "../components/apps/Spotify/Activity";
 import ItemSelect from "../components/apps/Spotify/Playlist/ItemSelect";
+import WindowExtension from "../components/apps/Natives/WindowExtension";
 
 if (isBrowser) {
   debugData([
@@ -166,30 +167,7 @@ export default function Home() {
               open={openTunerMode}
               image={tunerCars}
               isTitle={true}
-              opened={
-                <div className="flex items-center justify-between">
-                  <div
-                    className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
-                    onClick={() => setTunerMode(false)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke="#F1F1F1"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              }
+              opened={<WindowExtension onClick={() => setTunerMode(false)} />}
               title="Tuner Mode"
               children={
                 <>
@@ -404,30 +382,7 @@ export default function Home() {
               open={openRace}
               image={race}
               isTitle={true}
-              opened={
-                <div className="flex items-center justify-between">
-                  <div
-                    className="p-2 hover:bg-rose-500 transition-colors rounded-md cursor-pointer"
-                    onClick={() => setOpenRace(false)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke="#F1F1F1"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              }
+              opened={<WindowExtension onClick={() => setOpenRace(false)} />}
               title="Races"
               children={
                 <div className="px-3 py-3 text-white">Not finished yet.</div>
@@ -440,42 +395,7 @@ export default function Home() {
               image="spotify"
               isSvg={true}
               isTitle={false}
-              opened={
-                <>
-                  <div
-                    className="p-2 hover:bg-red-600 transition-colors rounded-tr-md px-6 cursor-pointer w-16 absolute right-0 top-0 z-50"
-                    onClick={() => setOpenSpotify(false)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke="#F1F1F1"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="p-2 hover:bg-neutral-600/80 transition-colors px-6 cursor-pointer w-16 absolute right-16 top-0 z-50"
-                    onClick={() => setOpenSpotify(false)}
-                  >
-                    <Icons icon="rectangle" className="text-white w-3 h-5" />
-                  </div>
-                  <div
-                    className="p-2 hover:bg-neutral-600/80 transition-colors px-[26px] cursor-pointer w-16 absolute right-32 top-0 py-[17px] z-50"
-                    onClick={() => setOpenSpotify(false)}
-                  >
-                    <Icons icon="horizontal-line" className="text-white" />
-                  </div>
-                </>
-              }
+              opened={<WindowExtension onClick={() => setOpenSpotify(false)} />}
               title="Spotify"
               children={
                 <>

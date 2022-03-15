@@ -79,3 +79,7 @@ export interface ItemSelectProps {
   icon: string;
   name: string;
 }
+
+export interface WindowExtensionProps {
+  onClick: () => void;
+}
