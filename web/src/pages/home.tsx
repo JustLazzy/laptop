@@ -439,7 +439,7 @@ export default function Home() {
               opened={
                 <>
                   <div
-                    className="p-2 hover:bg-red-600 transition-colors rounded-tr-md px-6 cursor-pointer w-16 absolute right-0 top-0"
+                    className="p-2 hover:bg-red-600 transition-colors rounded-tr-md px-6 cursor-pointer w-16 absolute right-0 top-0 z-50"
                     onClick={() => setOpenSpotify(false)}
                   >
                     <svg
@@ -459,13 +459,13 @@ export default function Home() {
                     </svg>
                   </div>
                   <div
-                    className="p-2 hover:bg-neutral-600/80 transition-colors px-6 cursor-pointer w-16 absolute right-16 top-0"
+                    className="p-2 hover:bg-neutral-600/80 transition-colors px-6 cursor-pointer w-16 absolute right-16 top-0 z-50"
                     onClick={() => setOpenSpotify(false)}
                   >
                     <Icons icon="rectangle" className="text-white w-3 h-5" />
                   </div>
                   <div
-                    className="p-2 hover:bg-neutral-600/80 transition-colors px-[26px] cursor-pointer w-16 absolute right-32 top-0 py-[17px]"
+                    className="p-2 hover:bg-neutral-600/80 transition-colors px-[26px] cursor-pointer w-16 absolute right-32 top-0 py-[17px] z-50"
                     onClick={() => setOpenSpotify(false)}
                   >
                     <Icons icon="horizontal-line" className="text-white" />
