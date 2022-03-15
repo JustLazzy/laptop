@@ -59,6 +59,7 @@ export interface PlaylistCardProps {
   playlist: string;
   cover: string;
   onClick: () => void;
+  date?: string;
 }
 
 export interface PlaylistItemProps {

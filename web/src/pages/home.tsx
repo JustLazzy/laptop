@@ -27,6 +27,7 @@ import Item from "../components/apps/Spotify/Playlist/Item";
 import NowPlaying from "../components/apps/Spotify/Songs/NowPlaying";
 import Calendar from "../components/apps/Calendar";
 import TaskOpen from "../components/apps/Natives/TaskOpen";
+import BigCard from "../components/apps/Spotify/Playlist/BigCard";
 
 if (isBrowser) {
   debugData([
@@ -532,23 +533,46 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex justify-center items-center">
-                    <div className="absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 space-y-6">
-                      <h1 className="text-white font-bold text-3xl">
-                        Good evening
-                      </h1>
-                      <div className="grid grid-cols-3 gap-4">
-                        {[1, 2, 3, 4, 5, 6].map((item) => (
-                          <>
-                            <Card
-                              playlist="Perfect Playlist"
-                              cover="https://picsum.photos/200"
-                              onClick={() => null}
-                            />
-                          </>
-                        ))}
+                    <div className="absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 mr-[4.5rem] ">
+                      <div className="space-y-10">
+                        <div className="space-y-6">
+                          <h1 className="text-white font-bold text-3xl">
+                            Good evening
+                          </h1>
+                          <div className="flex flex-wrap gap-4">
+                            {[1, 2, 3, 4, 5, 6].map((item) => (
+                              <>
+                                <Card
+                                  playlist={`Perfect Playlist (${item})`}
+                                  cover="https://picsum.photos/200"
+                                  onClick={() => null}
+                                />
+                              </>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="space-y-6">
+                          <h1 className="text-white font-bold text-3xl">
+                            Episodes for you
+                          </h1>
+                          <div className="flex flex-wrap gap-4">
+                            {[1, 2, 3, 4, 5].map((item) => (
+                              <>
+                                <BigCard
+                                  playlist={`Perfect Playlist (${item})`}
+                                  cover="https://picsum.photos/200"
+                                  onClick={() => null}
+                                  date={`${item} days ago`}
+                                />
+                              </>
+                            ))}
+                          </div>
+                        </div>
                       </div>
+                      <div className="fixed right-0 top-0 w-60 h-[720px] bg-black py-2 rounded-tr-lg"></div>
                     </div>
                   </div>
+
                   <div className="bg-neutral-800 flex-none h-22 px-5 flex items-center justify-between bottom-0 fixed w-full py-4">
                     <NowPlaying
                       name="Name of Song"
