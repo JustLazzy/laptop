@@ -548,7 +548,7 @@ export default function Home() {
                           </h1>
                           <div className="flex flex-wrap gap-4">
                             <Card
-                              playlist={`Playlist`}
+                              playlist={``}
                               cover="https://picsum.photos/200"
                               onClick={() =>
                                 setTypeAlbum(
@@ -558,7 +558,7 @@ export default function Home() {
                               type="all"
                             />
                             <Card
-                              playlist={`Playlist`}
+                              playlist={``}
                               cover="https://picsum.photos/200"
                               onClick={() =>
                                 setTypeAlbum(
@@ -568,7 +568,7 @@ export default function Home() {
                               type="dance"
                             />
                             <Card
-                              playlist={`Playlist`}
+                              playlist={``}
                               cover="https://picsum.photos/200"
                               onClick={() =>
                                 setTypeAlbum(
