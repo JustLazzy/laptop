@@ -533,7 +533,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex justify-center items-center">
-                    <div className="absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 mr-[4.5rem] ">
+                    <div className="absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 mr-[4.5rem] bg-gradient-to-b from-emerald-700 via-neutral-900">
                       <div className="space-y-10">
                         <div className="space-y-6">
                           <h1 className="text-white font-bold text-3xl">

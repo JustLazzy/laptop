@@ -3,7 +3,7 @@ import { PlaylistCardProps } from "../../../../interfaces";
 const Card = ({ playlist, cover, onClick }: PlaylistCardProps) => {
   return (
     <div
-      className="bg-neutral-700/60 hover:bg-neutral-700/80 transition w-72 rounded-md h-20 cursor-pointer"
+      className="bg-white/10 hover:bg-white/20 transition duration-300 w-72 rounded-md h-20 cursor-pointer"
       onClick={onClick}
     >
       <div className="inline-flex space-x-5 items-center h-20">
