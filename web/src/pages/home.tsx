@@ -55,6 +55,7 @@ export default function Home() {
   const [openSpotify, setOpenSpotify] = useState(false);
   const [startWindows, setStartWindows] = useState(true);
   const [openNotification, setOpenNotification] = useState(true);
+  const [typeAlbum, setTypeAlbum] = useState("");
   const time = format(new Date(), "HH:mm");
   const date = format(new Date(), "dd/MM/yyyy");
 
@@ -533,22 +534,73 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex justify-center items-center">
-                    <div className="absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 mr-[4.5rem] bg-gradient-to-b from-emerald-700 via-neutral-900">
+                    <div
+                      className={`absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 mr-[4.5rem] transition-all duration-500 ${
+                        typeAlbum
+                          ? typeAlbum
+                          : "bg-gradient-to-b from-emerald-700 via-neutral-900"
+                      }`}
+                    >
                       <div className="space-y-10">
                         <div className="space-y-6">
                           <h1 className="text-white font-bold text-3xl">
                             Good evening
                           </h1>
                           <div className="flex flex-wrap gap-4">
-                            {[1, 2, 3, 4, 5, 6].map((item) => (
-                              <>
-                                <Card
-                                  playlist={`Perfect Playlist (${item})`}
-                                  cover="https://picsum.photos/200"
-                                  onClick={() => null}
-                                />
-                              </>
-                            ))}
+                            <Card
+                              playlist={`Perfect Playlist`}
+                              cover="https://picsum.photos/200"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-blue-700 via-neutral-900"
+                                )
+                              }
+                            />
+                            <Card
+                              playlist={`Perfect Playlist`}
+                              cover="https://picsum.photos/200"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-yellow-700 via-neutral-900"
+                                )
+                              }
+                            />
+                            <Card
+                              playlist={`Perfect Playlist`}
+                              cover="https://picsum.photos/200"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-red-700 via-neutral-900"
+                                )
+                              }
+                            />
+                            <Card
+                              playlist={`Perfect Playlist`}
+                              cover="https://picsum.photos/200"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-purple-700 via-neutral-900"
+                                )
+                              }
+                            />
+                            <Card
+                              playlist={`Perfect Playlist`}
+                              cover="https://picsum.photos/200"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-green-700 via-neutral-900"
+                                )
+                              }
+                            />
+                            <Card
+                              playlist={`Perfect Playlist`}
+                              cover="https://picsum.photos/200"
+                              onClick={() =>
+                                setTypeAlbum(
+                                  "bg-gradient-to-b from-emerald-700 via-neutral-900"
+                                )
+                              }
+                            />
                           </div>
                         </div>
                         <div className="space-y-6">
