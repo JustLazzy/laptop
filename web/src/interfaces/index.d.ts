@@ -83,3 +83,14 @@ export interface ItemSelectProps {
 export interface WindowExtensionProps {
   onClick: () => void;
 }
+export interface RecentlyCardProps {
+  onClick: () => void;
+  name: string;
+  isSvg: boolean;
+  icon: string;
+}
+export interface UserCardProps {
+  name: string;
+  image: string;
+  onClick: () => void;
+}

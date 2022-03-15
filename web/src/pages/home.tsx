@@ -31,6 +31,8 @@ import BigCard from "../components/apps/Spotify/Playlist/BigCard";
 import Activity from "../components/apps/Spotify/Activity";
 import ItemSelect from "../components/apps/Spotify/Playlist/ItemSelect";
 import WindowExtension from "../components/apps/Natives/WindowExtension";
+import UserCard from "../components/apps/Natives/UserCard";
+import RecentlyCard from "../components/apps/Natives/RecentlyCard";
 
 if (isBrowser) {
   debugData([
@@ -756,70 +758,30 @@ export default function Home() {
                       </h1>
                     </div>
                     <div className="flex justify-between items-center px-7 py-7 space-x-8 w-full">
-                      <div
-                        className="inline-flex space-x-3 items-center hover:bg-white/5 px-3 py-2 rounded-md w-full transition cursor-pointer"
+                      <RecentlyCard
                         onClick={() =>
                           openSpotify
                             ? setOpenSpotify(false)
                             : setOpenSpotify(true)
                         }
-                      >
-                        <Icons icon="spotify" className="w-6 h-6" />
-                        <div className="flex flex-col">
-                          <h1 className="text-white/90 font-medium text-sm">
-                            Spotify
-                          </h1>
-                          <p className="text-white/60 font-medium text-xs">
-                            Recently Added
-                          </p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="inline-flex space-x-3 items-center hover:bg-white/5 px-3 py-2 rounded-md w-full transition cursor-pointer"
+                        name="Spotify"
+                        icon="spotify"
+                        isSvg={true}
+                      />
+                      <RecentlyCard
                         onClick={() =>
                           openRace ? setOpenRace(false) : setOpenRace(true)
                         }
-                      >
-                        <img src={race} className="w-6 h-6 rounded" alt="" />
-                        <div className="flex flex-col">
-                          <h1 className="text-white/90 font-medium text-sm">
-                            Races
-                          </h1>
-                          <p className="text-white/60 font-medium text-xs">
-                            Recently Added
-                          </p>
-                        </div>
-                      </div>
+                        name="Races"
+                        icon={race}
+                        isSvg={false}
+                      />
                     </div>
-
-                    <div className="bottom-0 fixed -ml-10 ">
-                      <div className="w-[642px] h-[62px] border-b-transparent border border-l-transparent border-r-transparent border-t-neutral-800/70 rounded-b-lg">
-                        <div className="flex justify-evenly	space-x-60 mt-1">
-                          <div className="w-[100px] h-[40px] inline-flex space-x-3 justify-center items-center mt-1 hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md">
-                            <img
-                              src="https://avatars.githubusercontent.com/u/38817327?v=4"
-                              className="w-8 h-8 rounded-full"
-                              alt="me"
-                            />
-                            <span className="text-white/90 font-medium text-xs">
-                              Amine
-                            </span>
-                          </div>
-                          <div className="flex justify-center items-center">
-                            <div
-                              onClick={() => fetchNui("hideFrame")}
-                              className="w-10 h-10 flex justify-center items-center hover:bg-white/5 transition-colors ease-in-out duration-150 rounded-md"
-                            >
-                              <Icons
-                                icon="poweroff"
-                                className="w-4 h-4 text-white"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <UserCard
+                      onClick={() => fetchNui("hideFrame")}
+                      image="https://avatars.githubusercontent.com/u/38817327?v=4"
+                      name="Amine"
+                    />
                   </div>
                 </div>
               </div>
