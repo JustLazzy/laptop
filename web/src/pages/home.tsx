@@ -536,9 +536,7 @@ export default function Home() {
                   <div className="flex justify-center items-center">
                     <div
                       className={`absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 mr-[4.5rem] transition-all duration-500 ${
-                        typeAlbum
-                          ? typeAlbum
-                          : "bg-gradient-to-b from-emerald-700 via-neutral-900"
+                        typeAlbum ? typeAlbum : ""
                       }`}
                     >
                       <div className="space-y-10">
@@ -712,9 +710,9 @@ export default function Home() {
 
                   <div className="bg-neutral-800 flex-none h-22 px-5 flex items-center justify-between bottom-0 fixed w-full py-4">
                     <NowPlaying
-                      name="Name of Song"
-                      artist="Artist Name"
-                      cover="https://picsum.photos/200"
+                      name="Drake"
+                      artist="God's Plan"
+                      cover="https://www.booska-p.com/wp-content/uploads/2018/03/drake-nothing-was-the-same-deluxe.jpg"
                       isLiked={true}
                     />
 
