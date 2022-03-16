@@ -56,8 +56,11 @@ export default function Home() {
   const [openViewCalendar, setOpenViewCalendar] = useState(false);
   const [openTunerMode, setTunerMode] = useState(false);
   const [startMenu, setStartMenu] = useState(false);
+
+  const [openTwitch, setOpenTwitch] = useState(false);
   const [openRace, setOpenRace] = useState(false);
   const [openSpotify, setOpenSpotify] = useState(false);
+
   const [startWindows, setStartWindows] = useState(true);
   const [openNotification, setOpenNotification] = useState(true);
   const [typeAlbum, setTypeAlbum] = useState("");
@@ -379,7 +382,41 @@ export default function Home() {
               }
               size="w-[700px] h-96"
             />
+            <Window
+              open={openTwitch}
+              image="twitchlogo"
+              isSvg={true}
+              isTitle={false}
+              opened={<WindowExtension onClick={() => setOpenTwitch(false)} />}
+              title="Twitch"
+              children={
+                <div className="flex justify-between items-center px-3 bg-neutral-700 w-full rounded-t-md">
+                  <div className="inline-flex space-x-8 py-5">
+                    <Icons icon="twitchlogo" className="w-6 h-6" />
+                    <a
+                      href="http://"
+                      className="text-lg text-white font-medium hover:text-[#bf94ff]"
+                    >
+                      Suivis
+                    </a>
+                    <a
+                      href=""
+                      className="text-lg text-white font-medium hover:text-[#bf94ff]"
+                    >
+                      Parcourir
+                    </a>
+                  </div>
 
+                  <input
+                    type="text"
+                    placeholder="Rechercher"
+                    className="w-80 px-2 rounded-lg py-2.5 bg-neutral-600 focus:outline-none placeholder-neutral-200 text-neutral-300"
+                  />
+                  <h1>lol</h1>
+                </div>
+              }
+              size="w-[1400px] h-[800px]"
+            />
             <Window
               open={openRace}
               image={race}
@@ -768,6 +805,7 @@ export default function Home() {
                         icon="spotify"
                         isSvg={true}
                       />
+
                       <RecentlyCard
                         onClick={() =>
                           openRace ? setOpenRace(false) : setOpenRace(true)
@@ -804,6 +842,14 @@ export default function Home() {
             isSvg={false}
             icon={race}
             title="Races"
+          />
+          <OpenApp
+            onClick={() => {
+              openTwitch ? setOpenTwitch(false) : setOpenTwitch(true);
+            }}
+            isSvg={true}
+            icon="twitchlogo"
+            title="Twitch"
           />
           <OpenApp
             onClick={() => {

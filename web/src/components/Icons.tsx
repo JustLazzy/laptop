@@ -2,6 +2,30 @@ import { IIconProps } from "../interfaces";
 
 const Icons = ({ icon, className, onClick, action }: IIconProps) => {
   switch (icon) {
+    case "twitchlogo":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 88 90"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="88" height="90" fill="#6444A4" />
+          <path
+            d="M66.5 48.4643L57.5 56.6071H48.5L40.625 63.7321V56.6071H30.5V26.0714H66.5V48.4643Z"
+            fill="white"
+          />
+          <path
+            d="M28.25 22L17 32.1786V68.8214H30.5V79L41.75 68.8214H50.75L71 50.5V22H28.25ZM66.5 48.4643L57.5 56.6071H48.5L40.625 63.7321V56.6071H30.5V26.0714H66.5V48.4643Z"
+            fill="black"
+          />
+          <path d="M59.75 33.1964H55.25V45.4107H59.75V33.1964Z" fill="black" />
+          <path
+            d="M47.375 33.1964H42.875V45.4107H47.375V33.1964Z"
+            fill="black"
+          />
+        </svg>
+      );
     case "user":
       return (
         <svg
