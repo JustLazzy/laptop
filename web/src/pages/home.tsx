@@ -486,11 +486,68 @@ export default function Home() {
                   </div>
                   <div className="flex justify-center items-center">
                     <div
-                      className={`absolute top-0 bottom-0 right-0 w-[1100px] py-20 px-4 mr-[4.5rem] transition-all duration-500 ${
+                      className={`absolute top-0 bottom-0 right-0 w-[1100px] mr-[4.5rem] transition-all duration-500 ${
                         typeAlbum ? typeAlbum : ""
                       }`}
                     >
-                      <div className="space-y-10">
+                      <div className="flex justify-between items-center w-[900px] py-2">
+                        <div className="text-white space-x-4 py-2 px-4">
+                          <button className="bg-black/80 px-1.5 py-1.5 rounded-full">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5 rotate-180"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </button>
+                          <button className="bg-black/80 px-1.5 py-1.5 rounded-full">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <div className="text-white">
+                          <div className="inline-flex space-x-2 bg-black/70 px-1 pr-4 py-1 rounded-full items-center">
+                            <div className="px-1 py-1 rounded-full bg-neutral-600">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={2}
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                />
+                              </svg>
+                            </div>
+                            <span className="text-sm font-medium">Amine</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-10 py-3 px-4">
                         <div className="space-y-6">
                           <h1 className="text-white font-bold text-3xl">
                             Good evening
