@@ -72,6 +72,7 @@ export interface NowPlayingProps {
   artist: string;
   cover: string;
   isLiked: boolean;
+  onClick: () => void;
 }
 
 export interface ItemSelectProps {
