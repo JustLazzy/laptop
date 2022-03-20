@@ -388,7 +388,21 @@ export default function Home() {
               image="twitchlogo"
               isSvg={true}
               isTitle={false}
-              opened={<WindowExtension onClick={() => setOpenTwitch(false)} />}
+              opened={
+                <WindowExtension
+                  onClick={() => setOpenTwitch(false)}
+                  onMouseEnter={() => {
+                    document
+                      .getElementById("window-extension")
+                      ?.classList.remove("hidden");
+                  }}
+                  onMouseLeave={() => {
+                    document
+                      .getElementById("window-extension")
+                      ?.classList.add("hidden");
+                  }}
+                />
+              }
               title="Twitch"
               children={
                 <div className="flex justify-between items-center px-3 bg-neutral-700 w-full rounded-t-md">
@@ -408,12 +422,106 @@ export default function Home() {
                     </a>
                   </div>
 
-                  <input
-                    type="text"
-                    placeholder="Rechercher"
-                    className="w-80 px-2 rounded-lg py-2.5 bg-neutral-600 focus:outline-none placeholder-neutral-200 text-neutral-300"
-                  />
-                  <h1>lol</h1>
+                  <div className="inline-flex items-center">
+                    <input
+                      type="text"
+                      placeholder="Rechercher"
+                      className="w-80 px-2 rounded-l-lg py-2 bg-neutral-600 focus:outline-none placeholder-neutral-200 text-neutral-300"
+                    />
+                    <button className="bg-neutral-800 py-2.5 px-4 rounded-r-lg focus:outline-none">
+                      <svg
+                        className="w-5 h-5 text-white"
+                        version="1.1"
+                        viewBox="0 0 20 20"
+                        x="0px"
+                        y="0px"
+                      >
+                        <g>
+                          <path
+                            fill-rule="evenodd"
+                            fill="currentColor"
+                            d="M13.192 14.606a7 7 0 111.414-1.414l3.101 3.1-1.414 1.415-3.1-3.1zM14 9A5 5 0 114 9a5 5 0 0110 0z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </g>
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="inline-flex space-x-2 items-center">
+                    <svg
+                      version="1.1"
+                      viewBox="0 0 20 20"
+                      x="0px"
+                      y="0px"
+                      className="w-5 h-5 text-white"
+                    >
+                      <g>
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          fill="currentColor"
+                          d="M13.798 10.456L10 6.657l-3.798 3.799L4 8.805V13h12V8.805l-2.202 1.65zM18 5v8a2 2 0 0 1-2 2H4a2.002 2.002 0 0 1-2-2V5l4 3 4-4 4 4 4-3z"
+                        ></path>
+                      </g>
+                    </svg>
+                    <svg
+                      version="1.1"
+                      viewBox="0 0 20 20"
+                      x="0px"
+                      className="w-5 h-5 text-white"
+                      y="0px"
+                    >
+                      <g>
+                        <path
+                          fill-rule="evenodd"
+                          fill="currentColor"
+                          d="M4 3h12l2 4v10H2V7l2-4zm.236 4H8v1a1 1 0 001 1h2a1 1 0 001-1V7h3.764l-1-2H5.236l-1 2zM16 9h-2.17A3.001 3.001 0 0111 11H9a3.001 3.001 0 01-2.83-2H4v6h12V9z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </g>
+                    </svg>
+                    <svg
+                      className="w-5 h-5 text-white"
+                      version="1.1"
+                      viewBox="0 0 20 20"
+                      x="0px"
+                      y="0px"
+                    >
+                      <g>
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.828 13L10 15.172 12.172 13H15V5H5v8h2.828zM10 18l-3-3H5a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2l-3 3z"
+                          clip-rule="evenodd"
+                          fill="currentColor"
+                        ></path>
+                      </g>
+                    </svg>
+                    <button className="py-1.5 px-3 rounded-lg bg-neutral-600 text-white inline-flex justify-center items-center">
+                      <svg
+                        className="w-5 h-5 text-white mr-2"
+                        version="1.1"
+                        viewBox="0 0 20 20"
+                        x="0px"
+                        y="0px"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          fill="currentColor"
+                          d="M3 12l7-10 7 10-7 6-7-6zm2.678-.338L10 5.487l4.322 6.173-.85.728L10 11l-3.473 1.39-.849-.729z"
+                        ></path>
+                      </svg>
+                      Acheter des Bits
+                    </button>
+                    <div className="flex justify-end items-end">
+                      <img
+                        src="https://static-cdn.jtvnw.net/jtv_user_pictures/018dd5c4-1b20-43ae-8409-60d04728054e-profile_image-70x70.png"
+                        alt=""
+                        className="w-7 h-7 rounded-full"
+                      />
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 absolute mb-0.5" />
+                    </div>
+                  </div>
                 </div>
               }
               size="w-[1400px] h-[800px]"
@@ -967,6 +1075,12 @@ export default function Home() {
                 open={openSpotify}
                 onClick={() => setOpenSpotify((openSpotify) => !openSpotify)}
                 icon="spotify"
+                isSvg={false}
+              />
+              <TaskOpen
+                open={openTwitch}
+                onClick={() => setOpenTwitch((openTwitch) => !openTwitch)}
+                icon="twitchlogo"
                 isSvg={false}
               />
               <TaskOpen

@@ -83,6 +83,8 @@ export interface ItemSelectProps {
 
 export interface WindowExtensionProps {
   onClick: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 export interface RecentlyCardProps {
   onClick: () => void;
