@@ -63,7 +63,7 @@ export default function Home() {
 
   const [startWindows, setStartWindows] = useState(true);
   const [openNotification, setOpenNotification] = useState(true);
-  const [isLicked, setIsLicked] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
   const [typeAlbum, setTypeAlbum] = useState("");
   const time = format(new Date(), "HH:mm");
   const date = format(new Date(), "dd/MM/yyyy");
@@ -677,9 +677,9 @@ export default function Home() {
                       name="Drake"
                       artist="God's Plan"
                       cover="https://www.booska-p.com/wp-content/uploads/2018/03/drake-nothing-was-the-same-deluxe.jpg"
-                      isLiked={isLicked}
+                      isLiked={isLiked}
                       onClick={() =>
-                        isLicked ? setIsLicked(false) : setIsLicked(true)
+                        isLiked ? setIsLiked(false) : setIsLiked(true)
                       }
                     />
 
